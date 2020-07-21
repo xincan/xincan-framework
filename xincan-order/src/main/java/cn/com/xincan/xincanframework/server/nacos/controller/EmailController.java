@@ -18,28 +18,28 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author JiangXincan
  * @version 1.0
+ * @program xincan-framework
+ * @description 邮件管理控制层
+ * @create 2020/5/26 12:17
  * <author>                <time>                  <version>                   <description>
  * JiangXincan         2020/5/26 12:17             1.0                         nacos测试
- * @program xincan-framework
- * @description nacos测试
- * @create 2020/5/26 12:17
  */
-@Api(tags = {"Nacos管理"})
+@Api(tags = {"邮件管理"})
 @RestController
-@RequestMapping("/nacos")
+@RequestMapping("/email")
 @RefreshScope
-public class XincanNacosController {
+public class EmailController {
 
 
     private final EmailService emailService;
 
     @Autowired
-    public XincanNacosController(EmailService emailService) {
+    public EmailController(EmailService emailService) {
         this.emailService = emailService;
     }
 
-    @ApiOperation(value = "查询Nacos配置信息", httpMethod = "GET", notes = "查询Nacos配置信息")
-    @GetMapping("/info")
+    @ApiOperation(value = "查询邮件配置信息", httpMethod = "GET", notes = "查询邮件配置信息")
+    @GetMapping
     public ResponseObject<Email> find() {
         Email emailProperty = emailService.email();
         return ResponseResult.success(emailProperty);

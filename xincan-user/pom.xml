@@ -93,6 +93,12 @@
             <artifactId>orika-core</artifactId>
         </dependency>
 
+        <!-- 定义自定义工具依赖 -->
+        <dependency>
+            <groupId>cn.com.xincan.xincanframework.utils</groupId>
+            <artifactId>spring-boot-starter-xincan-utils</artifactId>
+        </dependency>
+
         <!-- 集成prometheus监控 -->
         <dependency>
             <groupId>io.micrometer</groupId>
