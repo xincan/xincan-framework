@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * copyright (C), 2020, 北京同创永益科技发展有限公司
+ * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
  * @version 1.0

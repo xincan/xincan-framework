@@ -2,7 +2,7 @@ package cn.com.xincan.xincanframework.common;
 
 
 /**
- * Copyright (C), 2019, 北京同创永益科技发展有限公司
+ * Copyright (C), 2019, 心灿基础架构
  *
  * @program hatech-framework
  *  响应状态结果信息实体类

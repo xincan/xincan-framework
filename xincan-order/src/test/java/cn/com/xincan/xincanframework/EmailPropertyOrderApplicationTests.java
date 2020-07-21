@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest(classes = XincanOrderApplication.class)
-class XincanOrderApplicationTests {
+class EmailPropertyOrderApplicationTests {
 
     @Test
     void contextLoads() {

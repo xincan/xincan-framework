@@ -50,8 +50,13 @@
         <!-- 斯瓦格UI版本配置 -->
         <knife4j-spring-boot-starter.version>2.0.2</knife4j-spring-boot-starter.version>
 
+        <swagger-annotations.verion>1.5.22</swagger-annotations.verion>
+
         <!-- 阿里巴巴excel解析版本配置 -->
         <easyexcel.version>2.1.6</easyexcel.version>
+
+
+        <spring-boot-starter-xincan-utils.version>0.0.1-SNAPSHOT</spring-boot-starter-xincan-utils.version>
 
     </properties>
 
@@ -129,6 +134,13 @@
                 <version>${knife4j-spring-boot-starter.version}</version>
             </dependency>
 
+            <!-- 定义swagger核心注解插件依赖 -->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger-annotations.verion}</version>
+            </dependency>
+
             <!-- 定义阿里巴巴excel解析依赖 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -136,6 +148,12 @@
                 <version>${easyexcel.version}</version>
             </dependency>
 
+            <!-- 定义定义自定义工具依赖 -->
+            <dependency>
+                <groupId>cn.com.xincan.xincanframework.utils</groupId>
+                <artifactId>spring-boot-starter-xincan-utils</artifactId>
+                <version>${spring-boot-starter-xincan-utils.version}</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>

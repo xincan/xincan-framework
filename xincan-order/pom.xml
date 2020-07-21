@@ -87,10 +87,10 @@
             <artifactId>knife4j-spring-boot-starter</artifactId>
         </dependency>
 
-        <!-- 集成orika-core实体类转换依赖 -->
+        <!-- 定义定义自定义工具依赖 -->
         <dependency>
-            <groupId>ma.glasnost.orika</groupId>
-            <artifactId>orika-core</artifactId>
+            <groupId>cn.com.xincan.xincanframework.utils</groupId>
+            <artifactId>spring-boot-starter-xincan-utils</artifactId>
         </dependency>
 
         <!-- 集成prometheus监控 -->
@@ -99,13 +99,6 @@
             <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
 
-        <!-- 集成热部署依赖 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-            <scope>runtime</scope>
-        </dependency>
 
     </dependencies>
 
@@ -115,10 +108,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
-                <configuration>
-                    <fork>true</fork>
-                    <addResources>true</addResources>
-                </configuration>
                 <executions>
                     <execution>
                         <goals>

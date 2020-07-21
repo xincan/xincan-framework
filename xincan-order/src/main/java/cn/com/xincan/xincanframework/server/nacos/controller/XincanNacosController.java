@@ -1,18 +1,20 @@
 package cn.com.xincan.xincanframework.server.nacos.controller;
 
 
-import cn.com.xincan.xincanframework.common.ResponseObject;
-import cn.com.xincan.xincanframework.common.ResponseResult;
-import cn.com.xincan.xincanframework.properties.XincanNacosProperties;
+import cn.com.xincan.xincanframework.utils.common.response.ResponseObject;
+import cn.com.xincan.xincanframework.utils.common.response.ResponseResult;
+import cn.com.xincan.xincanframework.utils.entity.Email;
+import cn.com.xincan.xincanframework.utils.service.EmailService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * copyright (C), 2020, 北京同创永益科技发展有限公司
+ * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
  * @version 1.0
@@ -28,16 +30,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class XincanNacosController {
 
-    private XincanNacosProperties xincanNacosProperties;
 
-    public XincanNacosController(XincanNacosProperties xincanNacosProperties) {
-        this.xincanNacosProperties = xincanNacosProperties;
+    private final EmailService emailService;
+
+    @Autowired
+    public XincanNacosController(EmailService emailService) {
+        this.emailService = emailService;
     }
 
     @ApiOperation(value = "查询Nacos配置信息", httpMethod = "GET", notes = "查询Nacos配置信息")
     @GetMapping("/info")
-    public ResponseObject<XincanNacosProperties> find() {
-        return ResponseResult.success(xincanNacosProperties);
+    public ResponseObject<Email> find() {
+        Email emailProperty = emailService.email();
+        return ResponseResult.success(emailProperty);
     }
 
 }

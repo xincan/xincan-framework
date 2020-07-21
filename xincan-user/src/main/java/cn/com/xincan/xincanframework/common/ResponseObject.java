@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Copyright (C), 2019, 北京同创永益科技发展有限公司
+ * Copyright (C), 2019, 心灿基础架构
  *
  * @author JiangXincan
  * @version 1.0

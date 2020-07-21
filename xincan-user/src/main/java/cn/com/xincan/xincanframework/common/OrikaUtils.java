@@ -12,7 +12,7 @@ import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Copyright (C), 2019, 北京同创永益科技发展有限公司
+ * Copyright (C), 2019, 心灿基础架构
  *
  * @program hatech-framework
  *  实体类转换工具类
@@ -129,7 +129,7 @@ public class OrikaUtils {
      *  注册class类映射
      * @param dataClass  被转换class类
      * @param toClass  转换成class类
-     * @author YeMeng
+     * @author JiangXincan
      * @date 2019/12/26 19:55
      * @return void
      */

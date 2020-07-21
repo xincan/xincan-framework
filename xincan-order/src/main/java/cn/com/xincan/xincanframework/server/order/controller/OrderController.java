@@ -1,10 +1,11 @@
 package cn.com.xincan.xincanframework.server.order.controller;
 
-import cn.com.xincan.xincanframework.common.ResponseObject;
-import cn.com.xincan.xincanframework.common.ResponseResult;
-import cn.com.xincan.xincanframework.server.order.dto.OrderDTO;
+import cn.com.xincan.xincanframework.server.order.dto.OrderSaveDto;
+import cn.com.xincan.xincanframework.server.order.dto.OrderSearchDto;
 import cn.com.xincan.xincanframework.server.order.service.IOrderService;
-import cn.com.xincan.xincanframework.server.order.vo.OrderVO;
+import cn.com.xincan.xincanframework.server.order.vo.OrderSearchVo;
+import cn.com.xincan.xincanframework.utils.common.response.ResponseObject;
+import cn.com.xincan.xincanframework.utils.common.response.ResponseResult;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * copyright (C), 2020, 北京同创永益科技发展有限公司
+ * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
  * @version 1.0
@@ -39,23 +40,29 @@ public class OrderController {
 
     @ApiOperation(value = "查询订单信息", httpMethod = "GET", notes = "查询所有订单信息")
     @GetMapping
-    public ResponseObject<List<OrderVO>> find() {
+    public ResponseObject<List<OrderSearchVo>> find() {
         return ResponseResult.success(orderService.findAll());
     }
 
     @ApiOperation(value = "新增订单信息", httpMethod = "PUT", notes = "新增订单信息")
     @PutMapping
-    public ResponseObject<OrderVO> find(@ApiParam OrderDTO studentDTO) {
+    public ResponseObject<OrderSearchVo> find(@ApiParam OrderSaveDto studentDTO) {
         return ResponseResult.success(orderService.save(studentDTO));
     }
 
     @ApiOperation(value = "根据订单ID查询订单信息", httpMethod = "GET", notes = "根据订单ID查询订单信息")
     @GetMapping("/{id}")
-    public ResponseObject<OrderVO> findUserById(
+    public ResponseObject<OrderSearchVo> findOrderById(
             @ApiParam(name = "id", value = "订单ID", required = true, example = "1269912454821879810")
             @Validated @PathVariable(name = "id") String id
     ) {
-        return ResponseResult.success(orderService.findUserById(id));
+        return ResponseResult.success(orderService.findOrderById(id));
+    }
+
+    @ApiOperation(value = "根据订单参数查询订单信息", httpMethod = "GET", notes = "根据订单ID、用户ID、订单名称查询订单详细信息")
+    @GetMapping("/params")
+    public ResponseObject<OrderSearchVo> findOrderByParams( @Validated OrderSearchDto orderSearchDto) {
+        return ResponseResult.success(orderService.findOrderByParams(orderSearchDto));
     }
 
 }

@@ -1,7 +1,7 @@
-package cn.com.xincan.xincanframework.common;
+package cn.com.xincan.xincanframework.utils.common.response;
 
 /**
- * Copyright (C), 2019, 北京同创永益科技发展有限公司
+ * Copyright (C), 2019, 心灿基础架构
  *
  * @program hatech-framework
  *  响应状态枚举类
@@ -10,7 +10,7 @@ package cn.com.xincan.xincanframework.common;
  * @version 1.0
  * <Author>                <Time>                  <Version>                   <Description>
  * JiangXincan         2019/12/18 9:43             1.0                         响应状态枚举类
- * YeMeng              2019/12/20 9:38             1.0                         Http状态码
+ * JiangXincan              2019/12/20 9:38             1.0                         Http状态码
  */
 public enum ResponseCode {
 
@@ -29,23 +29,23 @@ public enum ResponseCode {
     /**
      * 状态码
       */
-    private final Integer code;
+    private final int code;
 
     /**
      * 状态解释
      */
     private final String message;
 
-    ResponseCode(Integer code, String message) {
+    ResponseCode(int code, String message) {
         this.code = code;
         this.message = message;
     }
 
     /**
      *  返回状态码的数值
-     * @author YeMeng
+     * @author JiangXincan
      * @date 2020/1/8 19:45
-     * @return int类型状态码
+     * @return Integer
      */
     public int code() {
         return this.code;
@@ -53,7 +53,7 @@ public enum ResponseCode {
 
     /**
      *  返回状态码的解释
-     * @author YeMeng
+     * @author JiangXincan
      * @date 2020/1/8 19:45
      * @return java.lang.String 状态解释
      */

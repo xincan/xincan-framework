@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * copyright (C), 2019, 北京同创永益科技发展有限公司
+ * copyright (C), 2019, 心灿基础架构
  *
  * @program hatech-framework
  * MyBatisPlus 配置

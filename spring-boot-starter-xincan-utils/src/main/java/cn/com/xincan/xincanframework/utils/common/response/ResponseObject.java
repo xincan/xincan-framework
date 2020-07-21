@@ -1,10 +1,10 @@
-package cn.com.xincan.xincanframework.common;
+package cn.com.xincan.xincanframework.utils.common.response;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * Copyright (C), 2019, 北京同创永益科技发展有限公司
+ * Copyright (C), 2019, 心灿基础架构
  *
  * @program hatech-framework
  *  响应结果实体类

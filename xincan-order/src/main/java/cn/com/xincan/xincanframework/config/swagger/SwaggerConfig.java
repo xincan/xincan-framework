@@ -16,10 +16,15 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
- * copyright (C), 2019, 北京同创永益科技发展有限公司
+ * copyright (C), 2019, 心灿基础架构
  *
  * @program hatech-framework
  * Swagger API 配置
@@ -41,6 +46,10 @@ public class SwaggerConfig {
     @Bean(value = "defaultApi")
     public Docket defaultApi() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .directModelSubstitute(LocalDateTime.class, Date.class)
+                .directModelSubstitute(LocalDate.class, String.class)
+                .directModelSubstitute(LocalTime.class, String.class)
+                .directModelSubstitute(ZonedDateTime.class, String.class)
                 .apiInfo(apiInfo())
                 .groupName("默认接口")
                 .select()

@@ -19,7 +19,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.util.List;
 
 /**
- * copyright (C), 2019, 北京同创永益科技发展有限公司
+ * copyright (C), 2019, 心灿基础架构
  *
  * @program hatech-framework
  * Swagger API 配置

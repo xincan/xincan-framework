@@ -20,7 +20,7 @@ spring:
         namespace: xincan-${spring.profiles.active}-0001
 
   datasource:
-    uri: 192.168.1.50:3306/nacos-${spring.profiles.active}
+    uri: 192.168.3.50:3306/nacos-${spring.profiles.active}
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${spring.datasource.uri}?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
     username: root
@@ -56,9 +56,6 @@ management:
         enabled: true
         step: 1m
         descriptions: true
-  web:
-    server:
-      auto-time-requests: true
   endpoints:
     prometheus:
       id: ${spring.application.name}
