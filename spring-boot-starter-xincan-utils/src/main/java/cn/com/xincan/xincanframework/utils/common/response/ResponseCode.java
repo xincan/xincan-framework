@@ -7,10 +7,10 @@ package cn.com.xincan.xincanframework.utils.common.response;
  *  响应状态枚举类
  * @author JiangXincan
  * @date 2019/12/18 9:43
- * @version 1.0
+ * @version 0.0.1
  * <Author>                <Time>                  <Version>                   <Description>
- * JiangXincan         2019/12/18 9:43             1.0                         响应状态枚举类
- * JiangXincan              2019/12/20 9:38             1.0                         Http状态码
+ * JiangXincan         2019/12/18 9:43             0.0.1                         响应状态枚举类
+ * JiangXincan              2019/12/20 9:38             0.0.1                         Http状态码
  */
 public enum ResponseCode {
 

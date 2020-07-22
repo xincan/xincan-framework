@@ -4,12 +4,12 @@ package cn.com.xincan.xincanframework.utils;
  * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
- * @version 1.0
+ * @version 0.0.1
  * @program xincan-framework
  * @description 打包入口
  * @create 2020/7/20 16:46
  * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/20 16:46             1.0                         打包入口
+ * Jiangxincan         2020/7/20 16:46             0.0.1                         打包入口
  */
 public class XincanStarterApplication {
 

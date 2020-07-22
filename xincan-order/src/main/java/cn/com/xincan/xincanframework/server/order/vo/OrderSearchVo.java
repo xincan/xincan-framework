@@ -4,15 +4,14 @@ package cn.com.xincan.xincanframework.server.order.vo;
  * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
- * @version 1.0
+ * @version 0.0.1
  * @program xincan-order
  * 系统更新信息试图
  * @create 2020/3/19 14:54
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:54             1.0                         系统更新信息试图
+ * JiangXincan         2020/3/19 14:54             0.0.1                         系统更新信息试图
  */
 
-import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -22,9 +21,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @ApiModel(description = "订单信息返回试图")
 @Data

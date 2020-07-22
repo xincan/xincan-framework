@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
  * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
- * @version 1.0
+ * @version 0.0.1
  * @program xincan-framework
  * @description 邮件管理控制层
  * @create 2020/5/26 12:17
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/5/26 12:17             1.0                         nacos测试
+ * JiangXincan         2020/5/26 12:17             0.0.1                         邮件管理控制层
  */
 @Api(tags = {"邮件管理"})
 @RestController

@@ -10,12 +10,12 @@ import java.util.List;
  * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
- * @version 1.0
+ * @version 0.0.1
  * @program xincan-order
  * 更新补丁接口类
  * @create 2020/3/19 14:35
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:35             1.0                         更新补丁接口类
+ * JiangXincan         2020/3/19 14:35             0.0.1                         更新补丁接口类
  */
 public interface IOrderService {
 

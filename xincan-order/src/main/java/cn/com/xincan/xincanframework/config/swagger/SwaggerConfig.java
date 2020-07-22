@@ -30,9 +30,9 @@ import java.util.List;
  * Swagger API 配置
  * @author JiangXincan
  * @create 2019/12/23 16:09
- * @version 1.0
+ * @version 0.0.1
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2019/12/23 16:09             1.0                         Sharing 数据源aop
+ * JiangXincan         2019/12/23 16:09             0.0.1                         Sharing 数据源aop
  */
 @Configuration
 @EnableSwagger2
@@ -63,7 +63,7 @@ public class SwaggerConfig {
                 .title(applicationName + " RESTFUL APIs")
                 .description(applicationName + " RESTFUL APIs")
                 .termsOfServiceUrl("http://www.github.com/xincan")
-                .version("1.0")
+                .version("0.0.1")
                 .build();
     }
 

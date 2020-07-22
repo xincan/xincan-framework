@@ -8,19 +8,26 @@
     <groupId>cn.com.xincan.xincanframework</groupId>
     <artifactId>xincan-framework</artifactId>
     <name>xincan-framework</name>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <description>xincan-framework架构</description>
+
+    <modules>
+        <module>spring-boot-starter-xincan-utils</module>
+        <module>xincan-entity</module>
+        <module>xincan-order</module>
+        <module>xincan-user</module>
+    </modules>
 
     <!-- 公共版本号统一存放处，便于以后修改，全局替换版本号 -->
     <properties>
 
         <!-- 构建项目编码格式版本配置 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source.version>1.8</maven.compiler.source.version>
         <maven.compiler.source.target.version>1.8</maven.compiler.source.target.version>
-
-        <!-- java JDK版本配置 -->
+        <encoding>UTF-8</encoding>
         <java.version>1.8</java.version>
 
         <!-- spring-cloud版本配置 -->
@@ -57,6 +64,7 @@
 
 
         <spring-boot-starter-xincan-utils.version>0.0.1-SNAPSHOT</spring-boot-starter-xincan-utils.version>
+        <xincan-entity.version>0.0.1-SNAPSHOT</xincan-entity.version>
 
     </properties>
 
@@ -154,31 +162,32 @@
                 <artifactId>spring-boot-starter-xincan-utils</artifactId>
                 <version>${spring-boot-starter-xincan-utils.version}</version>
             </dependency>
+
+            <!-- 定义定义自定义工具依赖 -->
+            <dependency>
+                <groupId>cn.com.xincan.xincanframework.entity</groupId>
+                <artifactId>xincan-entity</artifactId>
+                <version>${xincan-entity.version}</version>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
 
-    <build>
-        <plugins>
+    <distributionManagement>
+        <repository>
+            <id>nexus-release</id>
+            <name>admin</name>
+            <!--<url>http://localhost:8081/repository/nexus-releases/</url>-->
+            <url>http://git.hatech.com.cn:8087/repository/nexus-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
 
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version>
-                <configuration>
-                    <fork>true</fork>
-                    <addResources>true</addResources>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-        </plugins>
-    </build>
+            <name>admin</name>
+            <!--<url>http://localhost:8081/repository/nexus-snapshots/</url>-->
+            <url>http://git.hatech.com.cn:8087/repository/nexus-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>

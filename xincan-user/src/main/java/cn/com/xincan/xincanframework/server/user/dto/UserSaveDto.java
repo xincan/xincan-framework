@@ -15,9 +15,9 @@ import java.time.LocalDateTime;
  * copyright (C), 2020, 北京同创永益科技发展有限公司
  *
  * @author JiangXincan
- * @version 1.0
+ * @version 0.0.1
  * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/22 9:39             1.0                         用户保存参数实体类
+ * Jiangxincan         2020/7/22 9:39             0.0.1                         用户保存参数实体类
  * @program xincan-framework
  * @description 用户保存参数实体类
  * @create 2020/7/22 9:39

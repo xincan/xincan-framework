@@ -15,12 +15,12 @@ import java.util.List;
  * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
- * @version 1.0
+ * @version 0.0.1
  * @program xincan-user
  * 用户信息接口实现类
  * @create 2020/3/19 14:36
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:36             1.0                         用户信息接口实现类
+ * JiangXincan         2020/3/19 14:36             0.0.1                         用户信息接口实现类
  */
 @Component
 public class UserServiceImpl implements IUserService {

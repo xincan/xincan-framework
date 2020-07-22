@@ -8,9 +8,9 @@ package cn.com.xincan.xincanframework.utils.common.response;
  *  响应状态结果信息实体类
  * @author JiangXincan
  * @date 2019/12/18 9:43
- * @version 1.0
+ * @version 0.0.1
  * <Author>                <Time>                  <Version>                   <Description>
- * JiangXincan         2019/12/18 9:43             1.0                         响应状态结果信息实体类
+ * JiangXincan         2019/12/18 9:43             0.0.1                         响应状态结果信息实体类
  */
 @SuppressWarnings("unchecked")
 public class ResponseResult {

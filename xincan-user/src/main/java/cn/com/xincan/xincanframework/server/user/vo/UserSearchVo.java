@@ -4,12 +4,12 @@ package cn.com.xincan.xincanframework.server.user.vo;
  * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
- * @version 1.0
+ * @version 0.0.1
  * @program xincan-user
  * 返回用户信息试图
  * @create 2020/3/19 14:54
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:54             1.0                         返回用户信息试图
+ * JiangXincan         2020/3/19 14:54             0.0.1                         返回用户信息试图
  */
 
 import com.fasterxml.jackson.annotation.JsonFormat;

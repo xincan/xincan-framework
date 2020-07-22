@@ -11,9 +11,9 @@ import org.springframework.context.annotation.Configuration;
  * MyBatisPlus 配置
  * @author JiangXincan
  * @create 2019/12/20 15:27
- * @version 2.0.0
+ * @version 0.0.1
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2019/12/20 15:27           2.0.0                         MyBatisPlus 配置
+ * JiangXincan         2019/12/20 15:27             0.0.1                         MyBatisPlus 配置
  */
 @Configuration
 public class MyBatisPlusConfig {

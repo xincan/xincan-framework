@@ -6,9 +6,9 @@ import cn.com.xincan.xincanframework.utils.entity.Email;
  * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
- * @version 1.0
+ * @version 0.0.1
  * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/20 15:56             1.0                         配置服务实现类
+ * Jiangxincan         2020/7/20 15:56             0.0.1                         配置服务实现类
  * @program xincan-framework
  * @description 配置服务接口类
  * @create 2020/7/20 15:56

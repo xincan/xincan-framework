@@ -8,7 +8,6 @@ import cn.com.xincan.xincanframework.server.order.service.IOrderService;
 import cn.com.xincan.xincanframework.server.order.vo.OrderSearchVo;
 import cn.com.xincan.xincanframework.utils.common.orika.OrikaUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
@@ -20,12 +19,12 @@ import java.util.List;
  * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
- * @version 1.0
+ * @version 0.0.1
  * @program xincan-order
- * 更新补丁接口实现类
+ * 订单接口实现类
  * @create 2020/3/19 14:36
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:36             1.0                         更新补丁接口实现类
+ * JiangXincan         2020/3/19 14:36             0.0.1                       订单接口实现类
  */
 @Component
 public class OrderServiceImpl implements IOrderService {
@@ -88,7 +87,7 @@ public class OrderServiceImpl implements IOrderService {
             return null;
         }
 
-        LambdaQueryWrapper<OrderPo> lambdaQueryWrapper = new LambdaQueryWrapper();
+        LambdaQueryWrapper<OrderPo> lambdaQueryWrapper = new LambdaQueryWrapper<OrderPo>();
 
         if( !StringUtils.isEmpty(orderSearchDto.getId())) {
             lambdaQueryWrapper.eq(OrderPo::getId, orderSearchDto.getId());

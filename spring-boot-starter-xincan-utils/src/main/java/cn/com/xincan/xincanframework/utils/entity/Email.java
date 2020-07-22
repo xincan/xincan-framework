@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
  * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
- * @version 1.0
+ * @version 0.0.1
  * @program xincan-framework
  * @description 总体配置信息实体类
  * @create 2020/7/20 15:44
  * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/20 15:44             1.0                         总体配置信息实体类
+ * Jiangxincan         2020/7/20 15:44             0.0.1                         总体配置信息实体类
  */
 @ApiModel(description = "邮箱实体类")
 @Component

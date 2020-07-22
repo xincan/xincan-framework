@@ -14,12 +14,12 @@ import org.springframework.context.annotation.Configuration;
  * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
- * @version 1.0
+ * @version 0.0.1
  * @program xincan-framework
  * @description 工具包配置类
  * @create 2020/7/20 15:50
  * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/20 15:50             1.0                         工具包配置类
+ * Jiangxincan         2020/7/20 15:50             0.0.1                         工具包配置类
  */
 @Configuration
 @EnableConfigurationProperties(XincanProperties.class)

@@ -10,9 +10,9 @@ import io.swagger.annotations.ApiModelProperty;
  *  响应结果实体类
  * @author JiangXincan
  * @date 2019/12/18 9:43
- * @version 1.0
+ * @version 0.0.1
  * <Author>                <Time>                  <Version>                   <Description>
- * JiangXincan         2019/12/18 9:43             1.0                         响应结果实体类
+ * JiangXincan         2019/12/18 9:43             0.0.1                         响应结果实体类
  */
 
 @ApiModel(description = "响应结果信息")

@@ -8,12 +8,12 @@ import org.apache.ibatis.annotations.Mapper;
  * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
- * @version 1.0
+ * @version 0.0.1
  * @program xincan-order
  * @description 订单数据处理接口
  * @create 2020/4/16 18:54
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/4/16 18:54             1.0                         订单数据处理接口
+ * JiangXincan         2020/4/16 18:54             0.0.1                         订单数据处理接口
  */
 @Mapper
 public interface IOrderMapper extends BaseMapper<OrderPo> { }

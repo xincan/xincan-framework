@@ -7,13 +7,14 @@
     <parent>
         <groupId>cn.com.xincan.xincanframework</groupId>
         <artifactId>xincan-framework</artifactId>
-        <version>2.0.0-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>cn.com.xincan.xincanframework</groupId>
     <artifactId>xincan-order</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>xincan-order</name>
+    <packaging>jar</packaging>
     <description>xincan-order Spring Boot</description>
 
     <properties>
@@ -22,19 +23,19 @@
 
     <dependencies>
 
-        <!-- 实现对 Nacos 作为配置中心的自动化配置 -->
+        <!-- 集成 Nacos 作为配置中心的自动化配置 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
-        <!-- 实现对 Nacos 作为服务注册中心配置 -->
+        <!-- 集成 Nacos 作为服务注册中心配置 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!-- 实现健康检查配置 -->
+        <!-- 集成健康检查配置 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -116,10 +117,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
-                <configuration>
-                    <fork>true</fork>
-                    <addResources>true</addResources>
-                </configuration>
                 <executions>
                     <execution>
                         <goals>
@@ -128,55 +125,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- 跳过单元测试 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <skipTests>true</skipTests>
-                </configuration>
-            </plugin>
-
-            <!--使用docker-maven-plugin插件-->
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <!--将插件绑定在某个phase执行-->
-                <executions>
-                    <execution>
-                        <id>build-image</id>
-                        <!--用户只需执行mvn package ，就会自动执行mvn docker:build-->
-                        <phase>package</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <!--指定生成的镜像名-->
-                    <imageName>xincan/${project.artifactId}</imageName>
-                    <!--指定标签-->
-                    <imageTags>
-                        <imageTag>${project.version}</imageTag>
-                    </imageTags>
-                    <!-- 指定 Dockerfile 路径-->
-                    <dockerDirectory>${project.basedir}</dockerDirectory>
-                    <!--指定远程 docker api地址-->
-                    <dockerHost>http://192.168.1.50:2375</dockerHost>
-                    <!-- 这里是复制 jar 包到 docker 容器指定目录配置 -->
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <!--jar 包所在的路径  此处配置的 即对应 target 目录-->
-                            <directory>${project.build.directory}</directory>
-                            <!-- 需要包含的 jar包 ，这里对应的是 Dockerfile中添加的文件名　-->
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
-
         </plugins>
     </build>
 

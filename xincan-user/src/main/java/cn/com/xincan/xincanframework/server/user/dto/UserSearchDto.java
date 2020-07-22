@@ -15,12 +15,12 @@ import java.time.LocalDateTime;
  * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
- * @version 1.0
+ * @version 0.0.1
  * @program xincan-user
  * 用户信息查询参数实体类
  * @create 2020/3/19 14:54
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:54             1.0                         用户信息查询参数实体类
+ * JiangXincan         2020/3/19 14:54             0.0.1                         用户信息查询参数实体类
  */
 @ApiModel(description = "用户信息查询参数实体类")
 @Data

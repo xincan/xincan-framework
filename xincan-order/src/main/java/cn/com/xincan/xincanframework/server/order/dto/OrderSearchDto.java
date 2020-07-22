@@ -11,12 +11,12 @@ import lombok.NoArgsConstructor;
  * copyright (C), 2020, 心灿基础架构
  *
  * @author JiangXincan
- * @version 1.0
+ * @version 0.0.1
  * @program xincan-order
- * 系统更新信息试图
+ * 订单信息查询实体类
  * @create 2020/3/19 14:54
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:54             1.0                         系统更新信息试图
+ * JiangXincan         2020/3/19 14:54             0.0.1                       订单信息查询实体类
  */
 @ApiModel(description = "订单信息查询实体类")
 @Data
