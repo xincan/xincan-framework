@@ -38,7 +38,7 @@ public class OrderSaveDto {
     @ApiModelProperty(value="订单地址（收货地址）", dataType = "String", example = "北京市房山区")
     private String address;
 
-    @ApiModelProperty(value="订单人ID（收货人ID）", dataType = "String", example = "1285522130867376129")
+    @ApiModelProperty(value="订单人ID（收货人ID、UUID）", dataType = "String", example = "1285759156342562818")
     private String userId;
 
     @ApiModelProperty(value="订单说明（附加信息）", dataType = "String", example = "注意物件不能轻易碰撞")

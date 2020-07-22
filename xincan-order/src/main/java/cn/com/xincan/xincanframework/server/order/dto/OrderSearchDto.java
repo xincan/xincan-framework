@@ -25,10 +25,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class OrderSearchDto {
 
-    @ApiModelProperty(value="订单ID", dataType = "String", example = "1285522130867376129")
+    @ApiModelProperty(value="订单ID（UUID）", dataType = "String", example = "1285522130867376129")
     private String id;
 
-    @ApiModelProperty(value="用户ID", dataType = "String", example = "1285522130867376129")
+    @ApiModelProperty(value="用户ID（UUID）", dataType = "String", example = "1285759156342562818")
     private String userId;
 
     @ApiModelProperty(value="订单名称", dataType = "String", example = "购买佛珠")
