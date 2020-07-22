@@ -1,6 +1,6 @@
 package cn.com.xincan.xincanframework.server.user.mapper;
 
-import cn.com.xincan.xincanframework.server.user.po.UserPO;
+import cn.com.xincan.xincanframework.server.user.po.UserPo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -16,4 +16,4 @@ import org.apache.ibatis.annotations.Mapper;
  * JiangXincan         2020/4/16 18:54             1.0                         用户数据处理接口
  */
 @Mapper
-public interface IUserMapper extends BaseMapper<UserPO> { }
+public interface IUserMapper extends BaseMapper<UserPo> { }
