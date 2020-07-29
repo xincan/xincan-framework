@@ -1,16 +1,4 @@
-package cn.com.xincan.xincanframework.server.user.vo;
-
-/**
- * copyright (C), 2020, 心灿基础架构
- *
- * @author JiangXincan
- * @version 0.0.1
- * @program xincan-user
- * 返回用户信息试图
- * @create 2020/3/19 14:54
- * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:54             0.0.1                         返回用户信息试图
- */
+package cn.com.xincan.xincanframework.entity.user.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
@@ -23,12 +11,23 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
-@ApiModel(description = "用户信息返回试图")
+/**
+ * copyright (C), 2020, 心灿基础架构
+ *
+ * @author JiangXincan
+ * @version 0.0.1
+ * @program xincan-user
+ * 用户信息查询参数实体类
+ * @create 2020/3/19 14:54
+ * <author>                <time>                  <version>                   <description>
+ * JiangXincan         2020/3/19 14:54             0.0.1                         用户信息查询参数实体类
+ */
+@ApiModel(description = "用户信息查询参数实体类")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserSearchVo {
+public class UserSearchDto {
 
     @ApiModelProperty(value="用户ID（UUID）", dataType = "String", example = "1285759156342562818")
     private String id;

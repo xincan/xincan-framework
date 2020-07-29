@@ -94,20 +94,17 @@
             <artifactId>spring-boot-starter-xincan-utils</artifactId>
         </dependency>
 
+        <!-- 集成定义自定义工具依赖 -->
+        <dependency>
+            <groupId>cn.com.xincan.xincanframework.entity</groupId>
+            <artifactId>xincan-entity</artifactId>
+        </dependency>
+
         <!-- 集成prometheus监控 -->
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
-
-        <!-- 集成热部署依赖 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-            <scope>runtime</scope>
-        </dependency>
-
 
     </dependencies>
 

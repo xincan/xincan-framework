@@ -1,5 +1,5 @@
 server:
-  port: 8088
+  port: 8000
 
 spring:
   application:
@@ -66,10 +66,3 @@ management:
       exposure:
 #        include: '*'
         include: health,info,env,prometheus,metrics,httptrace,threaddump,heapdump,${spring.application.name},nacos-config
-
-logging:
-  level:
-    cn.com.xincan.xincanframework: debug
-  file:
-    path: classpath:/log/${spring.application.name}/${spring.application.name}.log
-

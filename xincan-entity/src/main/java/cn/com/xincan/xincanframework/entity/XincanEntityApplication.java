@@ -1,5 +1,7 @@
 package cn.com.xincan.xincanframework.entity;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * copyright (C), 2020, 心灿基础架构
  *
@@ -11,10 +13,11 @@ package cn.com.xincan.xincanframework.entity;
  * <author>                <time>                  <version>                   <description>
  * Jiangxincan         2020/7/20 16:46             0.0.1                         公共实体包
  */
+@Slf4j
 public class XincanEntityApplication {
 
     public static void main(String[] args) {
-        System.out.println("自定义公共实体启动类");
+        log.info("自定义公共实体启动类");
     }
 
 }

@@ -30,10 +30,10 @@ import java.time.LocalDateTime;
 @Builder
 public class OrderSearchVo {
 
-    @ApiModelProperty(value="订单ID（UUID）", dataType = "String", hidden = true, example = "1285522130867376129")
+    @ApiModelProperty(name="id", value="订单ID（UUID）", dataType = "String", hidden = true, example = "1285522130867376129")
     private String id;
 
-    @ApiModelProperty(value="订单名称", dataType = "String", example = "购买佛珠")
+    @ApiModelProperty(name="title", value="订单名称", dataType = "String", example = "购买佛珠")
     private String title;
 
     @ApiModelProperty(value="订单地址（收货地址）", dataType = "String", example = "北京市房山区")

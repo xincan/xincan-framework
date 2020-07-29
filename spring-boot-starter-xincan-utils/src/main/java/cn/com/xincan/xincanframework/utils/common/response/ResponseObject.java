@@ -18,19 +18,19 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "响应结果信息")
 public class ResponseObject<T> {
 
-    @ApiModelProperty(name = "code", value = "响应结果编码")
+    @ApiModelProperty(name = "code", dataType = "Integer", value = "响应结果编码")
     private Integer code;
 
-    @ApiModelProperty(name = "msg", value = "响应结果信息")
+    @ApiModelProperty(name = "msg", dataType = "String", value = "响应结果信息")
     private String msg;
 
-    @ApiModelProperty(name = "count", value = "统计列表总数（如果列表存在）")
+    @ApiModelProperty(name = "count", dataType = "Long", value = "统计列表总数（如果列表存在）")
     private long count;
 
-    @ApiModelProperty(name = "data", value = "响应结果数据")
+    @ApiModelProperty(name = "data", dataType = "Object", value = "响应结果数据")
     private T data;
 
-    @ApiModelProperty(name = "data", value = "响应结果时间")
+    @ApiModelProperty(name = "time", dataType = "Long", value = "响应结果时间")
     private long time = System.currentTimeMillis();
 
     public ResponseObject() {

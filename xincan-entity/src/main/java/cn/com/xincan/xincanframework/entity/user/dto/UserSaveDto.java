@@ -1,4 +1,4 @@
-package cn.com.xincan.xincanframework.server.user.dto;
+package cn.com.xincan.xincanframework.entity.user.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
@@ -12,25 +12,22 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDateTime;
 
 /**
- * copyright (C), 2020, 心灿基础架构
+ * copyright (C), 2020, 北京同创永益科技发展有限公司
  *
  * @author JiangXincan
  * @version 0.0.1
- * @program xincan-user
- * 用户信息查询参数实体类
- * @create 2020/3/19 14:54
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:54             0.0.1                         用户信息查询参数实体类
+ * Jiangxincan         2020/7/22 9:39             0.0.1                         用户保存参数实体类
+ * @program xincan-framework
+ * @description 用户保存参数实体类
+ * @create 2020/7/22 9:39
  */
-@ApiModel(description = "用户信息查询参数实体类")
+@ApiModel(description = "保存用户信息参数实体类")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserSearchDto {
-
-    @ApiModelProperty(value="用户ID（UUID）", dataType = "String", example = "1285759156342562818")
-    private String id;
+public class UserSaveDto {
 
     @ApiModelProperty(value="用户名称", dataType = "String", example = "张三")
     private String name;
@@ -44,7 +41,7 @@ public class UserSearchDto {
     @ApiModelProperty(value="用户电话", dataType = "String", example = "18503455667")
     private String phone;
 
-    @ApiModelProperty(value="创建时间", dataType = "org.joda.time.LocalDateTime", example = "2020-12-12 23:23:23")
+    @ApiModelProperty(value="创建时间", dataType = "LocalDateTime", example = "2020-12-12 23:23:23")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;

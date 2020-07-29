@@ -1,11 +1,11 @@
 package cn.com.xincan.xincanframework.server.order.service.impl;
 
-import cn.com.xincan.xincanframework.server.order.dto.OrderSaveDto;
-import cn.com.xincan.xincanframework.server.order.dto.OrderSearchDto;
+import cn.com.xincan.xincanframework.entity.order.dto.OrderSaveDto;
+import cn.com.xincan.xincanframework.entity.order.dto.OrderSearchDto;
+import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
 import cn.com.xincan.xincanframework.server.order.mapper.IOrderMapper;
 import cn.com.xincan.xincanframework.server.order.po.OrderPo;
 import cn.com.xincan.xincanframework.server.order.service.IOrderService;
-import cn.com.xincan.xincanframework.server.order.vo.OrderSearchVo;
 import cn.com.xincan.xincanframework.utils.common.orika.OrikaUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import org.springframework.stereotype.Component;
@@ -38,7 +38,7 @@ public class OrderServiceImpl implements IOrderService {
      * @param orderSaveDto 订单信息实体
      * @author JiangXincan
      * @date 2020/7/21 16:58
-     * @return cn.com.xincan.xincanframework.server.order.vo.OrderSearchVo
+     * @return cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo
      */
     @Override
     public OrderSearchVo save(OrderSaveDto orderSaveDto) {
@@ -51,7 +51,7 @@ public class OrderServiceImpl implements IOrderService {
      *  查询所有订单信息
      * @author JiangXincan
      * @date 2020/7/21 13:58
-     * @return java.util.List<cn.com.xincan.xincanframework.server.order.vo.OrderSearchVo>
+     * @return java.util.List<cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo>
      */
     @Override
     public List<OrderSearchVo> findAll() {
@@ -65,7 +65,7 @@ public class OrderServiceImpl implements IOrderService {
      * @param id 订单ID
      * @author JiangXincan
      * @date 2020/7/21 13:59
-     * @return cn.com.xincan.xincanframework.server.order.vo.OrderSearchVo
+     * @return cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo
      */
     @Override
     public OrderSearchVo findOrderById(String id) {
@@ -78,7 +78,7 @@ public class OrderServiceImpl implements IOrderService {
      * @param orderSearchDto 参数对象
      * @author JiangXincan
      * @date 2020/7/21 17:18
-     * @return cn.com.xincan.xincanframework.server.order.vo.OrderSearchVo
+     * @return cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo
      */
     @Override
     public OrderSearchVo findOrderByParams(OrderSearchDto orderSearchDto) {

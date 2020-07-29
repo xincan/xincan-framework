@@ -1,10 +1,10 @@
 package cn.com.xincan.xincanframework.server.user.service.impl;
 
-import cn.com.xincan.xincanframework.server.user.dto.UserSaveDto;
+import cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto;
+import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import cn.com.xincan.xincanframework.server.user.mapper.IUserMapper;
 import cn.com.xincan.xincanframework.server.user.po.UserPo;
 import cn.com.xincan.xincanframework.server.user.service.IUserService;
-import cn.com.xincan.xincanframework.server.user.vo.UserSearchVo;
 import cn.com.xincan.xincanframework.utils.common.orika.OrikaUtils;
 import org.springframework.stereotype.Component;
 
@@ -33,7 +33,7 @@ public class UserServiceImpl implements IUserService {
      *  查询所有用户信息
      * @author JiangXincan
      * @date 2020/7/22 9:47
-     * @return java.util.List<cn.com.xincan.xincanframework.server.user.vo.UserSearchVo>
+     * @return java.util.List<cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto>
      */
     @Override
     public List<UserSearchVo> findAll() {
@@ -47,7 +47,7 @@ public class UserServiceImpl implements IUserService {
      * @param id 用户ID
      * @author JiangXincan
      * @date 2020/7/22 9:48
-     * @return cn.com.xincan.xincanframework.server.user.vo.UserSearchVo
+     * @return cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto
      */
     @Override
     public UserSearchVo findUserById(String id) {
@@ -60,7 +60,7 @@ public class UserServiceImpl implements IUserService {
      * @param userSaveDto 新增用户信息实体类
      * @author JiangXincan
      * @date 2020/7/22 9:49
-     * @return cn.com.xincan.xincanframework.server.user.vo.UserSearchVo
+     * @return cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto
      */
     @Override
     public UserSearchVo save(UserSaveDto userSaveDto) {

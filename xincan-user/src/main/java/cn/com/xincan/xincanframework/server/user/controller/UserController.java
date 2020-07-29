@@ -1,11 +1,13 @@
 package cn.com.xincan.xincanframework.server.user.controller;
 
-import cn.com.xincan.xincanframework.server.user.dto.UserSaveDto;
+import cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto;
+import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import cn.com.xincan.xincanframework.server.user.service.IUserService;
-import cn.com.xincan.xincanframework.server.user.vo.UserSearchVo;
 import cn.com.xincan.xincanframework.utils.common.response.ResponseObject;
 import cn.com.xincan.xincanframework.utils.common.response.ResponseResult;
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -1,4 +1,4 @@
-package cn.com.xincan.xincanframework.server.order.dto;
+package cn.com.xincan.xincanframework.entity.order.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;

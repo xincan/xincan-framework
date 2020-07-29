@@ -1,4 +1,4 @@
-package cn.com.xincan.xincanframework.server.order.dto;
+package cn.com.xincan.xincanframework.entity.order.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -25,13 +25,13 @@ import lombok.NoArgsConstructor;
 @Builder
 public class OrderSearchDto {
 
-    @ApiModelProperty(value="订单ID（UUID）", dataType = "String", example = "1285522130867376129")
+    @ApiModelProperty(name = "id", value="订单ID（UUID）", dataType = "String", example = "1285522130867376129")
     private String id;
 
-    @ApiModelProperty(value="用户ID（UUID）", dataType = "String", example = "1285759156342562818")
+    @ApiModelProperty(name = "userId", value="用户ID（UUID）", dataType = "String", example = "1285759156342562818")
     private String userId;
 
-    @ApiModelProperty(value="订单名称", dataType = "String", example = "购买佛珠")
+    @ApiModelProperty(name = "title", value="订单名称", dataType = "String", example = "购买佛珠")
     private String title;
 
 }
