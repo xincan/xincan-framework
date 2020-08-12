@@ -57,7 +57,6 @@ public class DataSourceContextHolder {
      */
     public static void master() {
         set(DynamicDataSourceEnum.MASTER);
-        log.info("切换数据源为：master");
     }
 
     /**
