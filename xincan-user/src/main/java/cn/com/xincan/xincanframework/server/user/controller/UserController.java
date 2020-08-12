@@ -49,7 +49,7 @@ public class UserController {
 
     @ApiOperation(value = "新增用户信息", httpMethod = "PUT", notes = "新增用户信息")
     @PutMapping
-    public ResponseObject<UserSearchVo> find(@ApiParam UserSaveDto userSaveDto) {
+    public ResponseObject<UserSearchVo> save(@ApiParam UserSaveDto userSaveDto) {
         return ResponseResult.success(userService.save(userSaveDto));
     }
 

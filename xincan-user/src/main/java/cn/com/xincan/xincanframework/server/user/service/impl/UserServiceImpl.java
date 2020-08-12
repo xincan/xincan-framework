@@ -6,7 +6,9 @@ import cn.com.xincan.xincanframework.server.user.mapper.IUserMapper;
 import cn.com.xincan.xincanframework.server.user.po.UserPo;
 import cn.com.xincan.xincanframework.server.user.service.IUserService;
 import cn.com.xincan.xincanframework.utils.common.orika.OrikaUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -22,12 +24,12 @@ import java.util.List;
  * <author>                <time>                  <version>                   <description>
  * JiangXincan         2020/3/19 14:36             0.0.1                         用户信息接口实现类
  */
-@Component
+@Service
 public class UserServiceImpl implements IUserService {
 
 
     @Resource
-    private IUserMapper studentMapper;
+    private IUserMapper userMapper;
 
     /**
      *  查询所有用户信息
@@ -37,7 +39,7 @@ public class UserServiceImpl implements IUserService {
      */
     @Override
     public List<UserSearchVo> findAll() {
-        List<UserPo> lists =  studentMapper.selectList(null);
+        List<UserPo> lists =  userMapper.selectList(null);
         return OrikaUtils.mapAsList(lists, UserSearchVo.class);
 
     }
@@ -51,7 +53,7 @@ public class UserServiceImpl implements IUserService {
      */
     @Override
     public UserSearchVo findUserById(String id) {
-        UserPo user = studentMapper.selectById(id);
+        UserPo user = userMapper.selectById(id);
         return OrikaUtils.map(user, UserSearchVo.class);
     }
 
@@ -65,7 +67,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public UserSearchVo save(UserSaveDto userSaveDto) {
         UserPo user = OrikaUtils.map(userSaveDto, UserPo.class);
-        studentMapper.insert(user);
+        userMapper.insert(user);
         return OrikaUtils.map(user, UserSearchVo.class);
     }
 }

@@ -58,6 +58,12 @@
             </exclusions>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- 集成mysql数据库处理依赖 -->
         <dependency>
             <groupId>mysql</groupId>

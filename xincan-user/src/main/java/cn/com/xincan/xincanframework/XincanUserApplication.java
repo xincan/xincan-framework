@@ -2,7 +2,7 @@ package cn.com.xincan.xincanframework;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /**
  * copyright (C), 2020, 心灿基础架构
@@ -15,9 +15,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * <author>                <time>                  <version>                   <description>
  * JiangXincan         2020/3/19 14:54             0.0.1                       用户微服务程序启动入口
  */
-
-@EnableDiscoveryClient
-@SpringBootApplication
+@SpringBootApplication(exclude = {
+        DataSourceAutoConfiguration.class
+})
 public class XincanUserApplication {
 
     public static void main(String[] args) {
