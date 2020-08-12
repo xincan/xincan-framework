@@ -43,7 +43,7 @@
         <mysql-connector-java.version>8.0.18</mysql-connector-java.version>
 
         <!-- MP版本配置 -->
-        <mybatis-plus-boot-starter.version>3.2.0</mybatis-plus-boot-starter.version>
+        <mybatis-plus-boot-starter.version>3.3.2</mybatis-plus-boot-starter.version>
 
         <!-- 实体类转换版本配置 -->
         <orika-core.version>1.5.4</orika-core.version>
