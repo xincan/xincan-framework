@@ -36,7 +36,7 @@ public class DataSourceConfig {
     @Bean
     @ConfigurationProperties("spring.datasource.master")
     public DataSource master() {
-        log.info("master");
+        log.info("init master");
         return new HikariDataSource();
     }
 
@@ -50,7 +50,7 @@ public class DataSourceConfig {
     @ConfigurationProperties("spring.datasource.slave1")
     @ConditionalOnProperty(prefix = "spring.datasource", name = "slave1", matchIfMissing = true)
     public DataSource slave1() {
-        log.info("slave1");
+        log.info("init slave1");
         return new HikariDataSource();
     }
 
@@ -64,7 +64,7 @@ public class DataSourceConfig {
     @ConfigurationProperties("spring.datasource.slave2")
     @ConditionalOnProperty(prefix = "spring.datasource", name = "slave2", matchIfMissing = true)
     public DataSource slave2() {
-        log.info("slave2");
+        log.info("init slave2");
         return new HikariDataSource();
     }
 
@@ -83,7 +83,7 @@ public class DataSourceConfig {
             @Qualifier("slave1") DataSource slave1DataSource,
             @Qualifier("slave2") DataSource slave2DataSource
     ) {
-        log.info("routingDataSource1");
+        log.info("create routingDataSource");
         Map<Object, Object> targetDataSource = new HashMap<>(3);
         targetDataSource.put(DynamicDataSourceEnum.MASTER, masterDataSource);
         targetDataSource.put(DynamicDataSourceEnum.SLAVE1, slave1DataSource);

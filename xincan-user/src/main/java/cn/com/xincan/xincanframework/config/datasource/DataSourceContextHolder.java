@@ -37,7 +37,7 @@ public class DataSourceContextHolder {
      */
     public static void set(DynamicDataSourceEnum datasourceType) {
         DYNAMIC_DATASOURCE_CONTEXT.set(datasourceType);
-        log.info("设置数据源为：{}", datasourceType);
+        log.info("切换数据源为：{}", datasourceType);
     }
 
     /**
@@ -73,10 +73,8 @@ public class DataSourceContextHolder {
         }
         if (index == 0) {
             set(DynamicDataSourceEnum.SLAVE1);
-            log.info("切换数据源为：slave1");
         } else {
             set(DynamicDataSourceEnum.SLAVE2);
-            log.info("切换数据源为：slave2");
         }
     }
 
