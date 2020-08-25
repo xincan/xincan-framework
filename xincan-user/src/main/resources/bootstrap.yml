@@ -1,6 +1,13 @@
 server:
   port: 8000
 
+address:
+  nacos: 192.168.3.10:8848
+  mysql:
+    master: 192.168.3.10:3307
+    slave1: 192.168.3.10:3308
+    slave2: 192.168.3.10:3309
+
 spring:
   application:
     name: xincan-user
@@ -11,28 +18,28 @@ spring:
     nacos:
       config:
         namespace: xincan-${spring.profiles.active}-0001
-        server-addr: 192.168.1.50:8848        # 配置中心url
+        server-addr: ${address.nacos}        # 配置中心url
         group: ${spring.profiles.active}_group
         file-extension: yaml                  # 配置文件类型
       discovery:
-        server-addr: 192.168.1.50:8848
+        server-addr: ${address.nacos}
         group: ${spring.profiles.active}_group
         namespace: xincan-${spring.profiles.active}-0001
 
   datasource:
     master:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://192.168.1.50:3307/xincan?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
+      jdbc-url: jdbc:mysql://${address.mysql.master}/nacos-${spring.profiles.active}?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
       username: root
       password: root
     slave1:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://192.168.1.50:3308/xincan?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
+      jdbc-url: jdbc:mysql://${address.mysql.slave1}/nacos-${spring.profiles.active}?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
       username: root
       password: root
     slave2:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://192.168.1.50:3309/xincan?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
+      jdbc-url: jdbc:mysql://${address.mysql.slave2}/nacos-${spring.profiles.active}?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
       username: root
       password: root
 
