@@ -1,12 +1,12 @@
-server:
-  port: 8000
-
 address:
   nacos: 192.168.3.10:8848
   mysql:
     master: 192.168.3.10:3307
     slave1: 192.168.3.10:3308
     slave2: 192.168.3.10:3309
+
+server:
+  port: 8000
 
 spring:
   application:
@@ -58,5 +58,5 @@ management:
       id: ${spring.application.name}
     web:
       exposure:
-#        include: '*'
+        #        include: '*'
         include: health,info,env,prometheus,metrics,httptrace,threaddump,heapdump,${spring.application.name},nacos-config
