@@ -7,9 +7,11 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
@@ -29,9 +31,13 @@ import java.time.LocalDateTime;
 @ToString(callSuper = true)
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserSearchDto extends PaginationQuery {
 
     @ApiModelProperty(value="用户ID（UUID）", dataType = "String", example = "1285759156342562818")
+    @NotBlank(message = "用户ID不能为空")
+    @Length(message = "用户ID长度应为32位", min = 32, max = 32)
     private String id;
 
     @ApiModelProperty(value="用户名称", dataType = "String", example = "张三")
@@ -51,16 +57,5 @@ public class UserSearchDto extends PaginationQuery {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
 
-    public UserSearchDto(){super();}
-
-    public UserSearchDto(@NotNull(message = "当前页数不能为空") @DecimalMin(message = "当前页数错误,应当大于等于于{value}一页", value = "1") Integer page, @NotNull(message = "每页条数不能为空") @DecimalMin(message = "每页条数错误,应当大于等于于{value}条", value = "1") Integer limit, String sortName, OrderType sortOrder, String id, String name, String loginName, String password, String phone, LocalDateTime createTime) {
-        super(page, limit, sortName, sortOrder);
-        this.id = id;
-        this.name = name;
-        this.loginName = loginName;
-        this.password = password;
-        this.phone = phone;
-        this.createTime = createTime;
-    }
 
 }
