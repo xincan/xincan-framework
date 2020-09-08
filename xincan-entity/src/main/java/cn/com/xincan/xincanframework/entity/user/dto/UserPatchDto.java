@@ -19,17 +19,21 @@ import java.time.LocalDateTime;
  * @author JiangXincan
  * @version 0.0.1
  * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/22 9:39             0.0.1                         用户保存参数实体类
+ * Jiangxincan         2020/7/22 9:39             0.0.1                         用户修改参数实体类
  * @program xincan-framework
- * @description 用户保存参数实体类
+ * @description 用户修改参数实体类
  * @create 2020/7/22 9:39
  */
-@ApiModel(description = "保存用户信息参数实体类")
+@ApiModel(description = "修改用户信息参数实体类")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserSaveDto {
+public class UserPatchDto {
+
+    @ApiModelProperty(value="用户ID", dataType = "String", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
+    @NotBlank(message = "用户ID不能为空")
+    private String id;
 
     @ApiModelProperty(value="用户名称", dataType = "String", required = true, example = "张三")
     @NotBlank(message = "用户名称不能为空")
