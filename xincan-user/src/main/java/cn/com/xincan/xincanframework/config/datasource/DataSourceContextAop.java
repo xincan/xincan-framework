@@ -33,7 +33,8 @@ public class DataSourceContextAop {
     @Pointcut("!@annotation(cn.com.xincan.xincanframework.config.datasource.Master) " +
             "&& (execution(* cn.com.xincan.xincanframework.server.*.controller..*.select*(..)) " +
             "|| execution(* cn.com.xincan.xincanframework.server.*.controller..*.get*(..)) " +
-            "|| execution(* cn.com.xincan.xincanframework.server.*.controller..*.find*(..)))")
+            "|| execution(* cn.com.xincan.xincanframework.server.*.controller..*.find*(..))" +
+            "|| execution(* cn.com.xincan.xincanframework.server.*.controller..*.page*(..)))")
     public void readPointcut(){}
 
     /**

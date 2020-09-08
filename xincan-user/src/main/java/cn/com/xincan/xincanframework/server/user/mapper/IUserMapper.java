@@ -16,4 +16,5 @@ import org.springframework.stereotype.Repository;
  * <author>                <time>                  <version>                   <description>
  * JiangXincan         2020/4/16 18:54             0.0.1                         用户数据处理接口
  */
-public interface IUserMapper extends BaseMapper<UserPo> { }
+public interface IUserMapper extends BaseMapper<UserPo> {
+}

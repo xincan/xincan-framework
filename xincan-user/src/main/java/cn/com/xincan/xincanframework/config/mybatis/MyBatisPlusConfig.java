@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.pagination.optimize.JsqlParserCountOptimize;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
+import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -51,13 +53,17 @@ public class MyBatisPlusConfig {
      */
     @Bean
     public PaginationInterceptor paginationInterceptor() {
-        return  new PaginationInterceptor();
+        PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
+        // 开启 count 的 join 优化,只针对部分 left join
+        paginationInterceptor.setCountSqlParser(new JsqlParserCountOptimize(true));
+        return paginationInterceptor;
     }
 
     /**
      *  SQL 工厂配置
      * @param mybatisConfiguration  mybatis 配置类
      * @param globalConfig 全局配置
+     * @param paginationInterceptor mybatis-plus分页插件
      * @author JiangXincan
      * @date 2020/8/12 16:02
      * @return org.apache.ibatis.session.SqlSessionFactory
@@ -65,10 +71,14 @@ public class MyBatisPlusConfig {
     @Bean
     public SqlSessionFactory sqlSessionFactory(
             @Qualifier("mybatisConfiguration") MybatisConfiguration mybatisConfiguration,
-            @Qualifier("globalConfig") GlobalConfig globalConfig
+            @Qualifier("globalConfig") GlobalConfig globalConfig,
+            @Qualifier("paginationInterceptor") PaginationInterceptor paginationInterceptor
     ) throws Exception {
         PathMatchingResourcePatternResolver pathMatchingResourcePatternResolver = new PathMatchingResourcePatternResolver();
         MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean = new MybatisSqlSessionFactoryBean();
+        // 设置MyBatis-Plus 分页插件
+        Interceptor[] plugins = {paginationInterceptor};
+        mybatisSqlSessionFactoryBean.setPlugins(plugins);
         mybatisSqlSessionFactoryBean.setDataSource(routingDataSource);
         mybatisSqlSessionFactoryBean.setConfiguration(mybatisConfiguration);
         mybatisSqlSessionFactoryBean.setGlobalConfig(globalConfig);

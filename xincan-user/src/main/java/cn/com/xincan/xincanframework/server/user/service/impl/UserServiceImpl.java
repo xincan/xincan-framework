@@ -1,13 +1,17 @@
 package cn.com.xincan.xincanframework.server.user.service.impl;
 
+import cn.com.xincan.xincanframework.entity.user.dto.UserPatchDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto;
+import cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto;
 import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import cn.com.xincan.xincanframework.server.user.mapper.IUserMapper;
 import cn.com.xincan.xincanframework.server.user.po.UserPo;
 import cn.com.xincan.xincanframework.server.user.service.IUserService;
 import cn.com.xincan.xincanframework.utils.common.orika.OrikaUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -58,6 +62,26 @@ public class UserServiceImpl implements IUserService {
     }
 
     /**
+     *  根据用户ID，查询用户详细信息实体类
+     * @param userSearchDto 用户信息实体类
+     * @author JiangXincan
+     * @date 2020/7/22 9:48
+     * @return com.baomidou.mybatisplus.extension.plugins.pagination.Page<cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto>
+     */
+    @Override
+    public Page<UserSearchVo> page(UserSearchDto userSearchDto){
+        Page<UserPo> page = new Page<>(userSearchDto.getPage(), userSearchDto.getLimit());
+        LambdaQueryWrapper<UserPo> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.like(StringUtils.isNotBlank(userSearchDto.getLoginName()), UserPo::getLoginName, userSearchDto.getLoginName());
+        page = userMapper.selectPage(page, queryWrapper);
+        Page<UserSearchVo> record = new Page<>();
+        record.setRecords(OrikaUtils.mapAsList(page.getRecords(), UserSearchVo.class));
+        record.setTotal(page.getTotal());
+        return record;
+
+    }
+
+    /**
      *  新增用户信息
      * @param userSaveDto 新增用户信息实体类
      * @author JiangXincan
@@ -69,5 +93,33 @@ public class UserServiceImpl implements IUserService {
         UserPo user = OrikaUtils.map(userSaveDto, UserPo.class);
         userMapper.insert(user);
         return OrikaUtils.map(user, UserSearchVo.class);
+    }
+
+    /**
+     *  修改用户信息
+     * @param userPatchDto 修改用户信息实体类
+     * @author JiangXincan
+     * @date 2020/7/22 9:49
+     * @return cn.com.xincan.xincanframework.entity.user.dto.UserSearchVo
+     */
+    @Override
+    public UserSearchVo patch(UserPatchDto userPatchDto) {
+        UserPo userPo = OrikaUtils.map(userPatchDto, UserPo.class);
+        userMapper.updateById(userPo);
+        return OrikaUtils.map(userPatchDto, UserSearchVo.class);
+    }
+
+    /**
+     *  删除用户信息
+     * @param id 用户ID
+     * @author JiangXincan
+     * @date 2020/7/22 9:49
+     * @return int
+     */
+    @Override
+    public int delete(String id) {
+        LambdaQueryWrapper<UserPo> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(UserPo::getId, id);
+        return userMapper.delete(queryWrapper);
     }
 }

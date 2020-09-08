@@ -1,7 +1,11 @@
 package cn.com.xincan.xincanframework.server.user.service;
 
+import cn.com.xincan.xincanframework.entity.user.dto.UserPatchDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto;
+import cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto;
 import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import java.util.List;
 
@@ -28,7 +32,7 @@ public interface IUserService {
     List<UserSearchVo> findAll();
 
     /**
-     *  根据用户ID，查询用户详细信息
+     *  根据用户ID，查询用户详细信息实体类
      * @param id 用户ID
      * @author JiangXincan
      * @date 2020/7/22 9:48
@@ -37,12 +41,39 @@ public interface IUserService {
     UserSearchVo findUserById(String id);
 
     /**
-     *  新增用户信息
-     * @param userSaveDto 新增用户信息实体类
+     *  根据用户ID，查询用户详细信息实体类
+     * @param userSearchDto 用户信息实体类
      * @author JiangXincan
-     * @date 2020/7/22 9:49
+     * @date 2020/7/22 9:48
+     * @return com.baomidou.mybatisplus.extension.plugins.pagination.Page<cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto>
+     */
+    Page<UserSearchVo> page(UserSearchDto userSearchDto);
+
+    /**
+     *  根据用户ID，查询用户详细信息
+     * @param saveDto 保存用户信息实体类
+     * @author JiangXincan
+     * @date 2020/7/22 9:48
      * @return cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto
      */
-    UserSearchVo save(UserSaveDto userSaveDto);
+    UserSearchVo save(UserSaveDto saveDto);
+
+    /**
+     *  修改用户信息
+     * @param userPatchDto 修改用户信息实体类
+     * @author JiangXincan
+     * @date 2020/7/22 9:49
+     * @return cn.com.xincan.xincanframework.entity.user.dto.UserSearchVo
+     */
+    UserSearchVo patch(UserPatchDto userPatchDto);
+
+    /**
+     *  删除用户信息
+     * @param id 用户ID
+     * @author JiangXincan
+     * @date 2020/7/22 9:49
+     * @return int
+     */
+    int delete(String id);
 
 }
