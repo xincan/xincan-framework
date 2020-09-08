@@ -92,15 +92,15 @@ public class ResponseResult {
      * （数据分页）针对于返回业务处理之后，需要向前端反馈后台处理分页的数据，
      *  并携带状态、数据总条数、系统默认处理信息
      *
-     * @Param total     响应数据条数
+     * @Param count     响应数据条数
      * @Param data      响应数据
      * @author JiangXincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
-    public static <T> ResponseObject<T> success(long total, T data){
+    public static <T> ResponseObject<T> success(long count, T data){
         return new ResponseObject<T>(ResponseCode.REQUEST_SUCCESS)
-                .count(total)
+                .count(count)
                 .data(data);
     }
 
@@ -111,18 +111,18 @@ public class ResponseResult {
      *  并携带状态、数据总条数、自定义处理信息
      *
      * @Param message   响应结果信息
-     * @Param total     响应数据条数
+     * @Param count     响应数据条数
      * @Param data      响应数据
      * @Param <T>       响应数据类型
      * @author JiangXincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
-    public static <T> ResponseObject<T> success(String message, long total, T data){
+    public static <T> ResponseObject<T> success(String message, long count, T data){
         return new ResponseObject<T>()
                 .code(ResponseCode.REQUEST_SUCCESS)
                 .msg(message)
-                .count(total)
+                .count(count)
                 .data(data);
     }
 
@@ -150,18 +150,18 @@ public class ResponseResult {
      *
      * @Param code      响应结果编码
      * @Param message   响应结果信息
-     * @Param total     响应数据条数
+     * @Param count     响应数据条数
      * @Param data      响应数据
      * @Param <T>       响应数据类型
      * @author JiangXincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
-    public static <T> ResponseObject<T> success(int code, String message, long total, T data){
+    public static <T> ResponseObject<T> success(int code, String message, long count, T data){
         return new ResponseObject<T>()
                 .code(code)
                 .msg(message)
-                .count(total)
+                .count(count)
                 .data(data);
     }
 
@@ -171,15 +171,15 @@ public class ResponseResult {
      * 针对于返回业务处理之后，需要向前端反馈后台处理的数据，将其返回
      *
      * @param responseCode   响应状态
-     * @param total          响应数据条数
+     * @param count          响应数据条数
      * @param data           响应数据
      * @author JiangXincan
      * @date 2019/12/20 14:41
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
-    public static <T> ResponseObject<T> success(ResponseCode responseCode, long total, T data) {
+    public static <T> ResponseObject<T> success(ResponseCode responseCode, long count, T data) {
         return new ResponseObject<T>(responseCode)
-                .count(total)
+                .count(count)
                 .data(data);
     }
 

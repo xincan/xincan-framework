@@ -17,10 +17,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * @program hatech-framework
  *  实体类转换工具类
  * @author JiangXincan
- * @date 2019/12/19 18:27
+ * @date 2020/09/07 18:27
  * @version 0.0.1
  * <Author>                <Time>                  <Version>                   <Description>
- * JiangXincan         2019/12/19 18:27             0.0.1                         实体类转换工具类
+ * JiangXincan         2020/09/07 18:27             0.0.1                         实体类转换工具类
  */
 public class OrikaUtils {
 
