@@ -46,13 +46,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @ApiOperation(value = "查询用户信息", httpMethod = "GET", notes = "查询所有用户信息")
-    @GetMapping
-    public ResponseObject<List<UserSearchVo>> find() {
-        List<UserSearchVo> lists = userService.findAll();
-        return ResponseResult.success(lists.size(), lists);
-    }
-
     @ApiOperation(value = "查询用户信息", httpMethod = "GET", notes = "根据用户ID查询用户详细信息")
     @GetMapping("/{id}")
     public ResponseObject<UserSearchVo> findUserById(
@@ -61,13 +54,20 @@ public class UserController {
             @Length(message = "用户ID长度应为32位", min = 32, max = 32)
             @PathVariable(name = "id")
             @Valid
-            String id
+                    String id
     ) {
         return ResponseResult.success(userService.findUserById(id));
     }
 
+    @ApiOperation(value = "查询用户信息", httpMethod = "GET", notes = "查询所有用户信息")
+    @GetMapping
+    public ResponseObject<List<UserSearchVo>> find() {
+        List<UserSearchVo> lists = userService.findAll();
+        return ResponseResult.success(lists.size(), lists);
+    }
+
     @ApiOperation(value = "查询用户信息（分页）", httpMethod = "POST", notes = "根据参数列表查询部分用户列表信息")
-    @PostMapping("/page")
+    @PostMapping
     public ResponseObject<List<UserSearchVo>> page(@ApiParam @Valid @RequestBody UserSearchDto userSearchDto) {
         Page<UserSearchVo> page = userService.page(userSearchDto);
         return ResponseResult.success(page.getTotal(), page.getRecords());
@@ -97,7 +97,5 @@ public class UserController {
     ) {
         return ResponseResult.success(1, userService.delete(id));
     }
-
-
 
 }
