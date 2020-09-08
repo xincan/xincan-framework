@@ -55,11 +55,14 @@
         <!-- 实体类转换版本配置 -->
         <orika-core.version>1.5.4</orika-core.version>
 
+        <!-- 实体类属性校验版本配置 -->
+        <hibernate-validator.version>6.0.18.Final</hibernate-validator.version>
+
         <!-- json工具类配置 -->
         <fastjson.version>1.2.68</fastjson.version>
 
         <!-- 日志系统版本配置 -->
-        <lombok.version>1.18.4</lombok.version>
+        <lombok.version>1.18.12</lombok.version>
 
         <!-- 斯瓦格UI版本配置 -->
         <knife4j-spring-boot-starter.version>2.0.2</knife4j-spring-boot-starter.version>
@@ -126,6 +129,12 @@
                 <groupId>ma.glasnost.orika</groupId>
                 <artifactId>orika-core</artifactId>
                 <version>${orika-core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
             </dependency>
 
             <!-- 定义json工具类依赖 -->
