@@ -31,7 +31,7 @@ public class PaginationQuery{
     public Integer page = 1;
 
     @ApiModelProperty(value="每页条数，为空时，默认每页提供10条数据", dataType = "Integer", example = "10")
-    @DecimalMin(message = "每页条数错误,应当大于等于于{value}条", value = "1")
+    @DecimalMin(message = "每页条数错误,应当大于等于于{value}条", value = "10")
     public Integer limit = 10;
 
     @ApiModelProperty(name="sortName",value="排序字段名称", dataType = "String")
