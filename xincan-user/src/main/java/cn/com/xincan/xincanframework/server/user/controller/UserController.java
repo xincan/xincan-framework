@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -36,6 +37,7 @@ import java.util.List;
 @Api(tags = {"用户信息管理"})
 @RestController
 @RequestMapping("/user")
+@Validated
 public class UserController {
 
     @Qualifier("userService")
@@ -53,8 +55,7 @@ public class UserController {
             @NotBlank(message = "用户ID不能为空")
             @Length(message = "用户ID长度应为32位", min = 32, max = 32)
             @PathVariable(name = "id")
-            @Valid
-                    String id
+            String id
     ) {
         return ResponseResult.success(userService.findUserById(id));
     }
@@ -68,20 +69,20 @@ public class UserController {
 
     @ApiOperation(value = "查询用户信息（分页）", httpMethod = "POST", notes = "根据参数列表查询部分用户列表信息")
     @PostMapping
-    public ResponseObject<List<UserSearchVo>> page(@ApiParam @Valid @RequestBody UserSearchDto userSearchDto) {
+    public ResponseObject<List<UserSearchVo>> page(@ApiParam @Validated @RequestBody UserSearchDto userSearchDto) {
         Page<UserSearchVo> page = userService.page(userSearchDto);
         return ResponseResult.success(page.getTotal(), page.getRecords());
     }
 
     @ApiOperation(value = "新增用户信息", httpMethod = "PUT", notes = "新增用户信息")
     @PutMapping
-    public ResponseObject<UserSearchVo> save(@ApiParam @Valid UserSaveDto userSaveDto) {
+    public ResponseObject<UserSearchVo> save(@ApiParam @Validated UserSaveDto userSaveDto) {
         return ResponseResult.success(userService.save(userSaveDto));
     }
 
     @ApiOperation(value = "修改用户信息", httpMethod = "PATCH", notes = "根据参数列表修改用户信息")
     @PatchMapping
-    public ResponseObject<UserSearchVo> patch(@ApiParam @Valid UserPatchDto userPatchDto) {
+    public ResponseObject<UserSearchVo> patch(@ApiParam @Validated UserPatchDto userPatchDto) {
         return ResponseResult.success(userService.patch(userPatchDto));
     }
 
@@ -92,7 +93,6 @@ public class UserController {
             @NotBlank(message = "用户ID不能为空")
             @Length(message = "用户ID长度应为32位", min = 32, max = 32)
             @RequestParam(name = "id")
-            @Valid
             String id
     ) {
         return ResponseResult.success(1, userService.delete(id));

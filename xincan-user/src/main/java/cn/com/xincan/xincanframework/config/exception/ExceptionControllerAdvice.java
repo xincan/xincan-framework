@@ -10,10 +10,13 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+import java.util.*;
 
 /**
  * copyright (C), 2020, 北京同创永益科技发展有限公司
@@ -32,6 +35,19 @@ public class ExceptionControllerAdvice {
 
     /**类型不匹配*/
     private static final String TYPE_MISMATCH = "typeMismatch";
+
+
+    @ExceptionHandler(value = ConstraintViolationException.class)
+    public ResponseObject<String> constraintViolationExceptionHandler(ConstraintViolationException constraintViolationException) {
+        Set<ConstraintViolation<?>> constraintViolations = constraintViolationException.getConstraintViolations();
+        if (constraintViolations.isEmpty()) {
+            log.error("ConstraintViolationException错误为空");
+            return ResponseResult.error(ResponseCode.BUSINESS_ERROR.code(), "ConstraintViolationException错误为空");
+        }
+        Iterator<ConstraintViolation<?>> iterator = constraintViolations.iterator();
+        ConstraintViolation<?> cvl = iterator.next();
+        return ResponseResult.error(ResponseCode.PARAM_ERROR,  cvl.getMessageTemplate());
+    }
 
     /**
      *  参数异常校验处理
