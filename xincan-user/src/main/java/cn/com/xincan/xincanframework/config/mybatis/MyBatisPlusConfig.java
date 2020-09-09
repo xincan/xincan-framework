@@ -26,7 +26,7 @@ import javax.sql.DataSource;
 /**
  * copyright (C), 2019, 心灿基础架构
  *
- * @program hatech-framework
+ * @program xincan-framework
  * MyBatisPlus 配置
  * @author JiangXincan
  * @create 2019/12/20 15:27

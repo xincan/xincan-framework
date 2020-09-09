@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Copyright (C), 2019, 心灿基础架构
  *
- * @program hatech-framework
+ * @program xincan-framework
  *  实体类转换工具类
  * @author JiangXincan
  * @date 2020/09/07 18:27

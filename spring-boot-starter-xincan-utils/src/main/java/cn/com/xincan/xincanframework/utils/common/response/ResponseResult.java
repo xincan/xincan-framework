@@ -4,7 +4,7 @@ package cn.com.xincan.xincanframework.utils.common.response;
 /**
  * Copyright (C), 2019, 心灿基础架构
  *
- * @program hatech-framework
+ * @program xincan-framework
  *  响应状态结果信息实体类
  * @author JiangXincan
  * @date 2019/12/18 9:43

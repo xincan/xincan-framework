@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 /**
  * Copyright (C), 2019, 北京同创永益科技发展有限公司
  *
- * @program hatech-framework
+ * @program xincan-framework
  * @description 分页查询公用处理类
  * @author JiangXincan
  * @create 2020/09/07 13:15

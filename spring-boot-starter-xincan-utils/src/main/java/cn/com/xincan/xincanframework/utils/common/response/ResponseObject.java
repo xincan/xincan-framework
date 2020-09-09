@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Copyright (C), 2019, 心灿基础架构
  *
- * @program hatech-framework
+ * @program xincan-framework
  *  响应结果实体类
  * @author JiangXincan
  * @date 2019/12/18 9:43

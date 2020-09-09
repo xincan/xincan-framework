@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * copyright (C), 2019, 心灿基础架构
  *
- * @program hatech-framework
+ * @program xincan-framework
  * Swagger API 配置
  * @author JiangXincan
  * @create 2019/12/23 16:09

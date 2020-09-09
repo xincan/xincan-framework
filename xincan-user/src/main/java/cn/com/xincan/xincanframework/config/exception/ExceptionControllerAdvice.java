@@ -5,12 +5,9 @@ import cn.com.xincan.xincanframework.utils.common.response.ResponseObject;
 import cn.com.xincan.xincanframework.utils.common.response.ResponseResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindException;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.validation.ConstraintViolation;
@@ -36,7 +33,25 @@ public class ExceptionControllerAdvice {
     /**类型不匹配*/
     private static final String TYPE_MISMATCH = "typeMismatch";
 
+    /**
+     *  自定义业务异常
+     * @param businessException 业务异常类
+     * @author JiangXincan
+     * @date 2020/9/9 14:37
+     * @return cn.com.xincan.xincanframework.utils.common.response.ResponseObject<java.lang.String>
+     */
+    @ExceptionHandler(BusinessException.class)
+    public ResponseObject<String> restfulApiExceptionHandler(BusinessException businessException) {
+        return ResponseResult.error(ResponseCode.BUSINESS_ERROR,  businessException.getMsg());
+    }
 
+    /**
+     *  捕获controller层函数单个参数校验异常
+     * @param constraintViolationException 参数校验异常
+     * @author JiangXincan
+     * @date 2020/9/8 20:38
+     * @return cn.com.xincan.xincanframework.utils.common.response.ResponseObject<java.lang.String>
+     */
     @ExceptionHandler(value = ConstraintViolationException.class)
     public ResponseObject<String> constraintViolationExceptionHandler(ConstraintViolationException constraintViolationException) {
         Set<ConstraintViolation<?>> constraintViolations = constraintViolationException.getConstraintViolations();
@@ -86,7 +101,7 @@ public class ExceptionControllerAdvice {
      */
     private ResponseObject<String> paramValidException(List<FieldError> fieldErrors) {
         if (fieldErrors.isEmpty()) {
-            log.error("validExceptionHandler 错误 fieldErrors 为空");
+            log.error("校验错误fieldErrors为空");
             ResponseResult.error(ResponseCode.BUSINESS_ERROR);
         }
         FieldError fieldError = fieldErrors.get(0);

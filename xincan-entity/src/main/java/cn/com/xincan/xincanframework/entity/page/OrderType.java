@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModel;
 /**
  * Copyright (C), 2019, 北京同创永益科技发展有限公司
  *
- * @program hatech-framework
+ * @program xincan-framework
  * @description 排序规则枚举类
  * @author JiangXincan
  * @create 2019/12/24 10:02
