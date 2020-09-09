@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
  *
  * @program xincan-framework
  * @description 分页查询公用处理类
- * @author JiangXincan
+ * @author Jiangxincan
  * @create 2020/09/07 13:15
  * @version 1.0
  * <Author>                <Time>                  <Version>                   <Description>

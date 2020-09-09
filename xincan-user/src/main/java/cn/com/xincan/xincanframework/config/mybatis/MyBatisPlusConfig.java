@@ -28,11 +28,11 @@ import javax.sql.DataSource;
  *
  * @program xincan-framework
  * MyBatisPlus 配置
- * @author JiangXincan
+ * @author Jiangxincan
  * @create 2019/12/20 15:27
  * @version 0.0.1
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2019/12/20 15:27             0.0.1                         MyBatisPlus 配置
+ * Jiangxincan         2019/12/20 15:27             0.0.1                         MyBatisPlus 配置
  */
 @Configuration
 @EnableTransactionManagement
@@ -47,7 +47,7 @@ public class MyBatisPlusConfig {
 
     /**
      * MyBatisPlus 配置分页
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/1/7 10:22
      * @return com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor
      */
@@ -64,7 +64,7 @@ public class MyBatisPlusConfig {
      * @param mybatisConfiguration  mybatis 配置类
      * @param globalConfig 全局配置
      * @param paginationInterceptor mybatis-plus分页插件
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/8/12 16:02
      * @return org.apache.ibatis.session.SqlSessionFactory
      */
@@ -88,7 +88,7 @@ public class MyBatisPlusConfig {
 
     /**
      *  MyBatisPlus 配置
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/8/12 16:01
      * @return com.baomidou.mybatisplus.core.MybatisConfiguration
      */
@@ -104,7 +104,7 @@ public class MyBatisPlusConfig {
     /**
      *  MyBatisPlus GlobalConfig 全局配置
      * @param dbConfig 数据库配置类
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/8/12 15:58
      * @return com.baomidou.mybatisplus.core.config.GlobalConfig
      */
@@ -117,7 +117,7 @@ public class MyBatisPlusConfig {
 
     /**
      * MyBatisPlus DbConfig 数据库配置
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/8/12 16:00
      * @return com.baomidou.mybatisplus.core.config.GlobalConfig.DbConfig
      */
@@ -130,7 +130,7 @@ public class MyBatisPlusConfig {
 
     /**
      *  配置事务管理器
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/8/12 15:59
      * @return org.springframework.transaction.PlatformTransactionManager
      */

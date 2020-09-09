@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * copyright (C), 2020, 心灿基础架构
  *
- * @author JiangXincan
+ * @author Jiangxincan
  * @version 0.0.1
  * @program xincan-framework
  * @description 公共实体包

@@ -20,13 +20,13 @@ import java.util.List;
 /**
  * copyright (C), 2020, 心灿基础架构
  *
- * @author JiangXincan
+ * @author Jiangxincan
  * @version 0.0.1
  * @program xincan-user
  * 用户信息接口实现类
  * @create 2020/3/19 14:36
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:36             0.0.1                         用户信息接口实现类
+ * Jiangxincan         2020/3/19 14:36             0.0.1                         用户信息接口实现类
  */
 @Service
 public class UserServiceImpl implements IUserService {
@@ -37,7 +37,7 @@ public class UserServiceImpl implements IUserService {
 
     /**
      *  查询所有用户信息
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/7/22 9:47
      * @return java.util.List<cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto>
      */
@@ -51,7 +51,7 @@ public class UserServiceImpl implements IUserService {
     /**
      *  根据用户ID，查询用户详细信息
      * @param id 用户ID
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/7/22 9:48
      * @return cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto
      */
@@ -64,7 +64,7 @@ public class UserServiceImpl implements IUserService {
     /**
      *  根据用户ID，查询用户详细信息实体类
      * @param userSearchDto 用户信息实体类
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/7/22 9:48
      * @return com.baomidou.mybatisplus.extension.plugins.pagination.Page<cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto>
      */
@@ -84,7 +84,7 @@ public class UserServiceImpl implements IUserService {
     /**
      *  新增用户信息
      * @param userSaveDto 新增用户信息实体类
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/7/22 9:49
      * @return cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto
      */
@@ -98,7 +98,7 @@ public class UserServiceImpl implements IUserService {
     /**
      *  修改用户信息
      * @param userPatchDto 修改用户信息实体类
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/7/22 9:49
      * @return cn.com.xincan.xincanframework.entity.user.dto.UserSearchVo
      */
@@ -112,7 +112,7 @@ public class UserServiceImpl implements IUserService {
     /**
      *  删除用户信息
      * @param id 用户ID
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/7/22 9:49
      * @return int
      */

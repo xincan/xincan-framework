@@ -7,13 +7,13 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 /**
  * copyright (C), 2020, 心灿基础架构
  *
- * @author JiangXincan
+ * @author Jiangxincan
  * @version 0.0.1
  * @program xincan-eureka
  * 服务注册与发现中心
  * @create 2020/3/19 14:54
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:54             0.0.1                         服务注册与发现中心
+ * Jiangxincan         2020/3/19 14:54             0.0.1                         服务注册与发现中心
  */
 @EnableEurekaServer
 @SpringBootApplication

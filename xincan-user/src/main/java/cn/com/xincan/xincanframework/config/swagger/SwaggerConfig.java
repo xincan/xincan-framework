@@ -24,11 +24,11 @@ import java.util.Date;
  *
  * @program xincan-framework
  * Swagger API 配置
- * @author JiangXincan
+ * @author Jiangxincan
  * @create 2019/12/23 16:09
  * @version 0.0.1
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2019/12/23 16:09             0.0.1                         Sharing 数据源aop
+ * Jiangxincan         2019/12/23 16:09             0.0.1                         Sharing 数据源aop
  */
 @Configuration
 @EnableSwagger2

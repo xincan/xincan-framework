@@ -3,13 +3,13 @@ package cn.com.xincan.xincanframework.entity.order.vo;
 /**
  * copyright (C), 2020, 心灿基础架构
  *
- * @author JiangXincan
+ * @author Jiangxincan
  * @version 0.0.1
  * @program xincan-order
  * 系统更新信息试图
  * @create 2020/3/19 14:54
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:54             0.0.1                         系统更新信息试图
+ * Jiangxincan         2020/3/19 14:54             0.0.1                         系统更新信息试图
  */
 
 import com.fasterxml.jackson.annotation.JsonFormat;

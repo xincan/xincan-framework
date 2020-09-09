@@ -18,13 +18,13 @@ import java.util.List;
 /**
  * copyright (C), 2020, 心灿基础架构
  *
- * @author JiangXincan
+ * @author Jiangxincan
  * @version 0.0.1
  * @program xincan-order
  * 订单接口实现类
  * @create 2020/3/19 14:36
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:36             0.0.1                       订单接口实现类
+ * Jiangxincan         2020/3/19 14:36             0.0.1                       订单接口实现类
  */
 @Component
 public class OrderServiceImpl implements IOrderService {
@@ -36,7 +36,7 @@ public class OrderServiceImpl implements IOrderService {
     /**
      *  保存订单信息
      * @param orderSaveDto 订单信息实体
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/7/21 16:58
      * @return cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo
      */
@@ -49,7 +49,7 @@ public class OrderServiceImpl implements IOrderService {
 
     /**
      *  查询所有订单信息
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/7/21 13:58
      * @return java.util.List<cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo>
      */
@@ -63,7 +63,7 @@ public class OrderServiceImpl implements IOrderService {
     /**
      *  根据订单ID查询订单信息
      * @param id 订单ID
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/7/21 13:59
      * @return cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo
      */
@@ -76,7 +76,7 @@ public class OrderServiceImpl implements IOrderService {
     /**
      *  根据部分参数查询订单信息
      * @param orderSearchDto 参数对象
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/7/21 17:18
      * @return cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo
      */

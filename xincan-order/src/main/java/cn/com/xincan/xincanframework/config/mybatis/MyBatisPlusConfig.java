@@ -9,18 +9,18 @@ import org.springframework.context.annotation.Configuration;
  *
  * @program xincan-framework
  * MyBatisPlus 配置
- * @author JiangXincan
+ * @author Jiangxincan
  * @create 2019/12/20 15:27
  * @version 0.0.1
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2019/12/20 15:27           0.0.1                         MyBatisPlus 配置
+ * Jiangxincan         2019/12/20 15:27           0.0.1                         MyBatisPlus 配置
  */
 @Configuration
 public class MyBatisPlusConfig {
 
     /**
      * MyBatisPlus配置分页
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/1/7 10:22
      * @return com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor
      */

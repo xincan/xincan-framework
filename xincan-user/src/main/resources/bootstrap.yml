@@ -9,6 +9,10 @@ server:
   port: 8000
 
 spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+
+
   application:
     name: xincan-user
   profiles:

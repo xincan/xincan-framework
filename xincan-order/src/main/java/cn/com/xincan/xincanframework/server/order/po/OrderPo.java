@@ -14,13 +14,13 @@ import java.time.LocalDateTime;
 /**
  * copyright (C), 2020, 心灿基础架构
  *
- * @author JiangXincan
+ * @author Jiangxincan
  * @version 0.0.1
  * @program xincan-order
  * 订单数据实体类
  * @create 2020/3/19 14:36
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:36             0.0.1                         订单数据实体类
+ * Jiangxincan         2020/3/19 14:36             0.0.1                         订单数据实体类
  */
 
 @Slf4j

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 /**
  * copyright (C), 2020, 北京同创永益科技发展有限公司
  *
- * @author JiangXincan
+ * @author Jiangxincan
  * @version 1.0
  * @program xincan-framework
  * @description 切换数据源操作
@@ -27,7 +27,7 @@ public class DataSourceContextAop {
      *  针对数据库一主多从中【多从】的情况下，对其进行选举，找出其中合适的从数据库进行查询
      *  选举算法参见：cn.com.xincan.xincanframework.config.datasource.DataSourceContextHolder.java:68
      *
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/8/6 16:01
      */
     @Pointcut("!@annotation(cn.com.xincan.xincanframework.config.datasource.Master) " +
@@ -40,7 +40,7 @@ public class DataSourceContextAop {
     /**
      *  数据库增、删、改作（主库操作）
      *
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/8/6 16:01
      */
     @Pointcut("@annotation(cn.com.xincan.xincanframework.config.datasource.Master) " +

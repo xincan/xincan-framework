@@ -16,11 +16,11 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @program xincan-framework
  *  实体类转换工具类
- * @author JiangXincan
+ * @author Jiangxincan
  * @date 2020/09/07 18:27
  * @version 0.0.1
  * <Author>                <Time>                  <Version>                   <Description>
- * JiangXincan         2020/09/07 18:27             0.0.1                         实体类转换工具类
+ * Jiangxincan         2020/09/07 18:27             0.0.1                         实体类转换工具类
  */
 public class OrikaUtils {
 
@@ -129,7 +129,7 @@ public class OrikaUtils {
      *  注册class类映射
      * @param dataClass  被转换class类
      * @param toClass  转换成class类
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/26 19:55
      * @return void
      */

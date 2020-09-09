@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * copyright (C), 2020, 心灿基础架构
  *
- * @author JiangXincan
+ * @author Jiangxincan
  * @version 0.0.1
  * @program xincan-framework
  * @description 总体配置信息实体类

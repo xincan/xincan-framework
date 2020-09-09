@@ -19,13 +19,13 @@ import java.util.List;
 /**
  * copyright (C), 2020, 心灿基础架构
  *
- * @author JiangXincan
+ * @author Jiangxincan
  * @version 0.0.1
  * @program xincan-order
  * 订单信息控制层
  * @create 2020/3/19 14:37
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:37             0.0.1                         订单信息控制层
+ * Jiangxincan         2020/3/19 14:37             0.0.1                         订单信息控制层
  */
 @Slf4j
 @Api(tags = {"订单信息管理"})

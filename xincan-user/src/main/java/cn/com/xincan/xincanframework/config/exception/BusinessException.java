@@ -6,7 +6,7 @@ import lombok.Getter;
 /**
  * copyright (C), 2020, 北京同创永益科技发展有限公司
  *
- * @author JiangXincan
+ * @author Jiangxincan
  * @version 1.0
  * @program xincan-framework
  * @description Restful请求API异常处理类
@@ -22,16 +22,22 @@ public class BusinessException extends RuntimeException {
     private String msg;
 
     public BusinessException() {
-        this(ResponseCode.BUSINESS_ERROR.code(), ResponseCode.BUSINESS_ERROR.message());
+        this(ResponseCode.BUSINESS_EXCEPTION.code(), ResponseCode.BUSINESS_EXCEPTION.message());
     }
 
     public BusinessException(String msg) {
-        this(ResponseCode.BUSINESS_ERROR.code(), msg);
+        this(ResponseCode.BUSINESS_EXCEPTION.code(), msg);
     }
 
     public BusinessException(int code, String msg) {
         super(msg);
         this.code = code;
+        this.msg = msg;
+    }
+
+    public BusinessException(ResponseCode responseCode, String msg) {
+        this(responseCode.code(), responseCode.message());
+        this.code = responseCode.code();
         this.msg = msg;
     }
 

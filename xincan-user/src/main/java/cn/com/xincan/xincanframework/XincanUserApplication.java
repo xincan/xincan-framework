@@ -7,13 +7,13 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 /**
  * copyright (C), 2020, 心灿基础架构
  *
- * @author JiangXincan
+ * @author Jiangxincan
  * @version 0.0.1
  * @program xincan-user
  * 用户微服务程序启动入口
  * @create 2020/3/19 14:54
  * <author>                <time>                  <version>                   <description>
- * JiangXincan         2020/3/19 14:54             0.0.1                       用户微服务程序启动入口
+ * Jiangxincan         2020/3/19 14:54             0.0.1                       用户微服务程序启动入口
  */
 @SpringBootApplication(exclude = {
         DataSourceAutoConfiguration.class

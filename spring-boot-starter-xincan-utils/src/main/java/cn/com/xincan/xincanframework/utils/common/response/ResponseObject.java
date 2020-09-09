@@ -8,11 +8,11 @@ import io.swagger.annotations.ApiModelProperty;
  *
  * @program xincan-framework
  *  响应结果实体类
- * @author JiangXincan
+ * @author Jiangxincan
  * @date 2019/12/18 9:43
  * @version 0.0.1
  * <Author>                <Time>                  <Version>                   <Description>
- * JiangXincan         2019/12/18 9:43             0.0.1                         响应结果实体类
+ * Jiangxincan         2019/12/18 9:43             0.0.1                         响应结果实体类
  */
 
 @ApiModel(description = "响应结果信息")

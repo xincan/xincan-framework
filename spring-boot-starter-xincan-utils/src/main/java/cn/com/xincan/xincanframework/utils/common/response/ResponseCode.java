@@ -5,11 +5,11 @@ package cn.com.xincan.xincanframework.utils.common.response;
  *
  * @program xincan-framework
  *  响应状态枚举类
- * @author JiangXincan
+ * @author Jiangxincan
  * @date 2019/12/18 9:43
  * @version 0.0.1
  * <Author>                <Time>                  <Version>                   <Description>
- * JiangXincan         2019/12/18 9:43             0.0.1                         响应状态枚举类
+ * Jiangxincan         2019/12/18 9:43             0.0.1                         响应状态枚举类
  */
 public enum ResponseCode {
 
@@ -17,15 +17,17 @@ public enum ResponseCode {
      * 请求成功
      */
     REQUEST_SUCCESS(200, "请求成功"),
-
-    /**
-     * 请求失败
-     */
     REQUEST_ERROR(201, "请求失败"),
+
+    NOT_FOUND(404, "无法找到资源"),
+    METHOD_NOT_ALLOWED(405, "请求方法错误"),
+    UNSUPPORTED_MEDIA_TYPE(406, "请求不支持该媒体类型"),
+    REQUEST_EXCEPTION(407, "请求异常"),
+
     EXCEPTION(500, "服务异常"),
-    INTERFACE_ERROR(501, "接口异常"),
-    PARAM_ERROR(502, "参数异常"),
-    BUSINESS_ERROR(503, "业务异常")
+    INTERFACE_EXCEPTION(501, "接口异常"),
+    PARAM_EXCEPTION(502, "参数异常"),
+    BUSINESS_EXCEPTION(503, "业务异常")
     ;
 
     /**
@@ -45,7 +47,7 @@ public enum ResponseCode {
 
     /**
      *  返回状态码的数值
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/1/8 19:45
      * @return Integer
      */
@@ -55,7 +57,7 @@ public enum ResponseCode {
 
     /**
      *  返回状态码的解释
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/1/8 19:45
      * @return java.lang.String 状态解释
      */

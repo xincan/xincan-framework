@@ -3,7 +3,7 @@ package cn.com.xincan.xincanframework.utils;
 /**
  * copyright (C), 2020, 心灿基础架构
  *
- * @author JiangXincan
+ * @author Jiangxincan
  * @version 0.0.1
  * @program xincan-framework
  * @description 打包入口

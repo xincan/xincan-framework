@@ -6,11 +6,11 @@ package cn.com.xincan.xincanframework.utils.common.response;
  *
  * @program xincan-framework
  *  响应状态结果信息实体类
- * @author JiangXincan
+ * @author Jiangxincan
  * @date 2019/12/18 9:43
  * @version 0.0.1
  * <Author>                <Time>                  <Version>                   <Description>
- * JiangXincan         2019/12/18 9:43             0.0.1                         响应状态结果信息实体类
+ * Jiangxincan         2019/12/18 9:43             0.0.1                         响应状态结果信息实体类
  */
 @SuppressWarnings("unchecked")
 public class ResponseResult {
@@ -23,7 +23,7 @@ public class ResponseResult {
      * 针对于返回业务处理之后，无需通知前端具体处理信息，走系统默认的提示信息
      *
      * @Param <T> 响应数据类型
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
@@ -38,7 +38,7 @@ public class ResponseResult {
      *
      * @param responseCode   响应状态
      * @param data           响应数据
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/20 14:41
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
@@ -55,7 +55,7 @@ public class ResponseResult {
      *
      * @Param data      响应数据
      * @Param <T>       响应数据类型
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
@@ -73,7 +73,7 @@ public class ResponseResult {
      * @Param message   响应结果描述
      * @Param data      响应数据
      * @Param <T>       响应数据类型
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
@@ -94,7 +94,7 @@ public class ResponseResult {
      *
      * @Param count     响应数据条数
      * @Param data      响应数据
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
@@ -114,7 +114,7 @@ public class ResponseResult {
      * @Param count     响应数据条数
      * @Param data      响应数据
      * @Param <T>       响应数据类型
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
@@ -133,7 +133,7 @@ public class ResponseResult {
      * @Param message   响应结果信息
      * @Param data      响应数据
      * @Param <T>       响应数据类型
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
@@ -153,7 +153,7 @@ public class ResponseResult {
      * @Param count     响应数据条数
      * @Param data      响应数据
      * @Param <T>       响应数据类型
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
@@ -173,7 +173,7 @@ public class ResponseResult {
      * @param responseCode   响应状态
      * @param count          响应数据条数
      * @param data           响应数据
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/20 14:41
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
@@ -190,7 +190,7 @@ public class ResponseResult {
      * 针对于系统业务处理失败之后，系统默认返回失败处理信息
      *
      * @Param <T>       响应数据类型
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
@@ -207,7 +207,7 @@ public class ResponseResult {
      * 针对于系统业务处理失败之后，系统默认返回失败处理信息
      *
      * @Param responseCode      响应状态
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
@@ -226,7 +226,7 @@ public class ResponseResult {
      * @Param responseCode      响应状态
      * @Param data              响应数据
      * @Param <T>               响应数据类型
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
@@ -243,7 +243,7 @@ public class ResponseResult {
      *
      * @Param message   响应结果信息
      * @Param <T>       响应数据类型
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
@@ -263,7 +263,7 @@ public class ResponseResult {
      * @Param message   响应结果信息
      * @Param data      响应数据
      * @Param <T>       响应数据类型
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
@@ -283,7 +283,7 @@ public class ResponseResult {
      * @Param message   响应结果信息
      * @Param data      响应数据
      * @Param <T>       响应数据类型
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */
@@ -304,7 +304,7 @@ public class ResponseResult {
      * @Param message   响应结果信息
      * @Param data      响应数据
      * @Param <T>       响应数据类型
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
      */

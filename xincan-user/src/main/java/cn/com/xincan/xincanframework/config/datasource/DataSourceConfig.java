@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * copyright (C), 2020, 北京同创永益科技发展有限公司
  *
- * @author JiangXincan
+ * @author Jiangxincan
  * @version 1.0
  * @program xincan-framework
  * @description 数据源配置
@@ -29,7 +29,7 @@ public class DataSourceConfig {
 
     /**
      *  主数据源
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/7/31 16:34
      * @return javax.sql.DataSource
      */
@@ -42,7 +42,7 @@ public class DataSourceConfig {
 
     /**
      *  从数据源 slave1
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/7/31 16:34
      * @return javax.sql.DataSource
      */
@@ -56,7 +56,7 @@ public class DataSourceConfig {
 
     /**
      *  从数据源 slave2
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/7/31 16:34
      * @return javax.sql.DataSource
      */
@@ -73,7 +73,7 @@ public class DataSourceConfig {
      * @param masterDataSource  主数据源 master
      * @param slave1DataSource  从数据源 slave1
      * @param slave2DataSource  从数据源 slave2
-     * @author JiangXincan
+     * @author Jiangxincan
      * @date 2020/7/31 17:13
      * @return javax.sql.DataSource
      */

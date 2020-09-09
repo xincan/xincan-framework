@@ -7,11 +7,11 @@ import io.swagger.annotations.ApiModel;
  *
  * @program xincan-framework
  * @description 排序规则枚举类
- * @author JiangXincan
- * @create 2019/12/24 10:02
+ * @author Jiangxincan
+ * @create 2019/09/09 10:02
  * @version 1.0
  * <Author>                <Time>                  <Version>                   <Description>
- * Jiangxincan         2019/12/24 10:02             1.0                         排序规则枚举类
+ * Jiangxincan         2019/09/09 10:02             1.0                         排序规则枚举类
  */
 @ApiModel(description = "排序枚举类")
 public enum OrderType {

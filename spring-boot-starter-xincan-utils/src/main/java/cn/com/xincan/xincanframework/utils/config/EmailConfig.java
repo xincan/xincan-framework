@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * copyright (C), 2020, 心灿基础架构
  *
- * @author JiangXincan
+ * @author Jiangxincan
  * @version 0.0.1
  * @program xincan-framework
  * @description 工具包配置类
