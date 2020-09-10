@@ -16,8 +16,8 @@ public enum ResponseCode {
     /**
      * 请求成功
      */
-    REQUEST_SUCCESS(200, "请求成功"),
-    REQUEST_ERROR(201, "请求失败"),
+    REQUEST_SUCCESS(200, "操作成功"),
+    REQUEST_ERROR(201, "操作失败"),
 
     NOT_FOUND(404, "无法找到资源"),
     METHOD_NOT_ALLOWED(405, "请求方法错误"),

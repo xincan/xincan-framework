@@ -1,14 +1,14 @@
 package cn.com.xincan.xincanframework.server.exception.controller;
 
 import cn.com.xincan.xincanframework.config.exception.BusinessException;
-import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import cn.com.xincan.xincanframework.utils.common.response.ResponseObject;
 import cn.com.xincan.xincanframework.utils.common.response.ResponseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import io.swagger.annotations.ApiParam;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  * copyright (C), 2020, 北京同创永益科技发展有限公司

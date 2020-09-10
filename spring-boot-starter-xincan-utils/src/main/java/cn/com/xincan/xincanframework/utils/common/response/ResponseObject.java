@@ -2,6 +2,7 @@ package cn.com.xincan.xincanframework.utils.common.response;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.ToString;
 
 /**
  * Copyright (C), 2019, 心灿基础架构
@@ -15,6 +16,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Jiangxincan         2019/12/18 9:43             0.0.1                         响应结果实体类
  */
 
+@ToString
 @ApiModel(description = "响应结果信息")
 public class ResponseObject<T> {
 
@@ -120,15 +122,4 @@ public class ResponseObject<T> {
         this.time = time;
     }
 
-
-    @Override
-    public String toString() {
-        return "ResponseObject{" +
-                ",code=" + code +
-                ", msg='" + msg + '\'' +
-                ", count=" + count +
-                ", data=" + data +
-                ", time='" + time + '\'' +
-                '}';
-    }
 }

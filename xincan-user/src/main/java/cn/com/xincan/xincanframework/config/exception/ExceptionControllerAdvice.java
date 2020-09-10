@@ -43,7 +43,8 @@ import java.util.Set;
  */
 @Slf4j
 @RestControllerAdvice
-public class ExceptionControllerAdvice {
+public class ExceptionControllerAdvice{
+
 
     /**类型不匹配*/
     private static final String TYPE_MISMATCH = "typeMismatch";
