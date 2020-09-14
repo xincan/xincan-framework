@@ -13,7 +13,8 @@
     <description>xincan-framework架构</description>
 
     <modules>
-        <module>spring-boot-starter-xincan-utils</module>
+        <module>xincan-utils</module>
+        <module>xincan-config</module>
         <module>xincan-entity</module>
         <module>xincan-order</module>
         <module>xincan-user</module>
@@ -72,8 +73,13 @@
         <!-- 阿里巴巴excel解析版本配置 -->
         <easyexcel.version>2.1.6</easyexcel.version>
 
+        <!-- 自定义通用配置版本配置 -->
+        <xincan-config.version>0.0.1-SNAPSHOT</xincan-config.version>
 
-        <spring-boot-starter-xincan-utils.version>0.0.1-SNAPSHOT</spring-boot-starter-xincan-utils.version>
+        <!-- 自定义通用工具包版本配置 -->
+        <xincan-utils.version>0.0.1-SNAPSHOT</xincan-utils.version>
+
+        <!-- 自定义通用实体类工具包版本配置 -->
         <xincan-entity.version>0.0.1-SNAPSHOT</xincan-entity.version>
 
     </properties>
@@ -172,11 +178,18 @@
                 <version>${easyexcel.version}</version>
             </dependency>
 
+            <!-- 集成自定义配置工具依赖 -->
+            <dependency>
+                <groupId>cn.com.xincan.xincanframework.config</groupId>
+                <artifactId>xincan-config</artifactId>
+                <version>${xincan-config.version}</version>
+            </dependency>
+
             <!-- 定义定义自定义工具依赖 -->
             <dependency>
                 <groupId>cn.com.xincan.xincanframework.utils</groupId>
-                <artifactId>spring-boot-starter-xincan-utils</artifactId>
-                <version>${spring-boot-starter-xincan-utils.version}</version>
+                <artifactId>xincan-utils</artifactId>
+                <version>${xincan-utils.version}</version>
             </dependency>
 
             <!-- 定义定义自定义工具依赖 -->

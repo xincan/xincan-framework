@@ -1,5 +1,6 @@
 package cn.com.xincan.xincanframework.server.user.service.impl;
 
+import cn.com.xincan.xincanframework.utils.orika.OrikaUtils;
 import cn.com.xincan.xincanframework.entity.user.dto.UserPatchDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto;
@@ -7,9 +8,7 @@ import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import cn.com.xincan.xincanframework.server.user.mapper.IUserMapper;
 import cn.com.xincan.xincanframework.server.user.po.UserPo;
 import cn.com.xincan.xincanframework.server.user.service.IUserService;
-import cn.com.xincan.xincanframework.utils.common.orika.OrikaUtils;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.stereotype.Service;

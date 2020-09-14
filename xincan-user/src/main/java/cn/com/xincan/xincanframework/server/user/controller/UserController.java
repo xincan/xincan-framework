@@ -1,12 +1,15 @@
 package cn.com.xincan.xincanframework.server.user.controller;
 
+import cn.com.xincan.xincanframework.config.exception.BusinessException;
+import cn.com.xincan.xincanframework.excetion.UserException;
+import cn.com.xincan.xincanframework.utils.response.ResponseCode;
+import cn.com.xincan.xincanframework.utils.response.ResponseObject;
+import cn.com.xincan.xincanframework.utils.response.ResponseResult;
 import cn.com.xincan.xincanframework.entity.user.dto.UserPatchDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto;
 import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import cn.com.xincan.xincanframework.server.user.service.IUserService;
-import cn.com.xincan.xincanframework.utils.common.response.ResponseObject;
-import cn.com.xincan.xincanframework.utils.common.response.ResponseResult;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -18,6 +21,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -47,14 +51,21 @@ public class UserController {
     }
 
     @ApiOperation(value = "查询用户信息", httpMethod = "GET", notes = "根据用户ID查询用户详细信息")
-    @GetMapping("/{id}")
+    @GetMapping("/{id}/{type}")
     public ResponseObject<UserSearchVo> findUserById(
             @ApiParam(name = "id", value = "用户ID", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
             @NotBlank(message = "用户ID不能为空")
-            @Length(message = "用户ID长度应为32位", min = 32, max = 32)
+            @Length(message = "用户ID长度应为{min}位", min = 32, max = 32)
             @PathVariable(name = "id")
-            String id
+            String id,
+            @ApiParam(name = "type", value = "异常类型", required = true, example = "503")
+            @NotNull(message = "异常类型不能为空")
+            @PathVariable(name = "type")
+            Integer type
     ) {
+        if(type == 503){
+            throw new UserException(ResponseCode.BUSINESS_EXCEPTION, "用户信息异常");
+        }
         return ResponseResult.success(userService.findUserById(id));
     }
 

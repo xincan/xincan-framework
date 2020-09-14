@@ -94,10 +94,16 @@
             <artifactId>orika-core</artifactId>
         </dependency>
 
+        <!-- 集成自定义配置工具依赖 -->
+        <dependency>
+            <groupId>cn.com.xincan.xincanframework.config</groupId>
+            <artifactId>xincan-config</artifactId>
+        </dependency>
+
         <!-- 集成自定义工具依赖 -->
         <dependency>
             <groupId>cn.com.xincan.xincanframework.utils</groupId>
-            <artifactId>spring-boot-starter-xincan-utils</artifactId>
+            <artifactId>xincan-utils</artifactId>
         </dependency>
 
         <!-- 集成定义自定义工具依赖 -->
