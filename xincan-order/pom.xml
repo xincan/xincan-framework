@@ -60,8 +60,8 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <!-- 集成mysql数据库处理依赖 -->
@@ -88,13 +88,19 @@
             <artifactId>knife4j-spring-boot-starter</artifactId>
         </dependency>
 
+        <!-- 集成orika-core实体类转换依赖 -->
+        <dependency>
+            <groupId>ma.glasnost.orika</groupId>
+            <artifactId>orika-core</artifactId>
+        </dependency>
+
         <!-- 集成自定义配置工具依赖 -->
         <dependency>
             <groupId>cn.com.xincan.xincanframework.config</groupId>
             <artifactId>xincan-config</artifactId>
         </dependency>
 
-        <!-- 定义自定义工具依赖 -->
+        <!-- 集成自定义工具依赖 -->
         <dependency>
             <groupId>cn.com.xincan.xincanframework.utils</groupId>
             <artifactId>xincan-utils</artifactId>
