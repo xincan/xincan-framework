@@ -1,5 +1,9 @@
 package cn.com.xincan.xincanframework.server.order.service.impl;
 
+import cn.com.xincan.xincanframework.entity.order.dto.OrderPatchDto;
+import cn.com.xincan.xincanframework.entity.user.dto.UserPatchDto;
+import cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto;
+import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import cn.com.xincan.xincanframework.utils.orika.OrikaUtils;
 import cn.com.xincan.xincanframework.entity.order.dto.OrderSaveDto;
 import cn.com.xincan.xincanframework.entity.order.dto.OrderSearchDto;
@@ -8,9 +12,10 @@ import cn.com.xincan.xincanframework.server.order.mapper.IOrderMapper;
 import cn.com.xincan.xincanframework.server.order.po.OrderPo;
 import cn.com.xincan.xincanframework.server.order.service.IOrderService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
-import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -32,20 +37,6 @@ public class OrderServiceImpl implements IOrderService {
 
     @Resource
     private IOrderMapper orderMapper;
-
-    /**
-     *  保存订单信息
-     * @param orderSaveDto 订单信息实体
-     * @author Jiangxincan
-     * @date 2020/7/21 16:58
-     * @return cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo
-     */
-    @Override
-    public OrderSearchVo save(OrderSaveDto orderSaveDto) {
-        OrderPo orderPo = OrikaUtils.map(orderSaveDto, OrderPo.class);
-        orderMapper.insert(orderPo);
-        return OrikaUtils.map(orderPo, OrderSearchVo.class);
-    }
 
     /**
      *  查询所有订单信息
@@ -74,32 +65,66 @@ public class OrderServiceImpl implements IOrderService {
     }
 
     /**
-     *  根据部分参数查询订单信息
-     * @param orderSearchDto 参数对象
+     *  分页查询用户信息
+     * @param orderSearchDto 订单信息实体类
      * @author Jiangxincan
-     * @date 2020/7/21 17:18
+     * @date 2020/7/22 9:48
+     * @return com.baomidou.mybatisplus.extension.plugins.pagination.Page<cn.com.xincan.xincanframework.entity.order.dto.OrderSearchDto>
+     */
+    @Override
+    public Page<OrderSearchVo> page(OrderSearchDto orderSearchDto){
+        Page<OrderPo> page = new Page<>(orderSearchDto.getPage(), orderSearchDto.getLimit());
+        LambdaQueryWrapper<OrderPo> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.like(StringUtils.isNotBlank(orderSearchDto.getUserId()), OrderPo::getUserId, orderSearchDto.getUserId());
+        page = orderMapper.selectPage(page, queryWrapper);
+        Page<OrderSearchVo> record = new Page<>();
+        record.setRecords(OrikaUtils.mapAsList(page.getRecords(), OrderSearchVo.class));
+        record.setTotal(page.getTotal());
+        return record;
+
+    }
+
+    /**
+     *  保存订单信息
+     * @param orderSaveDto 订单信息实体
+     * @author Jiangxincan
+     * @date 2020/7/21 16:58
      * @return cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo
      */
     @Override
-    public OrderSearchVo findOrderByParams(OrderSearchDto orderSearchDto) {
-
-        if(ObjectUtils.isEmpty(orderSearchDto)) {
-            return null;
-        }
-
-        LambdaQueryWrapper<OrderPo> lambdaQueryWrapper = new LambdaQueryWrapper<OrderPo>();
-
-        if( !StringUtils.isEmpty(orderSearchDto.getId())) {
-            lambdaQueryWrapper.eq(OrderPo::getId, orderSearchDto.getId());
-        }else if( !StringUtils.isEmpty(orderSearchDto.getUserId())) {
-            lambdaQueryWrapper.eq(OrderPo::getUserId, orderSearchDto.getUserId());
-        }else if( !StringUtils.isEmpty(orderSearchDto.getTitle())) {
-            lambdaQueryWrapper.eq(OrderPo::getTitle, orderSearchDto.getTitle());
-        }
-
-        OrderPo orderPo = orderMapper.selectOne(lambdaQueryWrapper);
-
+    public OrderSearchVo save(OrderSaveDto orderSaveDto) {
+        OrderPo orderPo = OrikaUtils.map(orderSaveDto, OrderPo.class);
+        orderMapper.insert(orderPo);
         return OrikaUtils.map(orderPo, OrderSearchVo.class);
     }
+
+    /**
+     *  修改订单信息
+     * @param orderPatchDto 修改订单信息实体类
+     * @author Jiangxincan
+     * @date 2020/7/22 9:49
+     * @return cn.com.xincan.xincanframework.entity.order.dto.OrderSearchVo
+     */
+    @Override
+    public OrderSearchVo patch(OrderPatchDto orderPatchDto) {
+        OrderPo userPo = OrikaUtils.map(orderPatchDto, OrderPo.class);
+        orderMapper.updateById(userPo);
+        return OrikaUtils.map(orderPatchDto, OrderSearchVo.class);
+    }
+
+    /**
+     *  删除用户信息
+     * @param id 用户ID
+     * @author Jiangxincan
+     * @date 2020/7/22 9:49
+     * @return int
+     */
+    @Override
+    public int delete(String id) {
+        LambdaQueryWrapper<OrderPo> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(OrderPo::getId, id);
+        return orderMapper.delete(queryWrapper);
+    }
+
 
 }

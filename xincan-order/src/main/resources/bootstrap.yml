@@ -1,7 +1,17 @@
+address:
+  nacos: 192.168.3.10:8848
+  mysql:
+    master: 192.168.3.10:3307
+    slave1: 192.168.3.10:3308
+    slave2: 192.168.3.10:3309
+
 server:
   port: 8001
 
 spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+
   application:
     name: xincan-order
   profiles:
@@ -11,43 +21,30 @@ spring:
     nacos:
       config:
         namespace: xincan-${spring.profiles.active}-0001
-        server-addr: 192.168.3.50:8848        # 配置中心url
+        server-addr: ${address.nacos}        # 配置中心url
         group: ${spring.profiles.active}_group
         file-extension: yaml                  # 配置文件类型
       discovery:
-        server-addr: 192.168.3.50:8848
+        server-addr: ${address.nacos}
         group: ${spring.profiles.active}_group
         namespace: xincan-${spring.profiles.active}-0001
 
   datasource:
-    uri: 192.168.3.50:3306/nacos-${spring.profiles.active}
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${spring.datasource.uri}?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
-    username: root
-    password: root
-    hikari:
-      connection-timeout: 30000
-      minimum-idle: 5
-      maximum-pool-size: 30
-      idle-timeout: 30000
-      max-lifetime: 120000
-      auto-commit: true
-      connection-test-query: SELECT 1
-
-mybatis-plus:
-  mapper-locations: classpath:mapper/**/*.xml
-  # 以下配置均有默认值,可以不设置
-  global-config:
-    db-config:
-      #主键类 * AUTO: 数据库ID自增; INPUT: 用户输入ID; ID_WORKER: 全局唯一ID, Long类型的主键; ID_WORKER_STR: 字符串全局唯一ID; UUID: 全局唯一ID，UUID类型的主键; NONE: 该类型为未设置主键类型
-      id-type: ID_WORKER_STR
-  configuration:
-    # 是否开启自动驼峰命名规则映射:从数据库列名到Java属性驼峰命名的类似映射
-    map-underscore-to-camel-case: true
-    # 如果查询结果中包含空值的列，则 MyBatis 在映射的时候，不会映射这个字段
-    call-setters-on-nulls: false
-    # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    master:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://${address.mysql.master}/nacos-${spring.profiles.active}?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
+      username: root
+      password: root
+    slave1:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://${address.mysql.slave1}/nacos-${spring.profiles.active}?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
+      username: root
+      password: root
+    slave2:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://${address.mysql.slave2}/nacos-${spring.profiles.active}?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
+      username: root
+      password: root
 
 management:
   metrics:
@@ -56,10 +53,13 @@ management:
         enabled: true
         step: 1m
         descriptions: true
+  web:
+    server:
+      auto-time-requests: true
   endpoints:
     prometheus:
       id: ${spring.application.name}
     web:
       exposure:
-#        include: '*'
+        #        include: '*'
         include: health,info,env,prometheus,metrics,httptrace,threaddump,heapdump,${spring.application.name},nacos-config

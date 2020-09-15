@@ -40,18 +40,6 @@ public class OrderController {
         this.orderService = userService;
     }
 
-    @ApiOperation(value = "查询订单信息", httpMethod = "GET", notes = "查询所有订单信息")
-    @GetMapping
-    public ResponseObject<List<OrderSearchVo>> find() {
-        return ResponseResult.success(orderService.findAll());
-    }
-
-    @ApiOperation(value = "新增订单信息", httpMethod = "PUT", notes = "新增订单信息")
-    @PutMapping
-    public ResponseObject<OrderSearchVo> find(@ApiParam OrderSaveDto studentDTO) {
-        return ResponseResult.success(orderService.save(studentDTO));
-    }
-
     @ApiOperation(value = "根据订单ID查询订单信息", httpMethod = "GET", notes = "根据订单ID查询订单信息")
     @GetMapping("/{id}")
     public ResponseObject<OrderSearchVo> findOrderById(
@@ -61,10 +49,18 @@ public class OrderController {
         return ResponseResult.success(orderService.findOrderById(id));
     }
 
-    @ApiOperation(value = "根据订单参数查询订单信息", httpMethod = "GET", notes = "根据订单ID、用户ID、订单名称查询订单详细信息")
-    @GetMapping("/params")
+    @ApiOperation(value = "查询订单信息", httpMethod = "GET", notes = "根据订单ID、用户ID、订单名称查询订单详细信息")
+    @GetMapping
     public ResponseObject<OrderSearchVo> findOrderByParams( @Validated OrderSearchDto orderSearchDto) {
         return ResponseResult.success(orderService.findOrderByParams(orderSearchDto));
     }
+
+    @ApiOperation(value = "新增订单信息", httpMethod = "PUT", notes = "新增订单信息")
+    @PutMapping
+    public ResponseObject<OrderSearchVo> save(@ApiParam OrderSaveDto studentDTO) {
+        return ResponseResult.success(orderService.save(studentDTO));
+    }
+
+
 
 }
