@@ -1,7 +1,6 @@
 package cn.com.xincan.xincanframework.excetion;
 
 import cn.com.xincan.xincanframework.config.exception.BaseExceptionControllerAdvice;
-import cn.com.xincan.xincanframework.config.exception.BusinessException;
 import cn.com.xincan.xincanframework.utils.response.ResponseCode;
 import cn.com.xincan.xincanframework.utils.response.ResponseObject;
 import cn.com.xincan.xincanframework.utils.response.ResponseResult;
