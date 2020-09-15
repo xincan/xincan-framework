@@ -1,11 +1,10 @@
 package cn.com.xincan.xincanframework.entity.order.dto;
 
+import cn.com.xincan.xincanframework.entity.page.PaginationQuery;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 /**
  * copyright (C), 2020, 心灿基础架构
@@ -20,10 +19,12 @@ import lombok.NoArgsConstructor;
  */
 @ApiModel(description = "订单信息查询实体类")
 @Data
+@ToString(callSuper = true)
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class OrderSearchDto {
+public class OrderSearchDto extends PaginationQuery {
 
     @ApiModelProperty(name = "id", value="订单ID（UUID）", dataType = "String", example = "1285522130867376129")
     private String id;

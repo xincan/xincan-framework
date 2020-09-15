@@ -1,6 +1,5 @@
 package cn.com.xincan.xincanframework.entity.user.dto;
 
-import cn.com.xincan.xincanframework.entity.page.OrderType;
 import cn.com.xincan.xincanframework.entity.page.PaginationQuery;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
@@ -10,9 +9,6 @@ import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 /**

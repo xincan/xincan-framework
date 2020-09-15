@@ -13,6 +13,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
+
+
+
+
 /**
  * copyright (C), 2020, 北京同创永益科技发展有限公司
  *
@@ -36,18 +40,15 @@ public class UserPatchDto {
     @Length(message = "用户ID长度应为{min}位", min = 32, max = 32)
     private String id;
 
-    @ApiModelProperty(value="用户名称", dataType = "String", required = true, example = "张三")
-    @NotBlank(message = "用户名称不能为空")
+    @ApiModelProperty(value="用户名称", dataType = "String", example = "张三")
     @Length(message = "用户名称长度应在{min}~{max}之间", min = 1, max = 50)
     private String name;
 
-    @ApiModelProperty(value="用户登录名称", dataType = "String", required = true, example = "zhangsan")
-    @NotBlank(message = "登录名称不能为空")
+    @ApiModelProperty(value="用户登录名称", dataType = "String", example = "zhangsan")
     @Length(message = "登录名称长度应在{min}~{max}之间", min = 1, max = 50)
     private String loginName;
 
-    @ApiModelProperty(value="登录密码", dataType = "String", required = true, example = "123456")
-    @NotBlank(message = "登录密码不能为空")
+    @ApiModelProperty(value="登录密码", dataType = "String", example = "123456")
     @Length(message = "登录密码长度应在{min}~{max}之间", min = 6, max = 20)
     private String password;
 

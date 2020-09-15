@@ -2,11 +2,12 @@ package cn.com.xincan.xincanframework.entity.page;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotNull;
 
 /**
  * Copyright (C), 2019, 北京同创永益科技发展有限公司
