@@ -9,19 +9,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  *
  * @program hatech-framework
  * 配置 spring mvc
- * @author WangMingShuai
+ * @author Jiangxincan
  * @create 2019/12/23 15:13
  * @version 2.0.0
  * <author>                <time>                  <version>                   <description>
- * WangMingShuai         2019/12/23 15:13             2.0.0                         配置 spring mvc
+ * Jiangxincan         2019/12/23 15:13             2.0.0                         配置 spring mvc
  */
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     /**
      * 添加资源
-     * @param registry
-     * @author WangMingShuai
+     * @param registry 静态资源注册信息
+     * @author Jiangxincan
      * @date 2020/1/7 10:28
      * @return void
      */

@@ -61,7 +61,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     /**
-     *  根据用户ID，查询用户详细信息实体类
+     *  分页查询用户信息
      * @param userSearchDto 用户信息实体类
      * @author Jiangxincan
      * @date 2020/7/22 9:48

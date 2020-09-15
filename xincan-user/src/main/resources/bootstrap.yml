@@ -12,7 +12,6 @@ spring:
   mvc:
     throw-exception-if-no-handler-found: true
 
-
   application:
     name: xincan-user
   profiles:
