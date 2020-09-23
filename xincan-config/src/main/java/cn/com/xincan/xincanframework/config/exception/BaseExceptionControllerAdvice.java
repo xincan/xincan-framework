@@ -8,6 +8,7 @@ import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpMediaTypeNotAcceptableException;
@@ -134,9 +135,8 @@ public class BaseExceptionControllerAdvice {
      */
     @ExceptionHandler({Exception.class})
     public ResponseObject<String> handlerException(Exception exception) {
-        Throwable throwable = exception.getCause();
-        log(Exception.class, ResponseCode.EXCEPTION, throwable);
-        return ResponseResult.error(ResponseCode.EXCEPTION, "请联系后台开发人员");
+        log(Exception.class, ResponseCode.EXCEPTION, exception);
+        return ResponseResult.error(ResponseCode.EXCEPTION, "请联系后台开发人员," + exception.toString());
     }
 
     /**
@@ -221,6 +221,20 @@ public class BaseExceptionControllerAdvice {
     public void log(@NotNull Class<?> errorType, Enum<?> secondaryErrorType, Throwable throwable) {
         ResponseCode responseCode = (ResponseCode)secondaryErrorType;
         log.error("[{}] [{}] [{}]", errorType.getSimpleName(), responseCode.message(), throwable.getMessage(), throwable);
+    }
+
+    /**
+     *  错误日志打印
+     * @param errorType          错误类型
+     * @param secondaryErrorType 二次错误类型
+     * @param exception          错误信息
+     * @author Jiangxincan
+     * @date 2020/9/4 10:16
+     * @return void
+     */
+    public void log(@NotNull Class<?> errorType, Enum<?> secondaryErrorType, Exception exception) {
+        ResponseCode responseCode = (ResponseCode)secondaryErrorType;
+        log.error("[{}] [{}] [{}]", errorType.getSimpleName(), responseCode.message(), exception.toString(), exception);
     }
 
 }
