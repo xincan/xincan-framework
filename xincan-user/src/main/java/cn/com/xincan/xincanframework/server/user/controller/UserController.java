@@ -1,6 +1,7 @@
 package cn.com.xincan.xincanframework.server.user.controller;
 
-import cn.com.xincan.xincanframework.config.exception.BusinessException;
+import cn.com.xincan.xincanframework.config.log.LogType;
+import cn.com.xincan.xincanframework.config.log.OptionLog;
 import cn.com.xincan.xincanframework.excetion.UserException;
 import cn.com.xincan.xincanframework.utils.response.ResponseCode;
 import cn.com.xincan.xincanframework.utils.response.ResponseObject;
@@ -52,6 +53,7 @@ public class UserController {
 
     @ApiOperation(value = "查询用户信息", httpMethod = "GET", notes = "根据用户ID查询用户详细信息")
     @GetMapping("/{id}/{type}")
+    @OptionLog(type = LogType.BUSINESS_SEARCH)
     public ResponseObject<UserSearchVo> findUserById(
             @ApiParam(name = "id", value = "用户ID", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
             @NotBlank(message = "用户ID不能为空")
@@ -71,6 +73,7 @@ public class UserController {
 
     @ApiOperation(value = "查询用户信息", httpMethod = "GET", notes = "查询所有用户信息")
     @GetMapping
+    @OptionLog(type = LogType.BUSINESS_SEARCH)
     public ResponseObject<List<UserSearchVo>> find() {
         List<UserSearchVo> lists = userService.findAll();
         return ResponseResult.success(lists.size(), lists);
@@ -78,6 +81,7 @@ public class UserController {
 
     @ApiOperation(value = "查询用户信息（分页）", httpMethod = "POST", notes = "根据参数列表查询部分用户列表信息")
     @PostMapping
+    @OptionLog(type = LogType.BUSINESS_SEARCH)
     public ResponseObject<List<UserSearchVo>> page(@ApiParam @Validated @RequestBody UserSearchDto userSearchDto) {
         Page<UserSearchVo> page = userService.page(userSearchDto);
         return ResponseResult.success(page.getTotal(), page.getRecords());
@@ -85,18 +89,21 @@ public class UserController {
 
     @ApiOperation(value = "新增用户信息", httpMethod = "PUT", notes = "新增用户信息")
     @PutMapping
+    @OptionLog(type = LogType.BUSINESS_ADD)
     public ResponseObject<UserSearchVo> save(@ApiParam @Validated UserSaveDto userSaveDto) {
         return ResponseResult.success(userService.save(userSaveDto));
     }
 
-    @ApiOperation(value = "修改用户信息", httpMethod = "PATCH", notes = "根据参数列表修改用户信息")
+    @ApiOperation(value = "编辑用户信息", httpMethod = "PATCH", notes = "根据参数列表编辑用户信息")
     @PatchMapping
+    @OptionLog(type=LogType.BUSINESS_UPDATE)
     public ResponseObject<UserSearchVo> patch(@ApiParam @Validated UserPatchDto userPatchDto) {
         return ResponseResult.success(userService.patch(userPatchDto));
     }
 
     @ApiOperation(value = "删除用户信息", httpMethod = "DELETE", notes = "根据ID删除用户信息")
     @DeleteMapping
+    @OptionLog(type=LogType.BUSINESS_DELETE)
     public ResponseObject<Integer> delete(
             @ApiParam(name = "id", value = "用户ID", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
             @NotBlank(message = "用户ID不能为空")
