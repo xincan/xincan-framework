@@ -1,4 +1,4 @@
-package cn.com.xincan.xincanframework.excetion;
+package cn.com.xincan.xincanframework.config.excetion;
 
 import cn.com.xincan.xincanframework.config.exception.BusinessException;
 import cn.com.xincan.xincanframework.utils.response.ResponseCode;

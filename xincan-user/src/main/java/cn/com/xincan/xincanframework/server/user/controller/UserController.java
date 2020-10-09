@@ -4,7 +4,7 @@ import cn.com.xincan.xincanframework.entity.user.dto.UserPatchDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto;
 import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
-import cn.com.xincan.xincanframework.excetion.UserException;
+import cn.com.xincan.xincanframework.config.excetion.UserException;
 import cn.com.xincan.xincanframework.server.user.service.IUserService;
 import cn.com.xincan.xincanframework.utils.response.*;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
