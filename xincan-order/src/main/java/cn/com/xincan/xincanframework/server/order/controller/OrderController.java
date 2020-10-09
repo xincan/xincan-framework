@@ -7,6 +7,7 @@ import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
 import cn.com.xincan.xincanframework.server.order.service.IOrderService;
 import cn.com.xincan.xincanframework.utils.response.ResponseObject;
 import cn.com.xincan.xincanframework.utils.response.ResponseResult;
+import cn.com.xincan.xincanframework.utils.response.ResponseResultBody;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -35,6 +36,7 @@ import java.util.List;
 @Api(tags = {"订单信息管理"})
 @RestController
 @Validated
+@ResponseResultBody
 @RequestMapping("/order")
 public class OrderController {
 
@@ -47,13 +49,13 @@ public class OrderController {
 
     @ApiOperation(value = "根据订单ID查询订单信息", httpMethod = "GET", notes = "根据订单ID查询订单信息")
     @GetMapping("/{id}")
-    public ResponseObject<OrderSearchVo> findOrderById(
+    public OrderSearchVo findOrderById(
             @ApiParam(name = "id", value = "订单ID", required = true, example = "1269912454821879810")
             @Length(message = "订单ID长度应为32位", min = 32, max = 32)
             @PathVariable(name = "id")
             String id
     ) {
-        return ResponseResult.success(orderService.findOrderById(id));
+        return orderService.findOrderById(id);
     }
 
     @ApiOperation(value = "查询订单信息（分页）", httpMethod = "POST", notes = "根据参数列表查询部分订单列表信息")
@@ -65,26 +67,26 @@ public class OrderController {
 
     @ApiOperation(value = "新增订单信息", httpMethod = "PUT", notes = "新增订单信息")
     @PutMapping
-    public ResponseObject<OrderSearchVo> save(@ApiParam @Validated OrderSaveDto orderSaveDto) {
-        return ResponseResult.success(orderService.save(orderSaveDto));
+    public OrderSearchVo save(@ApiParam @Validated OrderSaveDto orderSaveDto) {
+        return orderService.save(orderSaveDto);
     }
 
     @ApiOperation(value = "修改订单信息", httpMethod = "PATCH", notes = "根据参数列表修改订单信息")
     @PatchMapping
-    public ResponseObject<OrderSearchVo> patch(@ApiParam @Validated OrderPatchDto orderPatchDto) {
-        return ResponseResult.success(orderService.patch(orderPatchDto));
+    public OrderSearchVo patch(@ApiParam @Validated OrderPatchDto orderPatchDto) {
+        return orderService.patch(orderPatchDto);
     }
 
     @ApiOperation(value = "删除订单信息", httpMethod = "DELETE", notes = "根据ID删除订单信息")
     @DeleteMapping
-    public ResponseObject<Integer> delete(
+    public Integer delete(
             @ApiParam(name = "id", value = "订单ID", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
             @NotBlank(message = "订单ID不能为空")
             @Length(message = "订单ID长度应为32位", min = 32, max = 32)
             @RequestParam(name = "id")
             String id
     ) {
-        return ResponseResult.success(1, orderService.delete(id));
+        return orderService.delete(id);
     }
 
 
