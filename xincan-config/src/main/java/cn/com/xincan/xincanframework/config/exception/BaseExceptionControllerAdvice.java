@@ -1,14 +1,19 @@
 package cn.com.xincan.xincanframework.config.exception;
 
-import cn.com.xincan.xincanframework.utils.response.ResponseCode;
-import cn.com.xincan.xincanframework.utils.response.ResponseObject;
-import cn.com.xincan.xincanframework.utils.response.ResponseResult;
+import cn.com.xincan.xincanframework.utils.response.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.beans.TypeMismatchException;
+import org.springframework.core.MethodParameter;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
-import org.springframework.util.StringUtils;
+import org.springframework.http.server.ServerHttpRequest;
+import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.http.server.ServletServerHttpRequest;
+import org.springframework.util.ObjectUtils;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpMediaTypeNotAcceptableException;
@@ -20,15 +25,20 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.request.async.AsyncRequestTimeoutException;
 import org.springframework.web.multipart.support.MissingServletRequestPartException;
 import org.springframework.web.servlet.NoHandlerFoundException;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import javax.validation.constraints.NotNull;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -44,11 +54,38 @@ import java.util.Set;
  */
 @Slf4j
 @RestControllerAdvice
-public class BaseExceptionControllerAdvice {
+public class BaseExceptionControllerAdvice implements ResponseBodyAdvice<Object> {
 
 
     /**类型不匹配*/
     private static final String TYPE_MISMATCH = "typeMismatch";
+
+    @Override
+    public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> clazz) {
+        // 获取controller方法上是否有ResponseNotPackResultBody不需要结果包装类，如果有，直接返回body体，不进行包装
+        boolean flag = Objects.requireNonNull(methodParameter.getMethod()).isAnnotationPresent(ResponseNotPackResultBody.class);
+        if (flag) {
+            return false;
+        }
+        // 获取当前函数所属controller上是否有ResponseResultBody
+        boolean classFlag = Objects.requireNonNull(methodParameter.getMethod()).getDeclaringClass().isAnnotationPresent(ResponseResultBody.class);
+        // 获取当前函数上是否有ResponseResultBody
+        boolean methodFlag = methodParameter.getMethod().isAnnotationPresent(ResponseResultBody.class);
+        return classFlag || methodFlag ? true : false;
+    }
+
+    @Override
+    public Object beforeBodyWrite(Object body, MethodParameter methodParameter, MediaType mediaType,
+                                  Class<? extends HttpMessageConverter<?>> clazz, ServerHttpRequest request, ServerHttpResponse response) {
+
+        // 如果控制层controller内部的函数是经过ResponseResult包装，并且返回值为ResponseObject，则不用转换，直接返回
+        if(!ObjectUtils.isEmpty(body) && body instanceof ResponseObject) {
+            return body;
+        }
+
+        // 否则要经过ResponseResult进行包装
+        return ResponseResult.success(body);
+    }
 
     /**
      *  自定义业务异常

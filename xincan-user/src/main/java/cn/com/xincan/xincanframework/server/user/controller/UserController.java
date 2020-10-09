@@ -6,9 +6,7 @@ import cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto;
 import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import cn.com.xincan.xincanframework.excetion.UserException;
 import cn.com.xincan.xincanframework.server.user.service.IUserService;
-import cn.com.xincan.xincanframework.utils.response.ResponseCode;
-import cn.com.xincan.xincanframework.utils.response.ResponseObject;
-import cn.com.xincan.xincanframework.utils.response.ResponseResult;
+import cn.com.xincan.xincanframework.utils.response.*;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -40,6 +38,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @Validated
+@ResponseResultBody
 public class UserController {
 
     @Qualifier("userService")
@@ -52,7 +51,7 @@ public class UserController {
 
     @ApiOperation(value = "查询用户信息", httpMethod = "GET", notes = "根据用户ID查询用户详细信息")
     @GetMapping("/{id}/{type}")
-    public ResponseObject<UserSearchVo> findUserById(
+    public UserSearchVo findUserById(
             @ApiParam(name = "id", value = "用户ID", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
             @NotBlank(message = "用户ID不能为空")
             @Length(message = "用户ID长度应为{min}位", min = 32, max = 32)
@@ -66,7 +65,7 @@ public class UserController {
         if(type == 503){
             throw new UserException(ResponseCode.BUSINESS_EXCEPTION, "用户信息异常");
         }
-        return ResponseResult.success(userService.findUserById(id));
+        return userService.findUserById(id);
     }
 
     @ApiOperation(value = "查询用户信息", httpMethod = "GET", notes = "查询所有用户信息")
@@ -85,26 +84,26 @@ public class UserController {
 
     @ApiOperation(value = "新增用户信息", httpMethod = "PUT", notes = "新增用户信息")
     @PutMapping
-    public ResponseObject<UserSearchVo> save(@ApiParam @Validated UserSaveDto userSaveDto) {
-        return ResponseResult.success(userService.save(userSaveDto));
+    public UserSearchVo save(@ApiParam @Validated UserSaveDto userSaveDto) {
+        return userService.save(userSaveDto);
     }
 
     @ApiOperation(value = "修改用户信息", httpMethod = "PATCH", notes = "根据参数列表修改用户信息")
     @PatchMapping
-    public ResponseObject<UserSearchVo> patch(@ApiParam @Validated UserPatchDto userPatchDto) {
-        return ResponseResult.success(userService.patch(userPatchDto));
+    public UserSearchVo patch(@ApiParam @Validated UserPatchDto userPatchDto) {
+        return userService.patch(userPatchDto);
     }
 
     @ApiOperation(value = "删除用户信息", httpMethod = "DELETE", notes = "根据ID删除用户信息")
     @DeleteMapping
-    public ResponseObject<Integer> delete(
+    public Integer delete(
             @ApiParam(name = "id", value = "用户ID", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
             @NotBlank(message = "用户ID不能为空")
             @Length(message = "用户ID长度应为32位", min = 32, max = 32)
             @RequestParam(name = "id")
             String id
     ) {
-        return ResponseResult.success(1, userService.delete(id));
+        return userService.delete(id);
     }
 
 }
