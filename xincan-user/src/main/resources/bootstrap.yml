@@ -7,6 +7,14 @@ address:
 
 server:
   port: 8000
+  ssl:
+    key-store: classpath:keystore.jks
+    key-store-password: xincan-0818
+    key-password: xincan-0818
+    key-alias: xincan
+    key-store-type: PKCS12
+  http2:
+    enabled: true
   undertow:
     # 设置 HTTP POST 内容的最大长度，默认不做限制
     ## max-http-post-size: -1
