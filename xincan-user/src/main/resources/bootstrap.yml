@@ -14,7 +14,7 @@ server:
     key-alias: xincan
     key-store-type: PKCS12
   http2:
-    enabled: true
+    enabled: false
   undertow:
     # 设置 HTTP POST 内容的最大长度，默认不做限制
     ## max-http-post-size: -1
