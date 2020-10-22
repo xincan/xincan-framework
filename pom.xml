@@ -13,6 +13,7 @@
     <description>xincan-framework架构</description>
 
     <modules>
+        <module>xincan-eureka</module>
         <module>xincan-utils</module>
         <module>xincan-config</module>
         <module>xincan-entity</module>
