@@ -18,8 +18,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -53,7 +53,7 @@ public class UserController {
     @GetMapping("/{id}/{type}")
     public UserSearchVo findUserById(
             @ApiParam(name = "id", value = "用户ID", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
-            @NotBlank(message = "用户ID不能为空")
+            @NotNull(message = "用户ID不能为空")
             @Length(message = "用户ID长度应为{min}位", min = 32, max = 32)
             @PathVariable(name = "id")
             String id,
@@ -98,8 +98,9 @@ public class UserController {
     @DeleteMapping
     public Integer delete(
             @ApiParam(name = "id", value = "用户ID", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
-            @NotBlank(message = "用户ID不能为空")
+            @NotNull(message = "用户ID不能为空")
             @Length(message = "用户ID长度应为32位", min = 32, max = 32)
+            @Size
             @RequestParam(name = "id")
             String id
     ) {
