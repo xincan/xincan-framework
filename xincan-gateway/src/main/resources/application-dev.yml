@@ -1,0 +1,57 @@
+server:
+  port: 8041
+
+eureka:
+  instance:
+    hostname: gateway.xincan.cn
+    prefer-ip-address: true # 表示：将自己的ip注册到eureka
+    instance-id: ${eureka.instance.hostname}:${server.port} # 以[IP地址:端口号]作为注册地址
+    # 表示eureka client间隔多久去拉取服务注册信息，默认为30秒，如果要迅速获取服务注册状态，可以缩小该值
+    lease-renewal-interval-in-seconds: 5
+    # 表示eureka server至上一次收到client的心跳之后，等待下一次心跳的超时时间，在这个时间内若没收到下一次心跳，则将移除该instance。
+    # 默认为90秒
+    # 如果该值太大，则很可能将流量转发过去的时候，该instance已经不存活了。
+    # 如果该值设置太小了，则instance则很可能因为临时的网络抖动而被摘除掉。
+    # 该值至少应该大于 leaseRenewalIntervalInSeconds
+    lease-expiration-duration-in-seconds: 10
+
+  client:
+    #表示是否将自己注册进EurekaServer默认为true
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有的注册消息，默认为true，单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    registry-fetch-interval-seconds: 5 #新服务上线拉取eureka server服务注册信息频率，默认是30秒
+    service-url:
+      defaultZone: http://eureka1.xincan.cn:8761/eureka/,http://eureka2.xincan.cn:8762/eureka/,http://eureka3.xincan.cn:8763/eureka/
+
+spring:
+  application:
+    name: xincan-gateway
+
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          #开启小写验证，默认feign根据服务名查找都是用的全大写
+          lowerCaseServiceId: true
+
+      routes:
+        - id: xincan-user
+          uri: lb://${spring.cloud.gateway.routes[0].id}
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - StripPrefix=2
+        - id: xincan-order
+          uri: lb://${spring.cloud.gateway.routes[1].id}
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - StripPrefix=2
+
