@@ -126,10 +126,10 @@
             <artifactId>xincan-entity</artifactId>
         </dependency>
 
-        <!-- 集成prometheus监控 -->
+        <!-- 集成hibernete校验工具 -->
         <dependency>
-            <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-registry-prometheus</artifactId>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
         </dependency>
 
     </dependencies>
