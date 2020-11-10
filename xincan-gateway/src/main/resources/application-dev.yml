@@ -1,5 +1,5 @@
 address:
-  nacos: 192.168.3.10:8848
+  nacos: 192.168.4.10:8848
 
 server:
   port: 8041
