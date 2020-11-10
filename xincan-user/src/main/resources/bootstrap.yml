@@ -1,20 +1,12 @@
 address:
-  nacos: 192.168.3.10:8848
+  nacos: 192.168.4.10:8848
   mysql:
-    master: 192.168.3.10:3307
-    slave1: 192.168.3.10:3308
-    slave2: 192.168.3.10:3309
+    master: 192.168.4.10:3307
+    slave1: 192.168.4.10:3308
+    slave2: 192.168.4.10:3309
 
 server:
   port: 8000
-  ssl:
-    key-store: classpath:keystore.jks
-    key-store-password: xincan-0818
-    key-password: xincan-0818
-    key-alias: xincan
-    key-store-type: PKCS12
-  http2:
-    enabled: true
   undertow:
     # 设置 HTTP POST 内容的最大长度，默认不做限制
     #  max-http-post-size: -1
