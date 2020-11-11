@@ -13,7 +13,7 @@
     <description>xincan-framework架构</description>
 
     <modules>
-        <module>spring-boot-starter-xincan-email</module>
+        <module>spring-boot-starter-sms</module>
         <module>xincan-gateway</module>
         <module>xincan-eureka</module>
         <module>xincan-utils</module>
@@ -84,6 +84,10 @@
 
         <!-- 自定义通用实体类工具包版本配置 -->
         <xincan-entity.version>0.0.1-SNAPSHOT</xincan-entity.version>
+
+        <spring-boot-starter-xincan-email.version>0.0.1-SNAPSHOT</spring-boot-starter-xincan-email.version>
+
+        <spring-boot-starter-sms.version>0.0.1-SNAPSHOT</spring-boot-starter-sms.version>
 
     </properties>
 
@@ -200,6 +204,12 @@
                 <groupId>cn.com.xincan.xincanframework.entity</groupId>
                 <artifactId>xincan-entity</artifactId>
                 <version>${xincan-entity.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.com.xincan.xincanframework.plugins</groupId>
+                <artifactId>spring-boot-starter-sms</artifactId>
+                <version>${spring-boot-starter-sms.version}</version>
             </dependency>
 
         </dependencies>

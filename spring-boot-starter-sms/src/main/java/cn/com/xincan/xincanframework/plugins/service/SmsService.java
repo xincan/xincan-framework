@@ -1,0 +1,30 @@
+package cn.com.xincan.xincanframework.plugins.service;
+
+import cn.com.xincan.xincanframework.plugins.entity.Sms;
+import cn.com.xincan.xincanframework.plugins.properties.GlobalProperties;
+
+/**
+ * copyright (C), 2020, 心灿基础架构
+ *
+ * @author Jiangxincan
+ * @version 0.0.1
+ * @program xincan-framework
+ * @description 短信服务接口类
+ * @create 2020/7/20 15:56
+ * <author>                <time>                  <version>                   <description>
+ * Jiangxincan         2020/7/20 15:56             0.0.1                        短信服务实现类
+ */
+public class SmsService {
+
+    private Sms sms;
+
+    public SmsService(Sms sms) {
+        this.sms = sms;
+    }
+
+    public Sms send() {
+        System.out.println("给"+sms.getName()+"["+sms.getIdCard()+"]打电话，电话号码是："+ sms.getPhone());
+        return sms;
+   }
+
+}

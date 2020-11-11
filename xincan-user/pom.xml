@@ -132,6 +132,11 @@
             <artifactId>hibernate-validator</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>cn.com.xincan.xincanframework.plugins</groupId>
+            <artifactId>spring-boot-starter-sms</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
