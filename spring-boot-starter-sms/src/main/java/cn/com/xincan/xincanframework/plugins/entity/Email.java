@@ -1,7 +1,5 @@
-package cn.com.xincan.xincanframework.utils.entity;
+package cn.com.xincan.xincanframework.plugins.entity;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,19 +8,18 @@ import org.springframework.stereotype.Component;
  * @author Jiangxincan
  * @version 0.0.1
  * @program xincan-framework
- * @description 总体配置信息实体类
+ * @description 邮件配置信息实体类
  * @create 2020/7/20 15:44
  * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/20 15:44             0.0.1                         总体配置信息实体类
+ * Jiangxincan         2020/7/20 15:44             0.0.1                       邮件配置信息实体类
  */
-@ApiModel(description = "邮箱实体类")
 @Component
 public class Email {
 
-    @ApiModelProperty(value="邮箱地址", dataType = "String", example = "alittlexincan@163.com")
+    private boolean enabled;
+
     private String address;
 
-    @ApiModelProperty(value="登录密码", dataType = "String", example = "******")
     private String password;
 
     public Email() {}
@@ -30,6 +27,22 @@ public class Email {
     public Email(String address, String password) {
         this.address = address;
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Email{" +
+                "address='" + address + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getAddress() {
@@ -48,11 +61,4 @@ public class Email {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "Email{" +
-                "address='" + address + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }

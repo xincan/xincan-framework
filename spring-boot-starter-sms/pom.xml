@@ -10,11 +10,11 @@
     </parent>
 
     <groupId>cn.com.xincan.xincanframework.plugins</groupId>
-    <artifactId>spring-boot-starter-xincan-email</artifactId>
+    <artifactId>spring-boot-starter-sms</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>spring-boot-starter-xincan-email</name>
-    <description>spring-boot-starter-xincan-email 公共邮件工具包</description>
+    <name>spring-boot-starter-sms</name>
+    <description>spring-boot-starter-sms公共消息工具包</description>
 
     <dependencies>
         <dependency>
@@ -32,26 +32,10 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- 集成lombok依赖 -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-            <optional>true</optional>
-        </dependency>
-
         <!-- 集成校验工具 -->
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-            <scope>provided</scope>
-            <optional>true</optional>
-        </dependency>
-
-        <!-- 集成swagger核心注解插件依赖 -->
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>

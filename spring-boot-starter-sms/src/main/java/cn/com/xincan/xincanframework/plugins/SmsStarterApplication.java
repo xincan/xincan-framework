@@ -1,4 +1,4 @@
-package cn.com.xincan.xincanframework.utils;
+package cn.com.xincan.xincanframework.plugins;
 
 /**
  * copyright (C), 2020, 心灿基础架构
@@ -11,7 +11,7 @@ package cn.com.xincan.xincanframework.utils;
  * <author>                <time>                  <version>                   <description>
  * Jiangxincan         2020/7/20 16:46             0.0.1                         打包入口
  */
-public class XincanStarterApplication {
+public class SmsStarterApplication {
 
     public static void main(String[] args) {
         System.out.println("自定义工具启动类");

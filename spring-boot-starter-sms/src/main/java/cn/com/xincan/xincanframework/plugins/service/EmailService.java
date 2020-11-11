@@ -1,17 +1,18 @@
-package cn.com.xincan.xincanframework.utils.service;
+package cn.com.xincan.xincanframework.plugins.service;
 
-import cn.com.xincan.xincanframework.utils.entity.Email;
+import cn.com.xincan.xincanframework.plugins.entity.Email;
+import cn.com.xincan.xincanframework.plugins.properties.GlobalProperties;
 
 /**
  * copyright (C), 2020, 心灿基础架构
  *
  * @author Jiangxincan
  * @version 0.0.1
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/20 15:56             0.0.1                         配置服务实现类
  * @program xincan-framework
- * @description 配置服务接口类
+ * @description 邮件服务接口类
  * @create 2020/7/20 15:56
+ * <author>                <time>                  <version>                   <description>
+ * Jiangxincan         2020/7/20 15:56             0.0.1                        邮件服务实现类
  */
 public class EmailService {
 
@@ -21,11 +22,9 @@ public class EmailService {
         this.email = email;
     }
 
-    public Email email() {
-
-        System.out.println("=======进入自定义starter方法======");
-
-       return email;
+    public Email send() {
+        System.out.println("给"+email.getAddress()+"发送邮件，密码是："+ email.getPassword());
+        return email;
    }
 
 }

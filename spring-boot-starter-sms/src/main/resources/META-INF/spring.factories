@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.com.xincan.xincanframework.utils.config.EmailConfig
+  cn.com.xincan.xincanframework.plugins.config.GlobalConfig
