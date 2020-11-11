@@ -1,7 +1,9 @@
 package cn.com.xincan.xincanframework.plugins.config;
 
+import cn.com.xincan.xincanframework.plugins.entity.Sms;
 import cn.com.xincan.xincanframework.plugins.properties.GlobalProperties;
 import cn.com.xincan.xincanframework.plugins.service.EmailService;
+import cn.com.xincan.xincanframework.plugins.service.GlobalService;
 import cn.com.xincan.xincanframework.plugins.service.SmsService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

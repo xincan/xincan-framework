@@ -14,7 +14,7 @@ import cn.com.xincan.xincanframework.plugins.properties.GlobalProperties;
  * <author>                <time>                  <version>                   <description>
  * Jiangxincan         2020/7/20 15:56             0.0.1                        短信服务实现类
  */
-public class SmsService {
+public class SmsService extends GlobalService<Sms>{
 
     private Sms sms;
 
@@ -22,8 +22,9 @@ public class SmsService {
         this.sms = sms;
     }
 
-    public Sms send() {
-        System.out.println("给"+sms.getName()+"["+sms.getIdCard()+"]打电话，电话号码是："+ sms.getPhone());
+    @Override
+    public Sms send(String message) {
+        System.out.println("给"+sms.getName()+"["+sms.getIdCard()+"]打电话，电话号码是："+ sms.getPhone()+"聊天内容为：" + message);
         return sms;
    }
 

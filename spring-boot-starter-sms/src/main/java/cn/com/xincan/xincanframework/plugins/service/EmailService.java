@@ -14,7 +14,7 @@ import cn.com.xincan.xincanframework.plugins.properties.GlobalProperties;
  * <author>                <time>                  <version>                   <description>
  * Jiangxincan         2020/7/20 15:56             0.0.1                        邮件服务实现类
  */
-public class EmailService {
+public class EmailService extends GlobalService<Email> {
 
     private Email email;
 
@@ -22,8 +22,9 @@ public class EmailService {
         this.email = email;
     }
 
-    public Email send() {
-        System.out.println("给"+email.getAddress()+"发送邮件，密码是："+ email.getPassword());
+    @Override
+    public Email send(String message) {
+        System.out.println("给"+email.getAddress()+"发送邮件，密码是："+ email.getPassword() + "邮件内容为：" + message);
         return email;
    }
 

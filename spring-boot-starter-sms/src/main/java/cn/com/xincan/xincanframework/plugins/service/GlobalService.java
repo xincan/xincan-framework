@@ -11,8 +11,8 @@ package cn.com.xincan.xincanframework.plugins.service;
  * <author>                <time>                  <version>                   <description>
  * Jiangxincan         2020/11/11 14:01             1.0                         消息发送全局接口
  */
-public interface GlobalService<T> {
+public abstract class GlobalService<T> {
 
-    T send();
+    public abstract T send(String message);
 
 }

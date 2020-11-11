@@ -3,7 +3,9 @@ package cn.com.xincan.xincanframework.server.sms;
 import cn.com.xincan.xincanframework.plugins.entity.Email;
 import cn.com.xincan.xincanframework.plugins.entity.Sms;
 import cn.com.xincan.xincanframework.plugins.service.EmailService;
+import cn.com.xincan.xincanframework.plugins.service.GlobalService;
 import cn.com.xincan.xincanframework.plugins.service.SmsService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,13 +27,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("global")
 public class SmsController {
 
-    private final EmailService emailService;
+    private final GlobalService<Email> emailService;
 
-    private final SmsService smsService;
+    private final GlobalService<Sms> smsService;
 
     public SmsController(
-            EmailService emailService
-            , SmsService smsService
+            @Qualifier("emailService") GlobalService<Email> emailService,
+            @Qualifier("smsService") GlobalService<Sms> smsService
     ) {
         this.emailService = emailService;
         this.smsService = smsService;
@@ -39,12 +41,12 @@ public class SmsController {
 
     @GetMapping("email")
     public Email sendEmail() {
-        return emailService.send();
+        return emailService.send("我给你发邮件了");
     }
 
     @GetMapping("sms")
     public Sms sendSms() {
-        return smsService.send();
+        return smsService.send("我给你打电话了");
     }
 
 }
