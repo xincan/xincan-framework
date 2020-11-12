@@ -2,7 +2,7 @@ address:
   nacos: 192.168.4.10:8848
 
 server:
-  port: 8041
+  port: 8040
   ssl:
     enabled: true
     key-store: classpath:keystore.jks
@@ -10,8 +10,6 @@ server:
     key-password: xincan-0818
     key-alias: xincan
     key-store-type: PKCS12
-  http2:
-    enabled: true
 
 spring:
   application:
@@ -33,6 +31,9 @@ spring:
         namespace: xincan-${spring.profiles.active}-0001
 
     gateway:
+      httpclient:
+        ssl:
+          use-insecure-trust-manager: true
       discovery:
         locator:
           enabled: true
@@ -46,10 +47,9 @@ spring:
             - Path=/api/user/**
           filters:
             - StripPrefix=2
-        - id: xincan-order
-          uri: lb://${spring.cloud.gateway.routes[1].id}
-          predicates:
-            - Path=/api/order/**
-          filters:
-            - StripPrefix=2
-
+#        - id: xincan-order
+#          uri: lb://${spring.cloud.gateway.routes[1].id}
+#          predicates:
+#            - Path=/api/order/**
+#          filters:
+#            - StripPrefix=2
