@@ -1,9 +1,6 @@
 package cn.com.xincan.xincanframework.server.order.service.impl;
 
 import cn.com.xincan.xincanframework.entity.order.dto.OrderPatchDto;
-import cn.com.xincan.xincanframework.entity.user.dto.UserPatchDto;
-import cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto;
-import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import cn.com.xincan.xincanframework.utils.orika.OrikaUtils;
 import cn.com.xincan.xincanframework.entity.order.dto.OrderSaveDto;
 import cn.com.xincan.xincanframework.entity.order.dto.OrderSearchDto;
@@ -12,10 +9,10 @@ import cn.com.xincan.xincanframework.server.order.mapper.IOrderMapper;
 import cn.com.xincan.xincanframework.server.order.po.OrderPo;
 import cn.com.xincan.xincanframework.server.order.service.IOrderService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.stereotype.Component;
-import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -65,6 +62,21 @@ public class OrderServiceImpl implements IOrderService {
     }
 
     /**
+     *  根据用户ID查询订单信息
+     * @param id 用户ID
+     * @author Jiangxincan
+     * @date 2020/7/21 13:59
+     * @return cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo
+     */
+    @Override
+    public OrderSearchVo findOrderByUserId(String id) {
+        LambdaQueryWrapper<OrderPo> queryWrapper = Wrappers.lambdaQuery();
+        queryWrapper.eq(!StringUtils.isEmpty(id), OrderPo::getUserId, id);
+        OrderPo user = orderMapper.selectOne(queryWrapper);
+        return OrikaUtils.map(user, OrderSearchVo.class);
+    }
+
+    /**
      *  分页查询用户信息
      * @param orderSearchDto 订单信息实体类
      * @author Jiangxincan
@@ -75,7 +87,7 @@ public class OrderServiceImpl implements IOrderService {
     public Page<OrderSearchVo> page(OrderSearchDto orderSearchDto){
         Page<OrderPo> page = new Page<>(orderSearchDto.getPage(), orderSearchDto.getLimit());
         LambdaQueryWrapper<OrderPo> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.like(StringUtils.isNotBlank(orderSearchDto.getUserId()), OrderPo::getUserId, orderSearchDto.getUserId());
+        queryWrapper.like(!StringUtils.isEmpty(orderSearchDto.getUserId()), OrderPo::getUserId, orderSearchDto.getUserId());
         page = orderMapper.selectPage(page, queryWrapper);
         Page<OrderSearchVo> record = new Page<>();
         record.setRecords(OrikaUtils.mapAsList(page.getRecords(), OrderSearchVo.class));

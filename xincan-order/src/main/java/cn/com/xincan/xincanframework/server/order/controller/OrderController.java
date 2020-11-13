@@ -58,6 +58,17 @@ public class OrderController {
         return orderService.findOrderById(id);
     }
 
+    @ApiOperation(value = "根据用户ID查询订单信息", httpMethod = "GET", notes = "根据用户ID查询订单信息")
+    @GetMapping("/user/{id}")
+    public OrderSearchVo findOrderByUserId(
+            @ApiParam(name = "id", value = "用户ID", required = true, example = "1285759156342562818")
+            @Length(message = "订单ID长度应为{max}位", min = 19, max = 19)
+            @PathVariable(name = "id")
+            String id
+    ) {
+        return orderService.findOrderByUserId(id);
+    }
+
     @ApiOperation(value = "查询订单信息（分页）", httpMethod = "POST", notes = "根据参数列表查询部分订单列表信息")
     @PostMapping
     public ResponseObject<List<OrderSearchVo>> page(@ApiParam @Validated @RequestBody OrderSearchDto orderSearchDto) {

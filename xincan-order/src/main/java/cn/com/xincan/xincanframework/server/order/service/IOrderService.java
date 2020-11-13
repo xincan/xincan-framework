@@ -42,6 +42,15 @@ public interface IOrderService {
      */
     OrderSearchVo findOrderById(String id);
 
+    /**
+     *  根据用户ID查询订单信息
+     * @param id 用户ID
+     * @author Jiangxincan
+     * @date 2020/7/21 13:59
+     * @return cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo
+     */
+    OrderSearchVo findOrderByUserId(String id);
+
 
     /**
      *  根据用户ID，查询用户详细信息实体类
