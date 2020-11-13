@@ -12,11 +12,11 @@ import springfox.documentation.swagger.web.SwaggerResourcesProvider;
  *
  * @author JiangXincan
  * @version 1.0
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/11/12 16:52             1.0                         接口转发问题配置
  * @program xincan-framework
  * @description 接口转发问题配置
  * @create 2020/11/12 16:52
+ * <author>                <time>                  <version>                   <description>
+ * Jiangxincan         2020/11/12 16:52             1.0                         接口转发问题配置
  */
 public class SwaggerHeaderFilter extends AbstractGatewayFilterFactory {
 

@@ -7,12 +7,9 @@ import org.springframework.core.Ordered;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
-import org.springframework.web.util.UriComponentsBuilder;
 import reactor.core.publisher.Mono;
 
 import java.net.URI;
-
-import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.GATEWAY_REQUEST_URL_ATTR;
 
 /**
  * copyright (C), 2020, 北京同创永益科技发展有限公司
@@ -29,7 +26,7 @@ import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.G
 @Component
 public class HttpsToHttpFilter implements GlobalFilter, Ordered {
 
-    public static final int HTTPS_TO_HTTP_FILTER_ORDER_BRFORE = 10099;
+    public static final int HTTPS_TO_HTTP_FILTER_ORDER_BEFORE = 10099;
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -53,12 +50,12 @@ public class HttpsToHttpFilter implements GlobalFilter, Ordered {
             }
         }
         ServerHttpRequest build = mutate.build();
-        log.info("{}：{}", "https转换成http地址为", exchange.mutate().request(build).build().getRequest().getURI());
+        log.info("{}：{}", "HTTPS转换成HTTP地址为", exchange.mutate().request(build).build().getRequest().getURI());
         return chain.filter(exchange.mutate().request(build).build());
     }
 
     @Override
     public int getOrder() {
-        return HTTPS_TO_HTTP_FILTER_ORDER_BRFORE;
+        return HTTPS_TO_HTTP_FILTER_ORDER_BEFORE;
     }
 }
