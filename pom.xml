@@ -53,7 +53,10 @@
         <!-- mysql数据库连接配置 -->
         <mysql-connector-java.version>8.0.18</mysql-connector-java.version>
 
-        <!-- MP版本配置 -->
+        <!-- sharding-jdbc数据库分库分表配置 -->
+        <sharding-jdbc-spring-boot-starter.version>4.1.1</sharding-jdbc-spring-boot-starter.version>
+
+        <!-- mybatis-plus版本配置 -->
         <mybatis-plus-boot-starter.version>3.3.2</mybatis-plus-boot-starter.version>
 
         <!-- 实体类转换版本配置 -->
@@ -121,6 +124,13 @@
                 <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!-- 定义sharding-jdbc数据库分库分表版本依赖 -->
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+                <version>${sharding-jdbc-spring-boot-starter.version}</version>
             </dependency>
 
             <!-- 定义优化mysql依赖 -->
