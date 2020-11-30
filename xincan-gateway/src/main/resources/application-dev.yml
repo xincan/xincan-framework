@@ -47,9 +47,9 @@ spring:
             - Path=/api/user/**
           filters:
             - StripPrefix=2
-#        - id: xincan-order
-#          uri: lb://${spring.cloud.gateway.routes[1].id}
-#          predicates:
-#            - Path=/api/order/**
-#          filters:
-#            - StripPrefix=2
+        - id: xincan-order
+          uri: lb://${spring.cloud.gateway.routes[1].id}
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - StripPrefix=2
