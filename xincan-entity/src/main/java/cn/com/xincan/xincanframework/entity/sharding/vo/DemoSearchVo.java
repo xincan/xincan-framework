@@ -21,7 +21,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @ApiModel(description = "订单信息返回试图")
 @Data
@@ -48,6 +48,6 @@ public class DemoSearchVo {
     @ApiModelProperty(name = "createTime", value="创建时间", dataType = "org.joda.time.LocalDateTime", example = "2020-12-12 23:23:23")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime createTime;
+    private Date createTime;
 
 }

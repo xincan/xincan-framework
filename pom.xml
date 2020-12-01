@@ -21,6 +21,7 @@
         <module>xincan-entity</module>
         <module>xincan-order</module>
         <module>xincan-user</module>
+        <module>xincan-sharding</module>
     </modules>
 
     <!-- 公共版本号统一存放处，便于以后修改，全局替换版本号 -->
@@ -57,10 +58,13 @@
         <sharding-jdbc-spring-boot-starter.version>4.1.1</sharding-jdbc-spring-boot-starter.version>
 
         <!-- mybatis-plus版本配置 -->
-        <mybatis-plus-boot-starter.version>3.3.2</mybatis-plus-boot-starter.version>
+        <mybatis-plus-boot-starter.version>3.4.1</mybatis-plus-boot-starter.version>
 
         <!-- 实体类转换版本配置 -->
         <orika-core.version>1.5.4</orika-core.version>
+
+        <!-- 糊涂工具包版本配置 -->
+        <hutool-all.version>5.5.1</hutool-all.version>
 
         <!-- 实体类属性校验版本配置 -->
         <hibernate-validator.version>6.0.18.Final</hibernate-validator.version>
@@ -132,6 +136,11 @@
                 <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
                 <version>${sharding-jdbc-spring-boot-starter.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-namespace</artifactId>
+                <version>${sharding-jdbc-spring-boot-starter.version}</version>
+            </dependency>
 
             <!-- 定义优化mysql依赖 -->
             <dependency>
@@ -154,6 +163,14 @@
                 <version>${orika-core.version}</version>
             </dependency>
 
+            <!-- 定义糊涂工具包依赖 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-all.version}</version>
+            </dependency>
+
+            <!-- 定义hibernate校验器依赖 -->
             <dependency>
                 <groupId>org.hibernate.validator</groupId>
                 <artifactId>hibernate-validator</artifactId>
@@ -225,6 +242,13 @@
         </dependencies>
 
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+    </dependencies>
 
     <distributionManagement>
         <repository>
