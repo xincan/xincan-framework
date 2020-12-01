@@ -42,10 +42,10 @@ public class DemoSearchVo {
     @ApiModelProperty(name = "password", value="登录密码", dataType = "String", example = "123456")
     private String password;
 
-    @ApiModelProperty(name = "phone", value="订单说明（附加信息）", dataType = "String", example = "18512343456")
-    private Integer phone;
+    @ApiModelProperty(name = "phone", value="电话号码", dataType = "String", example = "18512343456")
+    private String phone;
 
-    @ApiModelProperty(name = "createTime", value="订单时间", dataType = "org.joda.time.LocalDateTime", example = "2020-12-12 23:23:23")
+    @ApiModelProperty(name = "createTime", value="创建时间", dataType = "org.joda.time.LocalDateTime", example = "2020-12-12 23:23:23")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
