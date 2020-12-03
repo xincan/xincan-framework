@@ -1,4 +1,5 @@
 FROM java:8
+MAINTAINER xincan
 VOLUME /tmp
 ADD xincan-user-0.0.1-SNAPSHOT.jar xincan-user.jar
 EXPOSE 8000

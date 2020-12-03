@@ -1,4 +1,5 @@
 FROM java:8
+MAINTAINER xincan
 VOLUME /tmp
 ADD xincan-order-0.0.1-SNAPSHOT.jar xincan-order.jar
 EXPOSE 8001
