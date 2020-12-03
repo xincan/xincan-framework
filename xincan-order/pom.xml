@@ -148,6 +148,37 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>${docker-maven-plugin.version}</version>
+                <configuration>
+                    <!-- 打包docker镜像的docker服务器 -->
+                    <dockerHost>${docker-host.version}</dockerHost>
+                    <!-- 镜像名称及版本[ip:port/name:tag] -->
+                    <imageName>${docker-registry-url.version}/xincan/${project.name}:${project.version}</imageName>
+                    <!-- harbor仓库地址 -->
+                    <registryUrl>${docker-registry-url.version}</registryUrl>
+                    <!-- Dockerfile路径 -->
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <!-- 是否强制覆盖已有镜像 -->
+                    <forceTags>true</forceTags>
+                    <imageTags>
+                        <!-- 镜像tag -->
+                        <imageTag>${project.version}</imageTag>
+                    </imageTags>
+                    <!-- 复制jar包到docker容器指定目录配置 -->
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                    <!--在maven settings.xml中配置的server的id值-->
+                    <serverId>nexus-docker</serverId>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

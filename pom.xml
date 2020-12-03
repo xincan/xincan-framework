@@ -29,9 +29,9 @@
         <!-- docker maven构建工具 -->
         <docker-maven-plugin.version>1.2.2</docker-maven-plugin.version>
         <!-- docker镜像构建服务器 -->
-        <docker-host.version>http://192.168.3.10:2375</docker-host.version>
-        <!-- docker镜像存储仓库服务器（本实例采用nexus存储） -->
-        <docker-registry-url.version>192.168.1.110:5000</docker-registry-url.version>
+        <docker-host.version>http://192.168.4.10:2375</docker-host.version>
+        <!-- docker镜像存储仓库服务器（本实例采用harbor存储） -->
+        <docker-registry-url.version>dev.hatech.com.cn:5000</docker-registry-url.version>
 
         <!-- 构建项目编码格式版本配置 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
