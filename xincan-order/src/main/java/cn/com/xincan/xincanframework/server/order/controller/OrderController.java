@@ -50,8 +50,8 @@ public class OrderController {
     @ApiOperation(value = "根据订单ID查询订单信息", httpMethod = "GET", notes = "根据订单ID查询订单信息")
     @GetMapping("/{id}")
     public OrderSearchVo findOrderById(
-            @ApiParam(name = "id", value = "订单ID", required = true, example = "1269912454821879810")
-            @Length(message = "订单ID长度应为32位", min = 32, max = 32)
+            @ApiParam(name = "id", value = "订单ID", required = true, example = "1334332759472676865")
+            @Length(message = "订单ID长度应为{max}位", min = 19, max = 19)
             @PathVariable(name = "id")
             String id
     ) {
@@ -61,8 +61,8 @@ public class OrderController {
     @ApiOperation(value = "根据用户ID查询订单信息", httpMethod = "GET", notes = "根据用户ID查询订单信息")
     @GetMapping("/user/{id}")
     public OrderSearchVo findOrderByUserId(
-            @ApiParam(name = "id", value = "用户ID", required = true, example = "1285759156342562818")
-            @Length(message = "订单ID长度应为{max}位", min = 19, max = 19)
+            @ApiParam(name = "id", value = "用户ID", required = true, example = "1334332594997260290")
+            @Length(message = "用户ID长度应为{max}位", min = 19, max = 19)
             @PathVariable(name = "id")
             String id
     ) {
@@ -91,9 +91,9 @@ public class OrderController {
     @ApiOperation(value = "删除订单信息", httpMethod = "DELETE", notes = "根据ID删除订单信息")
     @DeleteMapping
     public Integer delete(
-            @ApiParam(name = "id", value = "订单ID", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
+            @ApiParam(name = "id", value = "订单ID", required = true, example = "1334332759472676865")
             @NotBlank(message = "订单ID不能为空")
-            @Length(message = "订单ID长度应为32位", min = 32, max = 32)
+            @Length(message = "订单ID长度应为{max}位", min = 19, max = 19)
             @RequestParam(name = "id")
             String id
     ) {

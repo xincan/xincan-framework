@@ -122,7 +122,7 @@ public class MyBatisPlusConfig {
     @Bean
     public GlobalConfig.DbConfig dbConfig(){
         GlobalConfig.DbConfig dbConfig = new GlobalConfig.DbConfig();
-        dbConfig.setIdType(IdType.ASSIGN_UUID);
+        dbConfig.setIdType(IdType.ASSIGN_ID);
         return dbConfig;
     }
 

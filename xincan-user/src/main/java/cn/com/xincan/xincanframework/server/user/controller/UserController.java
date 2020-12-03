@@ -52,9 +52,9 @@ public class UserController {
     @ApiOperation(value = "查询用户信息", httpMethod = "GET", notes = "根据用户ID查询用户详细信息")
     @GetMapping("/{id}/{type}")
     public UserSearchVo findUserById(
-            @ApiParam(name = "id", value = "用户ID", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
+            @ApiParam(name = "id", value = "用户ID", required = true, example = "1334332594997260290")
             @NotNull(message = "用户ID不能为空")
-            @Length(message = "用户ID长度应为{min}位", min = 32, max = 32)
+            @Length(message = "用户ID长度应为{min}位", min = 19, max = 19)
             @PathVariable(name = "id")
             String id,
             @ApiParam(name = "type", value = "异常类型", required = true, example = "503")
@@ -97,10 +97,9 @@ public class UserController {
     @ApiOperation(value = "删除用户信息", httpMethod = "DELETE", notes = "根据ID删除用户信息")
     @DeleteMapping
     public Integer delete(
-            @ApiParam(name = "id", value = "用户ID", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
+            @ApiParam(name = "id", value = "用户ID", required = true, example = "1334332594997260290")
             @NotNull(message = "用户ID不能为空")
-            @Length(message = "用户ID长度应为32位", min = 32, max = 32)
-            @Size
+            @Length(message = "用户ID长度应为{max}位", min = 19, max = 19)
             @RequestParam(name = "id")
             String id
     ) {
