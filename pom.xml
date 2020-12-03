@@ -21,7 +21,6 @@
         <module>xincan-entity</module>
         <module>xincan-order</module>
         <module>xincan-user</module>
-        <module>xincan-sharding</module>
     </modules>
 
     <!-- 公共版本号统一存放处，便于以后修改，全局替换版本号 -->
@@ -58,7 +57,7 @@
         <sharding-jdbc-spring-boot-starter.version>4.1.1</sharding-jdbc-spring-boot-starter.version>
 
         <!-- mybatis-plus版本配置 -->
-        <mybatis-plus-boot-starter.version>3.4.1</mybatis-plus-boot-starter.version>
+        <mybatis-plus-boot-starter.version>3.2.0</mybatis-plus-boot-starter.version>
 
         <!-- 实体类转换版本配置 -->
         <orika-core.version>1.5.4</orika-core.version>
