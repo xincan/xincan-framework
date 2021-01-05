@@ -33,7 +33,7 @@ public class OrderPatchDto {
 
     @ApiModelProperty(value="订单ID", dataType = "String", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
     @NotBlank(message = "订单ID不能为空")
-    @Length(message = "订单ID长度应为{min}位", min = 32, max = 32)
+    @Length(message = "订单ID长度应为{min}位", min = 19, max = 19)
     private String id;
 
     @ApiModelProperty(value="订单名称", dataType = "String", example = "购买佛珠")
@@ -45,7 +45,7 @@ public class OrderPatchDto {
     private String address;
 
     @ApiModelProperty(value="订单人ID（收货人ID、UUID）", dataType = "String", example = "1285759156342562818")
-    @Length(message = "订单ID长度应为{min}位", min = 32, max = 32)
+    @Length(message = "订单ID长度应为{min}位", min = 19, max = 19)
     private String userId;
 
     @ApiModelProperty(value="订单说明（附加信息）", dataType = "String", example = "注意物件不能轻易碰撞")

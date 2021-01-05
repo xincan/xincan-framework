@@ -7,8 +7,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 /**
@@ -29,13 +31,17 @@ import java.time.LocalDateTime;
 @Builder
 public class OrderSaveDto {
 
-    @ApiModelProperty(value="订单名称", dataType = "String", example = "购买佛珠")
+    @ApiModelProperty(value="订单名称", required = true, dataType = "String", example = "购买佛珠")
+    @NotBlank(message = "订单名称不能为空")
     private String title;
 
-    @ApiModelProperty(value="订单地址（收货地址）", dataType = "String", example = "北京市房山区")
+    @ApiModelProperty(value="订单地址（收货地址）", required = true, dataType = "String", example = "北京市房山区")
+    @NotBlank(message = "订单地址不能为空")
     private String address;
 
-    @ApiModelProperty(value="订单人ID（收货人ID、UUID）", dataType = "String", example = "1285759156342562818")
+    @ApiModelProperty(value="订单人ID（收货人ID、UUID）", required = true, dataType = "String", example = "1285759156342562818")
+    @Length(message = "订单人ID长度应为{min}位", min = 19, max = 19)
+    @NotBlank(message = "订单人ID不能为空")
     private String userId;
 
     @ApiModelProperty(value="订单说明（附加信息）", dataType = "String", example = "注意物件不能轻易碰撞")
