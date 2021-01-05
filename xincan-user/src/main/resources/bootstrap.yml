@@ -1,5 +1,6 @@
 address:
   nacos: 192.168.1.19:8848
+  sentinel: 192.168.1.19:8858
   mysql:
     master: 192.168.1.19:3307
     slave1: 192.168.1.19:3308
@@ -49,13 +50,11 @@ spring:
         password: nacos
     sentinel:
       transport:
-        dashboard: 192.168.1.19:8858
-        clientIp: 192.168.4.145
-        port: 8719
+        dashboard: ${address.sentinel}
       datasource:
         xincan-user-flow-ds:
           nacos:
-            server-addr: 192.168.1.19:8848
+            server-addr: ${address.nacos}
             data-id: ${spring.application.name}-sentinel
             group-id: ${spring.profiles.active}_group
             namespace: xincan-${spring.profiles.active}-0001
@@ -64,11 +63,6 @@ spring:
             username: nacos
             password: nacos
       eager: true
-
-
-
-
-
 
   datasource:
     master:
