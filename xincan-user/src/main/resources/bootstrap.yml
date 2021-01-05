@@ -1,9 +1,9 @@
 address:
-  nacos: 192.168.4.10:8848
+  nacos: 192.168.1.19:8848
   mysql:
-    master: 192.168.4.10:3307
-    slave1: 192.168.4.10:3308
-    slave2: 192.168.4.10:3309
+    master: 192.168.1.19:3307
+    slave1: 192.168.1.19:3308
+    slave2: 192.168.1.19:3309
 
 server:
   port: 8000
@@ -39,10 +39,36 @@ spring:
         server-addr: ${address.nacos}        # 配置中心url
         group: ${spring.profiles.active}_group
         file-extension: yaml                  # 配置文件类型
+        username: nacos
+        password: nacos
       discovery:
         server-addr: ${address.nacos}
         group: ${spring.profiles.active}_group
         namespace: xincan-${spring.profiles.active}-0001
+        username: nacos
+        password: nacos
+    sentinel:
+      transport:
+        dashboard: 192.168.1.19:8858
+        clientIp: 192.168.4.145
+        port: 8719
+      datasource:
+        xincan-user-flow-ds:
+          nacos:
+            server-addr: 192.168.1.19:8848
+            data-id: ${spring.application.name}-sentinel
+            group-id: ${spring.profiles.active}_group
+            namespace: xincan-${spring.profiles.active}-0001
+            data-type: json
+            rule-type: FLOW
+            username: nacos
+            password: nacos
+      eager: true
+
+
+
+
+
 
   datasource:
     master:
