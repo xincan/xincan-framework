@@ -29,12 +29,13 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
-        <!-- 集成 Nacos 作为服务注册中心配置 -->
+        <!-- 集成 nacos 作为服务注册中心配置 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
+        <!-- 集成 sentinel 作为服务防卫兵配置 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
@@ -46,6 +47,7 @@
             </exclusions>
         </dependency>
 
+        <!-- 集成 sentinel 利用nacos作为数据存储配置 -->
         <dependency>
             <groupId>com.alibaba.csp</groupId>
             <artifactId>sentinel-datasource-nacos</artifactId>
@@ -148,6 +150,7 @@
             <artifactId>hibernate-validator</artifactId>
         </dependency>
 
+        <!-- 集成自定义插件sms配置 -->
         <dependency>
             <groupId>cn.com.xincan.xincanframework.plugins</groupId>
             <artifactId>spring-boot-starter-sms</artifactId>
