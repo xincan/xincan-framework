@@ -48,7 +48,7 @@
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
 
         <!-- spring-cloud-alibaba版本配置 -->
-        <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
+        <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
 
         <!-- mysql数据库连接配置 -->
         <mysql-connector-java.version>8.0.18</mysql-connector-java.version>
