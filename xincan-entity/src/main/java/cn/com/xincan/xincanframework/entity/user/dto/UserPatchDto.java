@@ -37,7 +37,7 @@ public class UserPatchDto {
 
     @ApiModelProperty(value="用户ID", dataType = "String", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
     @NotBlank(message = "用户ID不能为空")
-    @Length(message = "用户ID长度应为{min}位", min = 32, max = 32)
+    @Length(message = "用户ID长度应为{min}位", min = 19, max = 19)
     private String id;
 
     @ApiModelProperty(value="用户名称", dataType = "String", example = "张三")

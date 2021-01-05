@@ -31,8 +31,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class UserSearchDto extends PaginationQuery {
 
-    @ApiModelProperty(value="用户ID（UUID）", dataType = "String", example = "1285759156342562818")
-    @Length(message = "用户ID长度应为32位", min = 32, max = 32)
+    @ApiModelProperty(value="用户ID（UUID）", dataType = "String", example = "1346331524970647553")
+    @Length(message = "用户ID长度应为32位", min = 19, max = 19)
     private String id;
 
     @ApiModelProperty(value="用户名称", dataType = "String", example = "张三")
