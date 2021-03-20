@@ -12,16 +12,16 @@
     <packaging>pom</packaging>
     <description>xincan-framework架构</description>
 
-    <modules>
-        <module>spring-boot-starter-sms</module>
-        <module>xincan-gateway</module>
-        <module>xincan-eureka</module>
-        <module>xincan-utils</module>
-        <module>xincan-config</module>
-        <module>xincan-entity</module>
-        <module>xincan-order</module>
-        <module>xincan-user</module>
-    </modules>
+<!--    <modules>-->
+<!--        <module>spring-boot-starter-sms</module>-->
+<!--        <module>xincan-gateway</module>-->
+<!--        <module>xincan-eureka</module>-->
+<!--        <module>xincan-utils</module>-->
+<!--        <module>xincan-config</module>-->
+<!--        <module>xincan-entity</module>-->
+<!--        <module>xincan-order</module>-->
+<!--        <module>xincan-user</module>-->
+<!--    </modules>-->
 
     <!-- 公共版本号统一存放处，便于以后修改，全局替换版本号 -->
     <properties>
@@ -29,9 +29,9 @@
         <!-- docker maven构建工具 -->
         <docker-maven-plugin.version>1.2.2</docker-maven-plugin.version>
         <!-- docker镜像构建服务器 -->
-        <docker-host.version>http://192.168.4.10:2375</docker-host.version>
+        <docker-host-url>http://base.xincan.cn:2375</docker-host-url>
         <!-- docker镜像存储仓库服务器（本实例采用harbor存储） -->
-        <docker-registry-url.version>dev.hatech.com.cn:5000</docker-registry-url.version>
+        <docker-registry-url>base.xincan.cn</docker-registry-url>
 
         <!-- 构建项目编码格式版本配置 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -49,6 +49,9 @@
 
         <!-- spring-cloud-alibaba版本配置 -->
         <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
+
+        <!-- spring-cloud-kubernetes版本配置 -->
+        <spring-cloud-kubernetes.version>1.1.8.RELEASE</spring-cloud-kubernetes.version>
 
         <!-- mysql数据库连接配置 -->
         <mysql-connector-java.version>8.0.18</mysql-connector-java.version>
@@ -118,6 +121,13 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!-- 定义spring-cloud版本依赖 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-kubernetes-all</artifactId>
+                <version>${spring-cloud-kubernetes.version}</version>
             </dependency>
 
             <!-- 定义spring-cloud-alibaba版本依赖 -->
@@ -242,26 +252,16 @@
 
     </dependencyManagement>
 
-    <dependencies>
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-        </dependency>
-    </dependencies>
-
     <distributionManagement>
         <repository>
             <id>nexus-release</id>
             <name>admin</name>
-            <!--<url>http://localhost:8081/repository/nexus-releases/</url>-->
-            <url>http://git.hatech.com.cn:8087/repository/nexus-releases/</url>
+            <url>http://localhost:8081/repository/nexus-releases/</url>
         </repository>
         <snapshotRepository>
             <id>nexus-snapshots</id>
-
             <name>admin</name>
-            <!--<url>http://localhost:8081/repository/nexus-snapshots/</url>-->
-            <url>http://git.hatech.com.cn:8087/repository/nexus-snapshots/</url>
+            <url>http://localhost:8081/repository/nexus-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
