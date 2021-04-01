@@ -29,7 +29,7 @@
         <!-- docker maven构建工具 -->
         <docker-maven-plugin.version>1.2.2</docker-maven-plugin.version>
         <!-- docker镜像构建服务器 -->
-        <docker-host-url>http://base.xincan.cn:2375</docker-host-url>
+        <docker-host-url>http://172.16.124.130:2375</docker-host-url>
         <!-- docker镜像存储仓库服务器（本实例采用harbor存储） -->
         <docker-harbor-registry-url>base.xincan.cn</docker-harbor-registry-url>
 
