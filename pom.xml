@@ -12,26 +12,32 @@
     <packaging>pom</packaging>
     <description>xincan-framework架构</description>
 
-<!--    <modules>-->
-<!--        <module>spring-boot-starter-sms</module>-->
-<!--        <module>xincan-gateway</module>-->
-<!--        <module>xincan-eureka</module>-->
-<!--        <module>xincan-utils</module>-->
-<!--        <module>xincan-config</module>-->
-<!--        <module>xincan-entity</module>-->
-<!--        <module>xincan-order</module>-->
-<!--        <module>xincan-user</module>-->
-<!--    </modules>-->
+    <modules>
+        <module>spring-boot-starter-sms</module>
+        <module>xincan-gateway</module>
+        <module>xincan-utils</module>
+        <module>xincan-config</module>
+        <module>xincan-entity</module>
+        <module>xincan-order</module>
+        <module>xincan-user</module>
+    </modules>
 
     <!-- 公共版本号统一存放处，便于以后修改，全局替换版本号 -->
     <properties>
 
+<!--        &lt;!&ndash; docker maven构建工具 &ndash;&gt;-->
+<!--        <docker-maven-plugin.version>1.2.2</docker-maven-plugin.version>-->
+<!--        &lt;!&ndash; docker镜像构建服务器 &ndash;&gt;-->
+<!--        <docker-host-url>http://172.16.124.130:2375</docker-host-url>-->
+<!--        &lt;!&ndash; docker镜像存储仓库服务器（本实例采用harbor存储） &ndash;&gt;-->
+<!--        <docker-harbor-registry-url>base.xincan.cn</docker-harbor-registry-url>-->
+
         <!-- docker maven构建工具 -->
         <docker-maven-plugin.version>1.2.2</docker-maven-plugin.version>
         <!-- docker镜像构建服务器 -->
-        <docker-host-url>http://172.16.124.130:2375</docker-host-url>
+        <docker-host-url>http://192.168.1.80:2375</docker-host-url>
         <!-- docker镜像存储仓库服务器（本实例采用harbor存储） -->
-        <docker-harbor-registry-url>base.xincan.cn</docker-harbor-registry-url>
+        <docker-harbor-registry-url>base.hatech.com.cn</docker-harbor-registry-url>
 
         <!-- 构建项目编码格式版本配置 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

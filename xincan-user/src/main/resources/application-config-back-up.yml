@@ -7,7 +7,7 @@ address:
     slave2: 192.168.1.81:31130
 
 server:
-  port: 8001
+  port: 8000
   undertow:
     # 设置 HTTP POST 内容的最大长度，默认不做限制
     #  max-http-post-size: -1
@@ -29,7 +29,7 @@ spring:
     throw-exception-if-no-handler-found: true
 
   application:
-    name: xincan-order
+    name: xincan-user
   profiles:
     active: dev
 
@@ -51,15 +51,16 @@ spring:
     sentinel:
       transport:
         dashboard: ${address.sentinel}
+        port: 8719
       datasource:
-        xincan-user-flow-ds:
+        ds1:
           nacos:
             server-addr: ${address.nacos}
-            data-id: ${spring.application.name}-sentinel
-            group-id: ${spring.profiles.active}_group
+            dataId: ${spring.application.name}-sentinel
+            groupId: ${spring.profiles.active}_group
             namespace: xincan-${spring.profiles.active}-0001
             data-type: json
-            rule-type: FLOW
+            rule-type: flow
             username: nacos
             password: nacos
       eager: true
@@ -85,9 +86,7 @@ management:
   metrics:
     export:
       prometheus:
-        enabled: true
         step: 1m
-        descriptions: true
   web:
     server:
       auto-time-requests: true
@@ -96,5 +95,5 @@ management:
       id: ${spring.application.name}
     web:
       exposure:
-        #        include: '*'
-        include: health,info,env,prometheus,metrics,httptrace,threaddump,heapdump,${spring.application.name},nacos-config
+         include: '*'
+        # include: health,info,prometheus,metrics,httptrace,threaddump,heapdump,${spring.application.name},nacos-config

@@ -36,6 +36,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import javax.validation.constraints.NotNull;
+import java.lang.reflect.UndeclaredThrowableException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
@@ -111,6 +112,19 @@ public class BaseExceptionControllerAdvice implements ResponseBodyAdvice<Object>
         log(NoHandlerFoundException.class, ResponseCode.NOT_FOUND, noHandlerFoundException);
         return ResponseResult.error(ResponseCode.NOT_FOUND, "["+noHandlerFoundException.getHttpMethod()+"][" + noHandlerFoundException.getRequestURL() + "]请求，路径不存在");
     }
+
+    /**
+     * 捕获 202 异常处理
+     * @param undeclaredThrowableException 202 请求频繁
+     * @author Jiangxincan
+     * @date 2019/9/14 16:21
+     * @return cn.com.xincan.xincanframework.utils.response.ResponseObject<java.lang.String>
+     */
+//    @ExceptionHandler(value = UndeclaredThrowableException.class)
+//    public ResponseObject<String> undeclaredThrowableException(UndeclaredThrowableException undeclaredThrowableException) {
+//        log(UndeclaredThrowableException.class, ResponseCode.REQUEST_SERVICE_ERROR, undeclaredThrowableException);
+//        return ResponseResult.error(ResponseCode.REQUEST_SERVICE_ERROR);
+//    }
 
     /**
      * 捕获 405 异常处理

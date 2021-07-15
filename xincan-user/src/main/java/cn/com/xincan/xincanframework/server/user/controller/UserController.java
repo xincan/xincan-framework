@@ -42,6 +42,8 @@ import java.util.List;
 @ResponseResultBody
 public class UserController {
 
+    private static final int TYPE = 500;
+
     @Qualifier("userService")
     private final IUserService userService;
 
@@ -63,7 +65,7 @@ public class UserController {
             @PathVariable(name = "type")
             Integer type
     ) {
-        if(type == 503){
+        if(type == TYPE){
             throw new UserException(ResponseCode.BUSINESS_EXCEPTION, "用户信息异常");
         }
         return userService.findUserById(id);
