@@ -1,15 +1,13 @@
 package cn.com.xincan.xincanframework.entity.user.dto;
 
 import cn.com.xincan.xincanframework.entity.page.PaginationQuery;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDateTime;
+import javax.validation.constraints.NotBlank;
 
 /**
  * copyright (C), 2020, 心灿基础架构
@@ -31,26 +29,31 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class UserSearchDto extends PaginationQuery {
 
-    @ApiModelProperty(value="用户ID（UUID）", dataType = "String", example = "1346331524970647553")
-    @Length(message = "用户ID长度应为32位", min = 19, max = 19)
+    @ApiModelProperty(value="用户ID", dataType = "String", required = true, example = "1285759156342562818")
+    @NotBlank(message = "用户ID不能为空")
+    @Length(message = "用户ID长度应为{min}位", min = 19, max = 19)
     private String id;
 
-    @ApiModelProperty(value="用户名称", dataType = "String", example = "张三")
+    @ApiModelProperty(value="用户名称", dataType = "String", required = true, example = "张三")
+    @NotBlank(message = "用户名称不能为空")
+    @Length(message = "用户名称长度应在{min}~{max}之间", min = 1, max = 50)
     private String name;
 
-    @ApiModelProperty(value="用户登录名称", dataType = "String", example = "zhangsan")
+    @ApiModelProperty(value="用户登录名称", dataType = "String", required = true, example = "zhangsan")
+    @Length(message = "登录名称长度应在{min}~{max}之间", min = 1, max = 50)
     private String loginName;
 
-    @ApiModelProperty(value="用户登录密码", dataType = "String", example = "123456")
+    @ApiModelProperty(value="登录密码", dataType = "String", required = true, example = "123456")
+    @Length(message = "登录密码长度应在{min}~{max}之间", min = 6, max = 20)
     private String password;
 
     @ApiModelProperty(value="用户电话", dataType = "String", example = "18503455667")
+    @Length(message = "用户电话长度应为{min}位", min = 11, max = 11)
     private String phone;
 
-    @ApiModelProperty(value="创建时间", dataType = "org.joda.time.LocalDateTime", example = "2020-12-12 23:23:23")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime createTime;
+    @ApiModelProperty(value="用户邮箱", dataType = "String", example = "alittlexincan@163.com")
+    @Length(message = "用户邮箱长度应为{min}位", min = 10, max = 50)
+    private String email;
 
 
 }

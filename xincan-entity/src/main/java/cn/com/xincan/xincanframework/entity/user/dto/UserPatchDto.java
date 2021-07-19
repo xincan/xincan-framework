@@ -1,6 +1,5 @@
 package cn.com.xincan.xincanframework.entity.user.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -8,10 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
 
 
 
@@ -35,7 +33,7 @@ import java.time.LocalDateTime;
 @Builder
 public class UserPatchDto {
 
-    @ApiModelProperty(value="用户ID", dataType = "String", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
+    @ApiModelProperty(value="用户ID", dataType = "String", required = true, example = "1285759156342562818")
     @NotBlank(message = "用户ID不能为空")
     @Length(message = "用户ID长度应为{min}位", min = 19, max = 19)
     private String id;
@@ -56,9 +54,14 @@ public class UserPatchDto {
     @Length(message = "用户电话长度应为{min}位", min = 11, max = 11)
     private String phone;
 
-    @ApiModelProperty(value="创建时间", dataType = "LocalDateTime", example = "2020-12-12 23:23:23")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime createTime;
+    @ApiModelProperty(value="用户邮箱", dataType = "String", example = "alittlexincan@163.com")
+    @Length(message = "用户邮箱长度应为{min}位", min = 10, max = 50)
+    private String email;
+
+    @ApiModelProperty(value="用户地址", dataType = "String", example = "北京市海淀区西直门")
+    private String address;
+
+    @ApiModelProperty(value="用户余额", dataType = "java.math.BigDecimal", example = "100000.01")
+    private BigDecimal balance;
 
 }

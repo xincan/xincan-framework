@@ -21,6 +21,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @ApiModel(description = "用户信息返回试图")
@@ -45,9 +46,29 @@ public class UserSearchVo {
     @ApiModelProperty(value="用户电话", dataType = "String", example = "18503455667")
     private String phone;
 
+    @ApiModelProperty(value="用户邮箱", dataType = "String", example = "alittlexincan@163.com")
+    private String email;
+
+    @ApiModelProperty(value="用户地址", dataType = "String", example = "北京市海淀区西直门")
+    private String address;
+
+    @ApiModelProperty(value="用户余额", dataType = "java.math.BigDecimal", example = "100000.01")
+    private BigDecimal balance;
+
+    @ApiModelProperty(value="创建人员", dataType = "String", example = "zhangsan")
+    private String createUser;
+
     @ApiModelProperty(value="创建时间", dataType = "org.joda.time.LocalDateTime", example = "2020-12-12 23:23:23")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
+
+    @ApiModelProperty(value="编辑人员", dataType = "String", example = "zhangsan")
+    private String editUser;
+
+    @ApiModelProperty(value="编辑时间", dataType = "org.joda.time.LocalDateTime", example = "2020-12-12 23:23:23")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime editTime;
 
 }

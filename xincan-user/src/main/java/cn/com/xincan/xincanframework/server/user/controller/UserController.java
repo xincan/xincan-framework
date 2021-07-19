@@ -55,7 +55,7 @@ public class UserController {
     @GetMapping("/{id}/{type}")
     @SentinelResource("/user/{id}/{type}")
     public UserSearchVo findUserById(
-            @ApiParam(name = "id", value = "用户ID", required = true, example = "1334332594997260290")
+            @ApiParam(name = "id", value = "用户ID", required = true, example = "1285759156342562818")
             @NotNull(message = "用户ID不能为空")
             @Length(message = "用户ID长度应为{min}位", min = 19, max = 19)
             @PathVariable(name = "id")
@@ -105,7 +105,7 @@ public class UserController {
     @DeleteMapping
     @SentinelResource("/delete/user")
     public Integer delete(
-            @ApiParam(name = "id", value = "用户ID", required = true, example = "1334332594997260290")
+            @ApiParam(name = "id", value = "用户ID", required = true, example = "1285759156342562818")
             @NotNull(message = "用户ID不能为空")
             @Length(message = "用户ID长度应为{max}位", min = 19, max = 19)
             @RequestParam(name = "id")

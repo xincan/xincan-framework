@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
@@ -43,7 +44,25 @@ public class UserPo {
     @TableField("phone")
     private String phone;
 
+    @TableField("email")
+    private String email;
+
+    @TableField("address")
+    private String address;
+
+    @TableField("balance")
+    private BigDecimal balance;
+
+    @TableField("create_user")
+    private String createUser;
+
     @TableField("create_time")
     private LocalDateTime createTime;
+
+    @TableField("edit_user")
+    private String editUser;
+
+    @TableField("edit_time")
+    private LocalDateTime editTime;
 
 }
