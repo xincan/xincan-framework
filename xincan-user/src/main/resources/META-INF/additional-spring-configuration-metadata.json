@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.datasource.master.driver-class-name",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.master.driver-class-name."
+  }
+] }
