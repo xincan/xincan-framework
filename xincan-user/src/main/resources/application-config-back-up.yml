@@ -28,11 +28,6 @@ spring:
   mvc:
     throw-exception-if-no-handler-found: true
 
-  application:
-    name: xincan-user
-  profiles:
-    active: dev
-
   cloud:
     nacos:
       config:
@@ -53,32 +48,31 @@ spring:
         dashboard: ${address.sentinel}
         port: 8719
       datasource:
-        ds1:
+        flow:
           nacos:
             server-addr: ${address.nacos}
-            dataId: ${spring.application.name}-sentinel
-            groupId: ${spring.profiles.active}_group
+            data-id: ${spring.application.name}-sentinel
+            group-id: ${spring.profiles.active}_group
             namespace: xincan-${spring.profiles.active}-0001
             data-type: json
             rule-type: flow
             username: nacos
             password: nacos
-      eager: true
 
   datasource:
     master:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://${address.mysql.master}/xincan-${spring.profiles.active}?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
+      jdbc-url: jdbc:mysql://${address.mysql.master}/xincan-user-${spring.profiles.active}?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
       username: root
       password: 123456
     slave1:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://${address.mysql.slave1}/xincan-${spring.profiles.active}?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
+      jdbc-url: jdbc:mysql://${address.mysql.slave1}/xincan-user-${spring.profiles.active}?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
       username: root
       password: 123456
     slave2:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://${address.mysql.slave2}/xincan-${spring.profiles.active}?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
+      jdbc-url: jdbc:mysql://${address.mysql.slave2}/xincan-user-${spring.profiles.active}?useSSL=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&serverTimezone=GMT
       username: root
       password: 123456
 
@@ -95,5 +89,5 @@ management:
       id: ${spring.application.name}
     web:
       exposure:
-         include: '*'
+        include: '*'
         # include: health,info,prometheus,metrics,httptrace,threaddump,heapdump,${spring.application.name},nacos-config
