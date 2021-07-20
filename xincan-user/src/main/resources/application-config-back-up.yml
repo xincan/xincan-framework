@@ -76,6 +76,14 @@ spring:
       username: root
       password: 123456
 
+# 解决Read Timeout 异常
+feign:
+  client:
+    config:
+      default:
+        read-timeout: 5000
+        connect-timeout: 100
+
 management:
   metrics:
     export:
