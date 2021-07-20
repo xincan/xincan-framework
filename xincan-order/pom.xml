@@ -15,7 +15,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>xincan-order</name>
     <packaging>jar</packaging>
-    <description>xincan-order Spring Boot</description>
+    <description>xincan-order订单服务</description>
 
     <properties>
         <docker.image.prefix>springboot</docker.image.prefix>

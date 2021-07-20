@@ -1,5 +1,6 @@
 package cn.com.xincan.xincanframework.server.order.po;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -19,8 +20,6 @@ import java.time.LocalDateTime;
  * @program xincan-order
  * 订单数据实体类
  * @create 2020/3/19 14:36
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/3/19 14:36             0.0.1                         订单数据实体类
  */
 
 @Slf4j
@@ -34,11 +33,8 @@ public class OrderPo {
     @TableId(value = "id")
     private String id;
 
-    @TableField("title")
-    private String title;
-
-    @TableField("address")
-    private String address;
+    @TableField("goods_id")
+    private String goodsId;
 
     @TableField("user_id")
     private String userId;
@@ -46,10 +42,16 @@ public class OrderPo {
     @TableField("description")
     private String description;
 
-    @TableField("create_time")
+    @TableField(value = "create_user_id", fill = FieldFill.INSERT)
+    private String createUserId;
+
+    @TableField(value = "create_time", fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
-    @TableField("end_time")
-    private LocalDateTime endTime;
+    @TableField(value = "edit_user_id", fill = FieldFill.INSERT_UPDATE)
+    private String editUserId;
+
+    @TableField(value = "edit_time", fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime editTime;
 
 }
