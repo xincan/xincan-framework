@@ -1,5 +1,6 @@
 package cn.com.xincan.xincanframework.server.user.po;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -32,37 +33,37 @@ public class UserPo {
     @TableId(value = "id")
     private String id;
 
-    @TableField("name")
+    @TableField(value = "name")
     private String name;
 
-    @TableField("login_name")
+    @TableField(value = "login_name")
     private String loginName;
 
-    @TableField("password")
+    @TableField(value = "password")
     private String password;
 
-    @TableField("phone")
+    @TableField(value = "phone")
     private String phone;
 
-    @TableField("email")
+    @TableField(value = "email")
     private String email;
 
-    @TableField("address")
+    @TableField(value = "address")
     private String address;
 
-    @TableField("balance")
+    @TableField(value = "balance")
     private BigDecimal balance;
 
-    @TableField("create_user_id")
+    @TableField(value = "create_user_id", fill = FieldFill.INSERT)
     private String createUserId;
 
-    @TableField("create_time")
+    @TableField(value = "create_time", fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
-    @TableField("edit_user_id")
+    @TableField(value = "edit_user_id", fill = FieldFill.INSERT_UPDATE)
     private String editUserId;
 
-    @TableField("edit_time")
+    @TableField(value = "edit_time", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime editTime;
 
 }

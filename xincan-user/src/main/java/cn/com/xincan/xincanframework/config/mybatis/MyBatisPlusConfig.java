@@ -112,6 +112,7 @@ public class MyBatisPlusConfig {
     public GlobalConfig globalConfig(@Qualifier("dbConfig") GlobalConfig.DbConfig dbConfig){
         GlobalConfig globalConfig = new GlobalConfig();
         globalConfig.setDbConfig(dbConfig);
+        globalConfig.setMetaObjectHandler(new MyBatisMetaObjectHandler());
         return globalConfig;
     }
 
