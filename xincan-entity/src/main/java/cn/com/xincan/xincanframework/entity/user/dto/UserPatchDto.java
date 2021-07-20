@@ -61,7 +61,7 @@ public class UserPatchDto {
     @ApiModelProperty(value="用户地址", dataType = "String", example = "北京市海淀区西直门")
     private String address;
 
-    @ApiModelProperty(value="用户余额", dataType = "java.math.BigDecimal", example = "100000.01")
+    @ApiModelProperty(value="用户余额", dataType = "java.math.BigDecimal", example = "10000000.01")
     private BigDecimal balance;
 
 }

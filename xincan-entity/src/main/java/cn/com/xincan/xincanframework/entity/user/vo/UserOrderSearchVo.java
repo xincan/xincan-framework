@@ -8,10 +8,9 @@ package cn.com.xincan.xincanframework.entity.user.vo;
  * @program xincan-user
  * 返回用户信息试图
  * @create 2020/3/19 14:54
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/3/19 14:54             0.0.1                         返回用户信息试图
  */
 
+import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,13 +22,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @ApiModel(description = "用户信息返回试图")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserSearchVo {
+public class UserOrderSearchVo {
 
     @ApiModelProperty(value="用户ID（UUID）", dataType = "String", example = "1285759156342562818")
     private String id;
@@ -54,5 +54,8 @@ public class UserSearchVo {
 
     @ApiModelProperty(value="用户余额", dataType = "java.math.BigDecimal", example = "10000000.01")
     private BigDecimal balance;
+
+    @ApiModelProperty(value="订单信息", dataType = "Object")
+    private List<OrderSearchVo> orders;
 
 }
