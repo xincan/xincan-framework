@@ -3,6 +3,7 @@ package cn.com.xincan.xincanframework.server.user.service;
 import cn.com.xincan.xincanframework.entity.user.dto.UserPatchDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto;
+import cn.com.xincan.xincanframework.entity.user.vo.UserOrderSearchVo;
 import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -38,7 +39,7 @@ public interface IUserService {
      * @date 2020/7/22 9:48
      * @return cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto
      */
-    UserSearchVo findUserById(String id);
+    UserOrderSearchVo findUserById(String id);
 
     /**
      *  根据用户ID，查询用户详细信息实体类

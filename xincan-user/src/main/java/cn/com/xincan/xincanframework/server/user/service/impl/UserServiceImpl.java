@@ -1,5 +1,9 @@
 package cn.com.xincan.xincanframework.server.user.service.impl;
 
+import cn.com.xincan.xincanframework.client.order.OrderClient;
+import cn.com.xincan.xincanframework.config.excetion.UserException;
+import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
+import cn.com.xincan.xincanframework.entity.user.vo.UserOrderSearchVo;
 import cn.com.xincan.xincanframework.utils.orika.OrikaUtils;
 import cn.com.xincan.xincanframework.entity.user.dto.UserPatchDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto;
@@ -8,9 +12,12 @@ import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import cn.com.xincan.xincanframework.server.user.mapper.IUserMapper;
 import cn.com.xincan.xincanframework.server.user.po.UserPo;
 import cn.com.xincan.xincanframework.server.user.service.IUserService;
+import cn.com.xincan.xincanframework.utils.response.ResponseCode;
+import cn.com.xincan.xincanframework.utils.response.ResponseObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -34,6 +41,10 @@ public class UserServiceImpl implements IUserService {
     @Resource
     private IUserMapper userMapper;
 
+    @Autowired
+    private OrderClient orderClient;
+
+
     /**
      *  查询所有用户信息
      * @author Jiangxincan
@@ -50,14 +61,22 @@ public class UserServiceImpl implements IUserService {
     /**
      *  根据用户ID，查询用户详细信息
      * @param id 用户ID
-     * @author Jiangxincan
-     * @date 2020/7/22 9:48
-     * @return cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto
-     */
+     * @author JiangXincan
+     * @date 2021/7/20 11:25
+     * @return cn.com.xincan.xincanframework.entity.user.vo.UserOrderSearchVo
+     **/
     @Override
-    public UserSearchVo findUserById(String id) {
+    public UserOrderSearchVo findUserById(String id) {
+
+        ResponseObject<List<OrderSearchVo>> ordersResult = orderClient.findOrderByUserId(id);
+        if (ordersResult.getCode() == ResponseCode.REQUEST_SERVICE_ERROR.code()) {
+            throw new UserException(ordersResult.getCode(), ordersResult.getMsg());
+        }
+        UserOrderSearchVo userOrderSearchVo = new UserOrderSearchVo();
+        userOrderSearchVo.setOrders(ordersResult.getData());
         UserPo user = userMapper.selectById(id);
-        return OrikaUtils.map(user, UserSearchVo.class);
+
+        return OrikaUtils.map(user, UserOrderSearchVo.class);
     }
 
     /**

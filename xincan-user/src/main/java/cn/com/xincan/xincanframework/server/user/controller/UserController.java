@@ -3,6 +3,7 @@ package cn.com.xincan.xincanframework.server.user.controller;
 import cn.com.xincan.xincanframework.entity.user.dto.UserPatchDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto;
+import cn.com.xincan.xincanframework.entity.user.vo.UserOrderSearchVo;
 import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import cn.com.xincan.xincanframework.config.excetion.UserException;
 import cn.com.xincan.xincanframework.server.user.service.IUserService;
@@ -54,7 +55,7 @@ public class UserController {
     @ApiOperation(value = "查询用户信息", httpMethod = "GET", notes = "根据用户ID查询用户详细信息")
     @GetMapping("/{id}/{type}")
     @SentinelResource("/user/{id}/{type}")
-    public UserSearchVo findUserById(
+    public UserOrderSearchVo findUserById(
             @ApiParam(name = "id", value = "用户ID", required = true, example = "1285759156342562818")
             @NotNull(message = "用户ID不能为空")
             @Length(message = "用户ID长度应为{min}位", min = 19, max = 19)

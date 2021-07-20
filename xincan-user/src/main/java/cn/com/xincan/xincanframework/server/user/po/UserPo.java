@@ -53,14 +53,14 @@ public class UserPo {
     @TableField("balance")
     private BigDecimal balance;
 
-    @TableField("create_user")
-    private String createUser;
+    @TableField("create_user_id")
+    private String createUserId;
 
     @TableField("create_time")
     private LocalDateTime createTime;
 
-    @TableField("edit_user")
-    private String editUser;
+    @TableField("edit_user_id")
+    private String editUserId;
 
     @TableField("edit_time")
     private LocalDateTime editTime;

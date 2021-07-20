@@ -18,7 +18,9 @@
         <module>xincan-utils</module>
         <module>xincan-config</module>
         <module>xincan-entity</module>
+        <module>xincan-goods</module>
         <module>xincan-order</module>
+        <module>xincan-order-client</module>
         <module>xincan-user</module>
     </modules>
 
@@ -100,9 +102,10 @@
         <!-- 自定义通用实体类工具包版本配置 -->
         <xincan-entity.version>0.0.1-SNAPSHOT</xincan-entity.version>
 
-        <spring-boot-starter-xincan-email.version>0.0.1-SNAPSHOT</spring-boot-starter-xincan-email.version>
-
         <spring-boot-starter-sms.version>0.0.1-SNAPSHOT</spring-boot-starter-sms.version>
+
+        <!-- 自定义通用实体类工具包版本配置 -->
+        <xincan-order-client.version>0.0.1-SNAPSHOT</xincan-order-client.version>
 
     </properties>
 
@@ -252,6 +255,12 @@
                 <groupId>cn.com.xincan.xincanframework.plugins</groupId>
                 <artifactId>spring-boot-starter-sms</artifactId>
                 <version>${spring-boot-starter-sms.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.com.xincan.xincanframework.client</groupId>
+                <artifactId>xincan-order-client</artifactId>
+                <version>${xincan-order-client.version}</version>
             </dependency>
 
         </dependencies>
