@@ -13,6 +13,7 @@ import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.http.server.ServletServerHttpRequest;
+import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
@@ -72,12 +73,30 @@ public class BaseExceptionControllerAdvice implements ResponseBodyAdvice<Object>
         boolean classFlag = Objects.requireNonNull(methodParameter.getMethod()).getDeclaringClass().isAnnotationPresent(ResponseResultBody.class);
         // 获取当前函数上是否有ResponseResultBody
         boolean methodFlag = methodParameter.getMethod().isAnnotationPresent(ResponseResultBody.class);
-        return classFlag || methodFlag ? true : false;
+        return classFlag || methodFlag;
     }
 
+    /**
+     * 包装控制层controller统一返回值
+     * @param body 消息体
+      * @param methodParameter  方法参数列表
+      * @param mediaType  请求类型
+      * @param clazz  请求类
+      * @param request  请求对象
+      * @param response 返回对象
+     * @author JiangXincan
+     * @date 2021/7/20 11:57
+     * @return java.lang.Object
+     **/
     @Override
-    public Object beforeBodyWrite(Object body, MethodParameter methodParameter, MediaType mediaType,
-                                  Class<? extends HttpMessageConverter<?>> clazz, ServerHttpRequest request, ServerHttpResponse response) {
+    public Object beforeBodyWrite(
+            Object body,
+            @Nullable MethodParameter methodParameter,
+            @Nullable MediaType mediaType,
+            @Nullable Class<? extends HttpMessageConverter<?>> clazz,
+            @Nullable ServerHttpRequest request,
+            @Nullable ServerHttpResponse response
+    ) {
 
         // 如果控制层controller内部的函数是经过ResponseResult包装，并且返回值为ResponseObject，则不用转换，直接返回
         if(!ObjectUtils.isEmpty(body) && body instanceof ResponseObject) {
@@ -120,11 +139,12 @@ public class BaseExceptionControllerAdvice implements ResponseBodyAdvice<Object>
      * @date 2019/9/14 16:21
      * @return cn.com.xincan.xincanframework.utils.response.ResponseObject<java.lang.String>
      */
-//    @ExceptionHandler(value = UndeclaredThrowableException.class)
-//    public ResponseObject<String> undeclaredThrowableException(UndeclaredThrowableException undeclaredThrowableException) {
-//        log(UndeclaredThrowableException.class, ResponseCode.REQUEST_SERVICE_ERROR, undeclaredThrowableException);
-//        return ResponseResult.error(ResponseCode.REQUEST_SERVICE_ERROR);
-//    }
+
+    @ExceptionHandler(value = UndeclaredThrowableException.class)
+    public ResponseObject<String> undeclaredThrowableException(UndeclaredThrowableException undeclaredThrowableException) {
+        log(UndeclaredThrowableException.class, ResponseCode.REQUEST_SERVICE_ERROR, undeclaredThrowableException);
+        return ResponseResult.error(ResponseCode.REQUEST_SERVICE_ERROR);
+    }
 
     /**
      * 捕获 405 异常处理
