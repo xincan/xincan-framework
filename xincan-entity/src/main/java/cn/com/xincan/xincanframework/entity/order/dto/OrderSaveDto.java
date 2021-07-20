@@ -31,30 +31,17 @@ import java.time.LocalDateTime;
 @Builder
 public class OrderSaveDto {
 
-    @ApiModelProperty(value="订单名称", required = true, dataType = "String", example = "购买佛珠")
-    @NotBlank(message = "订单名称不能为空")
-    private String title;
-
-    @ApiModelProperty(value="订单地址（收货地址）", required = true, dataType = "String", example = "北京市房山区")
-    @NotBlank(message = "订单地址不能为空")
-    private String address;
-
-    @ApiModelProperty(value="订单人ID（收货人ID、UUID）", required = true, dataType = "String", example = "1285759156342562818")
-    @Length(message = "订单人ID长度应为{min}位", min = 19, max = 19)
+    @ApiModelProperty(value="用户ID（下订单的人ID）", required = true, dataType = "String", example = "1285759156342562818")
     @NotBlank(message = "订单人ID不能为空")
+    @Length(message = "订单人ID长度应为{min}位", min = 19, max = 19)
     private String userId;
+
+    @ApiModelProperty(value="商品ID（用户选中的商品ID）", required = true, dataType = "String", example = "1417457974364454913")
+    @NotBlank(message = "商品ID不能为空")
+    @Length(message = "商品ID长度应为{min}位", min = 19, max = 19)
+    private String goodsId;
 
     @ApiModelProperty(value="订单说明（附加信息）", dataType = "String", example = "注意物件不能轻易碰撞")
     private String description;
-
-    @ApiModelProperty(value="订单时间", dataType = "org.joda.time.LocalDateTime", example = "2020-12-12 23:23:23")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime createTime;
-
-    @ApiModelProperty(value="收货时间", dataType = "org.joda.time.LocalDateTime", example = "2020-12-12 23:23:23")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime endTime;
 
 }

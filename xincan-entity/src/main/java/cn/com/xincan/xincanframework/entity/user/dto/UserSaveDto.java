@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 
@@ -57,8 +58,8 @@ public class UserSaveDto {
     private String address;
 
     @ApiModelProperty(value="用户余额", dataType = "java.math.BigDecimal", example = "10000000.01")
-    @DecimalMax(message = "", value = "00000000.00")
-    @DecimalMax(message = "", value = "99999999.99")
+    @DecimalMax(message = "用户余额最大值为{value}", value = "99999999.99")
+    @DecimalMin(message = "用户余额最大值为{value}", value = "00000000.00")
     private BigDecimal balance;
 
 

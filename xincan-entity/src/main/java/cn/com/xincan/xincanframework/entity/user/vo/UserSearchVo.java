@@ -55,4 +55,20 @@ public class UserSearchVo {
     @ApiModelProperty(value="用户余额", dataType = "java.math.BigDecimal", example = "10000000.01")
     private BigDecimal balance;
 
+    @ApiModelProperty(value="创建人员ID", dataType = "String", example = "1285759156342562818")
+    private String createUserId;
+
+    @ApiModelProperty(value="创建时间", dataType = "org.joda.time.LocalDateTime", example = "2020-12-12 23:23:23")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime createTime;
+
+    @ApiModelProperty(value="编辑人员ID", dataType = "String", example = "1285759156342562818")
+    private String editUserId;
+
+    @ApiModelProperty(value="编辑时间", dataType = "org.joda.time.LocalDateTime", example = "2020-12-12 23:23:23")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime editTime;
+
 }

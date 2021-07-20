@@ -7,6 +7,8 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.NotBlank;
+
 /**
  * copyright (C), 2020, 心灿基础架构
  *
@@ -31,11 +33,15 @@ public class OrderSearchDto extends PaginationQuery {
     @Length(message = "订单ID长度应为{min}位", min = 19, max = 19)
     private String id;
 
-    @ApiModelProperty(name = "userId", value="用户ID（UUID）", dataType = "String", example = "1285759156342562818")
-    @Length(message = "订单ID长度应为{min}位", min = 19, max = 19)
+    @ApiModelProperty(value="用户ID（下订单的人ID）", required = true, dataType = "String", example = "1285759156342562818")
+    @Length(message = "订单人ID长度应为{min}位", min = 19, max = 19)
     private String userId;
 
-    @ApiModelProperty(name = "title", value="订单名称", dataType = "String", example = "购买佛珠")
-    private String title;
+    @ApiModelProperty(value="商品ID（用户选中的商品ID）", required = true, dataType = "String", example = "1417457974364454913")
+    @Length(message = "商品ID长度应为{min}位", min = 19, max = 19)
+    private String goodsId;
+
+    @ApiModelProperty(value="订单说明（附加信息）", dataType = "String", example = "注意物件不能轻易碰撞")
+    private String description;
 
 }

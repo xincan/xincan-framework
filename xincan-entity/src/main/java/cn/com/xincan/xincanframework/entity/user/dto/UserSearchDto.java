@@ -30,12 +30,10 @@ import javax.validation.constraints.NotBlank;
 public class UserSearchDto extends PaginationQuery {
 
     @ApiModelProperty(value="用户ID", dataType = "String", required = true, example = "1285759156342562818")
-    @NotBlank(message = "用户ID不能为空")
     @Length(message = "用户ID长度应为{min}位", min = 19, max = 19)
     private String id;
 
     @ApiModelProperty(value="用户名称", dataType = "String", required = true, example = "张三")
-    @NotBlank(message = "用户名称不能为空")
     @Length(message = "用户名称长度应在{min}~{max}之间", min = 1, max = 50)
     private String name;
 
