@@ -43,14 +43,10 @@ public class GoodsServiceImpl implements IGoodsService {
      **/
     @Override
     public List<GoodsSearchVo> findGoodsByIds(List<String> ids) {
-
         LambdaQueryWrapper<GoodsPo> queryWrapper = Wrappers.lambdaQuery();
-        queryWrapper.eq(StringUtils.isEmpty(ids), GoodsPo::getId, ids);
-
+        queryWrapper.in(!StringUtils.isEmpty(ids), GoodsPo::getId, ids);
         List<GoodsPo> goods = goodsMapper.selectList(queryWrapper);
-
         return goods.stream().map( goodsPo -> OrikaUtils.map(goodsPo, GoodsSearchVo.class)).collect(Collectors.toList());
-
     }
 
     /**

@@ -9,6 +9,7 @@ import cn.com.xincan.xincanframework.utils.response.*;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
@@ -43,12 +44,12 @@ public class GoodsController {
     }
 
     @ApiOperation(value = "查询商品信息", httpMethod = "GET", notes = "根据商品ID查询商品详细信息")
-    @GetMapping("/{id}")
-    @SentinelResource("/user/{id}")
+    @ApiImplicitParam(name = "ids", value = "商品ID（多个逗号隔开）", required = true, dataType = "String", allowMultiple = true , example = "1417457974364454913,1417726917956083714")
+    @GetMapping("/{ids}")
+    @SentinelResource("/{ids}")
     public List<GoodsSearchVo> findGoodsById(
-            @ApiParam(name = "id", value = "商品ID（多个逗号隔开）", required = true, example = "1417457974364454913,1417726917956083714")
             @NotNull(message = "商品ID不能为空")
-            @PathVariable(name = "id")
+            @PathVariable(name = "ids")
             List<String> ids
     ) {
         return goodsService.findGoodsByIds(ids);
