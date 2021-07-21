@@ -1,6 +1,8 @@
 package cn.com.xincan.xincanframework.server.order.service.impl;
 
 import cn.com.xincan.xincanframework.entity.order.dto.OrderPatchDto;
+import cn.com.xincan.xincanframework.server.order.mapper.IOrderGoodsMapper;
+import cn.com.xincan.xincanframework.server.order.po.OrderGoodsPo;
 import cn.com.xincan.xincanframework.utils.orika.OrikaUtils;
 import cn.com.xincan.xincanframework.entity.order.dto.OrderSaveDto;
 import cn.com.xincan.xincanframework.entity.order.dto.OrderSearchDto;
@@ -12,6 +14,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
@@ -34,6 +37,9 @@ public class OrderServiceImpl implements IOrderService {
 
     @Resource
     private IOrderMapper orderMapper;
+
+    @Resource
+    private IOrderGoodsMapper orderGoodsMapper;
 
     /**
      *  查询所有订单信息
@@ -104,9 +110,13 @@ public class OrderServiceImpl implements IOrderService {
      * @return cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public OrderSearchVo save(OrderSaveDto orderSaveDto) {
         OrderPo orderPo = OrikaUtils.map(orderSaveDto, OrderPo.class);
         orderMapper.insert(orderPo);
+        OrderGoodsPo orderGoodsPo = OrderGoodsPo.builder()
+                .orderId(orderPo.getId()).goodsId(orderSaveDto.getGoodsId()).userId(orderSaveDto.getUserId()).build();
+        orderGoodsMapper.insert(orderGoodsPo);
         return OrikaUtils.map(orderPo, OrderSearchVo.class);
     }
 

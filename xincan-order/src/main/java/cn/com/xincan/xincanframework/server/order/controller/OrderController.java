@@ -64,7 +64,7 @@ public class OrderController {
     @GetMapping("/user/{id}")
     @SentinelResource("/order/user/{id}")
     public OrderSearchVo findOrderByUserId(
-            @ApiParam(name = "id", value = "用户ID", required = true, example = "1334332594997260290")
+            @ApiParam(name = "id", value = "用户ID", required = true, example = "1285759156342562818")
             @Length(message = "用户ID长度应为{max}位", min = 19, max = 19)
             @PathVariable(name = "id")
             String id
@@ -106,7 +106,5 @@ public class OrderController {
     ) {
         return orderService.delete(id);
     }
-
-
 
 }

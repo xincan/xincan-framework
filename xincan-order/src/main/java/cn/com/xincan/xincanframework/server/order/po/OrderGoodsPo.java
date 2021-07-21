@@ -24,31 +24,21 @@ import java.time.LocalDateTime;
 
 @Slf4j
 @Data
-@TableName("`order`")
+@TableName("order_goods")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class OrderPo {
+public class OrderGoodsPo {
 
-    @TableId(value = "id")
-    private String id;
+    @TableId(value = "order_id")
+    private String orderId;
 
-    @TableField("user_id")
+    @TableId(value = "order_id")
+    private String goodsId;
+
+    @TableId(value = "user_id")
     private String userId;
 
-    @TableField("description")
-    private String description;
 
-    @TableField(value = "create_user_id", fill = FieldFill.INSERT)
-    private String createUserId;
-
-    @TableField(value = "create_time", fill = FieldFill.INSERT)
-    private LocalDateTime createTime;
-
-    @TableField(value = "edit_user_id", fill = FieldFill.INSERT_UPDATE)
-    private String editUserId;
-
-    @TableField(value = "edit_time", fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime editTime;
 
 }
