@@ -19,18 +19,42 @@ import java.time.LocalDateTime;
 @Slf4j
 public class MyBatisMetaObjectHandler implements MetaObjectHandler {
 
-    @Override
-    public void insertFill(MetaObject metaObject) {
-        this.strictInsertFill(metaObject, "createUserId", String.class , "1285759156342562818");
-        this.strictInsertFill(metaObject, "createTime", LocalDateTime.class , LocalDateTime.now());
-        this.strictInsertFill(metaObject, "editUserId", String.class , "1285759156342562818");
-        this.strictInsertFill(metaObject, "editTime", LocalDateTime.class , LocalDateTime.now());
+    private static final String CREATE_USER_ID = "createUserId";
+    private static final String CREATE_TIME = "createTime";
+    private static final String EDIT_USER_ID = "editUserId";
+    private static final String EDIT_TIME = "editTime";
+
+
+    private void setIdAndTime(MetaObject metaObject, String id, String time) {
+        boolean hasId = metaObject.hasSetter(id);
+        if(hasId) {
+            this.strictInsertFill(metaObject, id, String.class , "1285759156342562818");
+        }
+        boolean hasTime = metaObject.hasSetter(time);
+        if(hasTime) {
+            this.strictInsertFill(metaObject, time, LocalDateTime.class , LocalDateTime.now());
+        }
     }
 
     @Override
+    public void insertFill(MetaObject metaObject) {
+        setIdAndTime(metaObject, CREATE_USER_ID, CREATE_TIME);
+        setIdAndTime(metaObject, EDIT_USER_ID, EDIT_TIME);
+    }
+
+
+
+    @Override
     public void updateFill(MetaObject metaObject) {
-        this.strictUpdateFill(metaObject, "editUserId", String.class , "1285759156342562818");
-        this.strictUpdateFill(metaObject, "editTime", LocalDateTime.class , LocalDateTime.now());
+        boolean hasEditUserId = metaObject.hasSetter(EDIT_USER_ID);
+        if(hasEditUserId) {
+            this.strictUpdateFill(metaObject, EDIT_USER_ID, String.class , "1285759156342562818");
+        }
+        boolean hasEditTime = metaObject.hasSetter(EDIT_TIME);
+        if(hasEditTime) {
+            this.strictUpdateFill(metaObject, EDIT_TIME, LocalDateTime.class, LocalDateTime.now());
+        }
+
     }
 
 }
