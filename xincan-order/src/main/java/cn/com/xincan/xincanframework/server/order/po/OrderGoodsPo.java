@@ -33,7 +33,7 @@ public class OrderGoodsPo {
     @TableId(value = "order_id")
     private String orderId;
 
-    @TableId(value = "order_id")
+    @TableId(value = "goods_id")
     private String goodsId;
 
     @TableId(value = "user_id")

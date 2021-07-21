@@ -2,7 +2,7 @@ package cn.com.xincan.xincanframework.server.order.mapper;
 
 import cn.com.xincan.xincanframework.server.order.po.OrderGoodsPo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * copyright (C), 2020, 心灿基础架构
@@ -13,5 +13,5 @@ import org.springframework.stereotype.Repository;
  * @description 订单数据处理接口
  * @create 2020/4/16 18:54
  */
-@Repository
+@Mapper
 public interface IOrderGoodsMapper extends BaseMapper<OrderGoodsPo> { }

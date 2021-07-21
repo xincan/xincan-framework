@@ -18,7 +18,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * copyright (C), 2020, 心灿基础架构
@@ -114,9 +117,7 @@ public class OrderServiceImpl implements IOrderService {
     public OrderSearchVo save(OrderSaveDto orderSaveDto) {
         OrderPo orderPo = OrikaUtils.map(orderSaveDto, OrderPo.class);
         orderMapper.insert(orderPo);
-        OrderGoodsPo orderGoodsPo = OrderGoodsPo.builder()
-                .orderId(orderPo.getId()).goodsId(orderSaveDto.getGoodsId()).userId(orderSaveDto.getUserId()).build();
-        orderGoodsMapper.insert(orderGoodsPo);
+        saveOrderGoodsBatch(orderPo.getId(), orderSaveDto.getGoodsId(), orderSaveDto.getUserId());
         return OrikaUtils.map(orderPo, OrderSearchVo.class);
     }
 
@@ -148,5 +149,20 @@ public class OrderServiceImpl implements IOrderService {
         return orderMapper.delete(queryWrapper);
     }
 
+    /**
+     * 插入订单与商品的关联关系
+     * @param orderId 订单ID
+     * @param goodsId  商品ID集合
+     * @param userId  用户ID
+     * @author JiangXincan
+     * @date 2021/7/21 14:27
+     * @return void
+     **/
+    private void saveOrderGoodsBatch(String orderId, List<String> goodsId, String userId) {
+        goodsId.forEach(goods -> {
+            OrderGoodsPo orderGoodsPo = OrderGoodsPo.builder().orderId(orderId).goodsId(goods).userId(userId).build();
+            orderGoodsMapper.insert(orderGoodsPo);
+        });
+    }
 
 }

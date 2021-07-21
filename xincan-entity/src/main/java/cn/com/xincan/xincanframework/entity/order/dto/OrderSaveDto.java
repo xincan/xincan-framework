@@ -11,7 +11,9 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * copyright (C), 2020, 心灿基础架构
@@ -36,10 +38,9 @@ public class OrderSaveDto {
     @Length(message = "订单人ID长度应为{min}位", min = 19, max = 19)
     private String userId;
 
-    @ApiModelProperty(value="商品ID（用户选中的商品ID）", required = true, dataType = "String", example = "1417457974364454913")
-    @NotBlank(message = "商品ID不能为空")
-    @Length(message = "商品ID长度应为{min}位", min = 19, max = 19)
-    private String goodsId;
+    @ApiModelProperty(value="商品ID（用户选中的商品ID,多个逗号隔开）", required = true, dataType = "List<String>", example = "1417457974364454913,1417726917956083714")
+    @NotEmpty(message = "商品ID不能为空")
+    private List<String> goodsId;
 
     @ApiModelProperty(value="订单说明（附加信息）", dataType = "String", example = "注意物件不能轻易碰撞")
     private String description;
