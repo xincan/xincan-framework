@@ -26,12 +26,12 @@ public interface IGoodsService {
 
     /**
      *  根据商品ID，查询商品详细信息实体类
-     * @param id 商品ID
+     * @param ids 商品ID集合
      * @author JiangXincan
      * @date 2021/7/20 15:13
      * @return cn.com.xincan.xincanframework.entity.goods.vo.GoodsSearchVo
      **/
-    GoodsSearchVo findGoodsById(String id);
+    List<GoodsSearchVo> findGoodsByIds(List<String> ids);
 
     /**
      *  根据商品ID，查询商品详细信息实体类

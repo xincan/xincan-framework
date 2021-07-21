@@ -43,16 +43,15 @@ public class GoodsController {
     }
 
     @ApiOperation(value = "查询商品信息", httpMethod = "GET", notes = "根据商品ID查询商品详细信息")
-    @GetMapping("/{id}/{type}")
-    @SentinelResource("/user/{id}/{type}")
-    public GoodsSearchVo findGoodsById(
-            @ApiParam(name = "id", value = "商品ID", required = true, example = "1285759156342562818")
+    @GetMapping("/{id}")
+    @SentinelResource("/user/{id}")
+    public List<GoodsSearchVo> findGoodsById(
+            @ApiParam(name = "id", value = "商品ID（多个逗号隔开）", required = true, example = "1417457974364454913,1417726917956083714")
             @NotNull(message = "商品ID不能为空")
-            @Length(message = "商品ID长度应为{min}位", min = 19, max = 19)
             @PathVariable(name = "id")
-            String id
+            List<String> ids
     ) {
-        return goodsService.findGoodsById(id);
+        return goodsService.findGoodsByIds(ids);
     }
 
     @ApiOperation(value = "查询商品信息（分页）", httpMethod = "POST", notes = "根据参数列表查询部分商品列表信息")

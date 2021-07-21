@@ -10,13 +10,14 @@ import cn.com.xincan.xincanframework.server.goods.mapper.IGoodsMapper;
 import cn.com.xincan.xincanframework.server.goods.po.GoodsPo;
 import cn.com.xincan.xincanframework.server.goods.service.IGoodsService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
-import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * copyright (C), 2020, 心灿基础架构
@@ -35,15 +36,21 @@ public class GoodsServiceImpl implements IGoodsService {
 
     /**
      *  根据商品ID，查询商品详细信息
-     * @param id 商品ID
+     * @param ids 商品ID集合
      * @author JiangXincan
      * @date 2021/7/20 15:16
      * @return cn.com.xincan.xincanframework.entity.goods.vo.GoodsSearchVo
      **/
     @Override
-    public GoodsSearchVo findGoodsById(String id) {
-        GoodsPo goods = goodsMapper.selectById(id);
-        return OrikaUtils.map(goods, GoodsSearchVo.class);
+    public List<GoodsSearchVo> findGoodsByIds(List<String> ids) {
+
+        LambdaQueryWrapper<GoodsPo> queryWrapper = Wrappers.lambdaQuery();
+        queryWrapper.eq(StringUtils.isEmpty(ids), GoodsPo::getId, ids);
+
+        List<GoodsPo> goods = goodsMapper.selectList(queryWrapper);
+
+        return goods.stream().map( goodsPo -> OrikaUtils.map(goodsPo, GoodsSearchVo.class)).collect(Collectors.toList());
+
     }
 
     /**
@@ -57,7 +64,7 @@ public class GoodsServiceImpl implements IGoodsService {
     public Page<GoodsSearchVo> page(GoodsSearchDto goodsSearchDto){
         Page<GoodsPo> page = new Page<>(goodsSearchDto.getPage(), goodsSearchDto.getLimit());
         LambdaQueryWrapper<GoodsPo> queryWrapper = Wrappers.lambdaQuery();
-        queryWrapper.like(StringUtils.isNotBlank(goodsSearchDto.getName()), GoodsPo::getName, goodsSearchDto.getName());
+        queryWrapper.like(!StringUtils.isEmpty(goodsSearchDto.getName()), GoodsPo::getName, goodsSearchDto.getName());
         page = goodsMapper.selectPage(page, queryWrapper);
         Page<GoodsSearchVo> record = new Page<>();
         record.setRecords(OrikaUtils.mapAsList(page.getRecords(), GoodsSearchVo.class));
