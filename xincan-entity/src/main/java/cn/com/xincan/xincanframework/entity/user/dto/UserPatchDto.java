@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 
@@ -31,7 +32,9 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserPatchDto {
+public class UserPatchDto  implements Serializable {
+
+    private static final long serialVersionUID = -3976727615641051091L;
 
     @ApiModelProperty(value="用户ID", dataType = "String", required = true, example = "1285759156342562818")
     @NotBlank(message = "用户ID不能为空")

@@ -11,6 +11,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -29,7 +30,9 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserSaveDto {
+public class UserSaveDto  implements Serializable {
+
+    private static final long serialVersionUID = 3184713806799151483L;
 
     @ApiModelProperty(value="用户名称", dataType = "String", required = true, example = "张三")
     @NotBlank(message = "用户名称不能为空")
