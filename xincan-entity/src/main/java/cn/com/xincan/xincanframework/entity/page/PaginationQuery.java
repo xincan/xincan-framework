@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.DecimalMin;
+import java.io.Serializable;
 
 /**
  * Copyright (C), 2019, 北京同创永益科技发展有限公司
@@ -25,7 +26,9 @@ import javax.validation.constraints.DecimalMin;
 @ApiModel(description = "分页查询公用处理类")
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaginationQuery{
+public class PaginationQuery implements Serializable {
+
+    private static final long serialVersionUID = 6599955257806082717L;
 
     @ApiModelProperty(value="当前页数,为空时，默认从第1页开始", dataType = "Integer", example = "1")
     @DecimalMin(message = "当前页数错误,应当大于等于于{value}一页", value = "1")

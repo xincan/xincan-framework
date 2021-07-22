@@ -32,8 +32,7 @@ public class ResponseObject<T> {
     @ApiModelProperty(name = "time", dataType = "Long", value = "响应结果时间")
     private long time = System.currentTimeMillis();
 
-    public ResponseObject() {
-    }
+    public ResponseObject() {}
 
     public ResponseObject(ResponseCode responseCode) {
         this.code = responseCode.code();
