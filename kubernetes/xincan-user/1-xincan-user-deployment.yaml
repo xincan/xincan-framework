@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: xincan
+  name: xincan-user
   namespace: xincan
   labels:
     xincan.kubernetes.io/company: xincan
