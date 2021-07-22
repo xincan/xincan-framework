@@ -28,7 +28,7 @@ spec:
         xincan.kubernetes.io/app: xincan-user
     spec:
       containers:
-        - name: xincan
+        - name: xincan-user
           image: base.hatech.com.cn/xincan/xincan-user:0.0.1-SNAPSHOT
           imagePullPolicy: Always
           ports:
