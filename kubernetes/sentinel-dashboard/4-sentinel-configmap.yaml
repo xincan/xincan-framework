@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sentinel-config
+  namespace: sentinel
+data:
+
+  sentinel.server.host: "sentinel-service.sentinel"
+  sentinel.server.port: "8858"
+  sentinel.dashboard.auth.username: "sentinel"
+  sentinel.dashboard.auth.password: "sentinel"

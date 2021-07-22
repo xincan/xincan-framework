@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentinel
+  namespace: sentinel
+  labels:
+    app: sentinel
+spec:
+  # serviceName: sentinel-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sentinel
+  template:
+    metadata:
+      labels:
+        app: sentinel
+    spec:
+      containers:
+        - name: sentinel
+          image: base.hatech.com.cn/library/sentinel-dashboard:v1.8.1
+          imagePullPolicy: Always
+          ports:
+          - name: client
+            containerPort: 8858
+          - name: api
+            containerPort: 8719
+          resources:
+            limits:
+              cpu: 450m
+              memory: 1Gi
+            requests:
+              cpu: 400m
+              memory: 1Gi
+          env:
+            - name: TZ
+              value: Asia/Shanghai
+            - name: JAVA_OPT_EXT
+              value: "-Dserver.servlet.session.timeout=7200 "
+            - name: SERVER_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: sentinel-config
+                  key: sentinel.server.host
+            - name: SERVER_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sentinel-config
+                  key: sentinel.server.port
+            - name: USERNAME
+              valueFrom:
+                  configMapKeyRef:
+                    name: sentinel-config
+                    key: sentinel.dashboard.auth.username
+            - name: PASSWORD
+              valueFrom:
+                  configMapKeyRef:
+                    name: sentinel-config
+                    key: sentinel.dashboard.auth.password
+          volumeMounts:
+            - name: sentinel-storage
+              mountPath: /opt/logs
+      volumes:
+        - name: sentinel-storage
+          persistentVolumeClaim:
+            claimName: sentinel-pvc
