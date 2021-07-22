@@ -3,8 +3,10 @@ package cn.com.xincan.xincanframework.server.order.controller;
 import cn.com.xincan.xincanframework.entity.order.dto.OrderPatchDto;
 import cn.com.xincan.xincanframework.entity.order.dto.OrderSaveDto;
 import cn.com.xincan.xincanframework.entity.order.dto.OrderSearchDto;
+import cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo;
 import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
 import cn.com.xincan.xincanframework.server.order.service.IOrderService;
+import cn.com.xincan.xincanframework.utils.response.ResponseNotPackResultBody;
 import cn.com.xincan.xincanframework.utils.response.ResponseObject;
 import cn.com.xincan.xincanframework.utils.response.ResponseResult;
 import cn.com.xincan.xincanframework.utils.response.ResponseResultBody;
@@ -63,7 +65,7 @@ public class OrderController {
     @ApiOperation(value = "根据用户ID查询订单信息", httpMethod = "GET", notes = "根据用户ID查询订单信息")
     @GetMapping("/user/{id}")
     @SentinelResource("/order/user/{id}")
-    public OrderSearchVo findOrderByUserId(
+    public OrderGoodsSearchVo findOrderByUserId(
             @ApiParam(name = "id", value = "用户ID", required = true, example = "1285759156342562818")
             @Length(message = "用户ID长度应为{max}位", min = 19, max = 19)
             @PathVariable(name = "id")

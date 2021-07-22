@@ -1,6 +1,10 @@
 package cn.com.xincan.xincanframework.server.order.service.impl;
 
+import cn.com.xincan.xincanframework.client.order.GoodsClient;
+import cn.com.xincan.xincanframework.config.excetion.OrderException;
+import cn.com.xincan.xincanframework.entity.goods.vo.GoodsSearchVo;
 import cn.com.xincan.xincanframework.entity.order.dto.OrderPatchDto;
+import cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo;
 import cn.com.xincan.xincanframework.server.order.mapper.IOrderGoodsMapper;
 import cn.com.xincan.xincanframework.server.order.po.OrderGoodsPo;
 import cn.com.xincan.xincanframework.utils.orika.OrikaUtils;
@@ -10,16 +14,17 @@ import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
 import cn.com.xincan.xincanframework.server.order.mapper.IOrderMapper;
 import cn.com.xincan.xincanframework.server.order.po.OrderPo;
 import cn.com.xincan.xincanframework.server.order.service.IOrderService;
+import cn.com.xincan.xincanframework.utils.response.ResponseCode;
+import cn.com.xincan.xincanframework.utils.response.ResponseObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,6 +49,12 @@ public class OrderServiceImpl implements IOrderService {
     @Resource
     private IOrderGoodsMapper orderGoodsMapper;
 
+    private final GoodsClient goodsClient;
+
+    public OrderServiceImpl(GoodsClient goodsClient) {
+        this.goodsClient = goodsClient;
+    }
+
     /**
      *  查询所有订单信息
      * @author Jiangxincan
@@ -66,8 +77,11 @@ public class OrderServiceImpl implements IOrderService {
      */
     @Override
     public OrderSearchVo findOrderById(String id) {
-        OrderPo user = orderMapper.selectById(id);
+        LambdaQueryWrapper<OrderPo> queryWrapper = Wrappers.lambdaQuery();
+        queryWrapper.eq(!StringUtils.isEmpty(id), OrderPo::getUserId, id);
+        OrderPo user = orderMapper.selectOne(queryWrapper);
         return OrikaUtils.map(user, OrderSearchVo.class);
+
     }
 
     /**
@@ -75,14 +89,35 @@ public class OrderServiceImpl implements IOrderService {
      * @param id 用户ID
      * @author Jiangxincan
      * @date 2020/7/21 13:59
-     * @return cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo
+     * @return cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo
      */
     @Override
-    public OrderSearchVo findOrderByUserId(String id) {
-        LambdaQueryWrapper<OrderPo> queryWrapper = Wrappers.lambdaQuery();
-        queryWrapper.eq(!StringUtils.isEmpty(id), OrderPo::getUserId, id);
-        OrderPo user = orderMapper.selectOne(queryWrapper);
-        return OrikaUtils.map(user, OrderSearchVo.class);
+    public OrderGoodsSearchVo findOrderByUserId(String id) {
+
+        LambdaQueryWrapper<OrderPo> orderPoLambdaQueryWrapper = Wrappers.lambdaQuery();
+        orderPoLambdaQueryWrapper.eq(StringUtils.isEmpty(id), OrderPo::getUserId, id);
+
+        // 根据用户ID，获取订单基本信息
+        OrderPo orderPo = orderMapper.selectOne(orderPoLambdaQueryWrapper);
+
+        // 根据用户ID，获取订单对应商品映射信息
+        LambdaQueryWrapper<OrderGoodsPo> queryWrapper = Wrappers.lambdaQuery();
+        queryWrapper.eq(!StringUtils.isEmpty(id), OrderGoodsPo::getUserId, id);
+        List<OrderGoodsPo> orderGoodsPoList = orderGoodsMapper.selectList(queryWrapper);
+
+        // 根据商品ID集合获取商品详细信息
+        List<String> goodsIds = orderGoodsPoList.stream().map(OrderGoodsPo::getGoodsId).collect(Collectors.toList());
+        // 通过商品客户端远程调用商品服务获取商品信息
+        ResponseObject<List<GoodsSearchVo>> responseObject = goodsClient.findGoodsByIds(goodsIds);
+        if(responseObject.getCode() == ResponseCode.REQUEST_SERVICE_ERROR.code()){
+            throw new OrderException(responseObject.getCode(), responseObject.getMsg());
+        }
+        List<GoodsSearchVo> goodsSearchList = responseObject.getData();
+
+        OrderGoodsSearchVo orderSearchVo = OrikaUtils.map(orderPo, OrderGoodsSearchVo.class);
+        orderSearchVo.setGoods(goodsSearchList);
+        return orderSearchVo;
+
     }
 
     /**

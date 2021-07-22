@@ -3,6 +3,7 @@ package cn.com.xincan.xincanframework.server.order.service;
 import cn.com.xincan.xincanframework.entity.order.dto.OrderPatchDto;
 import cn.com.xincan.xincanframework.entity.order.dto.OrderSaveDto;
 import cn.com.xincan.xincanframework.entity.order.dto.OrderSearchDto;
+import cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo;
 import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
 import cn.com.xincan.xincanframework.entity.user.dto.UserPatchDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto;
@@ -47,9 +48,9 @@ public interface IOrderService {
      * @param id 用户ID
      * @author Jiangxincan
      * @date 2020/7/21 13:59
-     * @return cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo
+     * @return cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo
      */
-    OrderSearchVo findOrderByUserId(String id);
+    OrderGoodsSearchVo findOrderByUserId(String id);
 
 
     /**
