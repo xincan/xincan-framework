@@ -19,9 +19,11 @@
         <module>xincan-config</module>
         <module>xincan-entity</module>
         <module>xincan-goods</module>
+        <module>xincan-goods-client</module>
         <module>xincan-order</module>
         <module>xincan-order-client</module>
         <module>xincan-user</module>
+        <module>xincan-user-client</module>
     </modules>
 
     <!-- 公共版本号统一存放处，便于以后修改，全局替换版本号 -->
@@ -104,8 +106,14 @@
 
         <spring-boot-starter-sms.version>0.0.1-SNAPSHOT</spring-boot-starter-sms.version>
 
-        <!-- 自定义通用实体类工具包版本配置 -->
+        <!-- 自定义订单客户端工具包版本配置 -->
         <xincan-order-client.version>0.0.1-SNAPSHOT</xincan-order-client.version>
+
+        <!-- 自定义商品客户端工具包版本配置 -->
+        <xincan-goods-client.version>0.0.1-SNAPSHOT</xincan-goods-client.version>
+
+        <!-- 自定义用户客户端工具包版本配置 -->
+        <xincan-user-client.version>0.0.1-SNAPSHOT</xincan-user-client.version>
 
     </properties>
 
@@ -261,6 +269,18 @@
                 <groupId>cn.com.xincan.xincanframework.client</groupId>
                 <artifactId>xincan-order-client</artifactId>
                 <version>${xincan-order-client.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.com.xincan.xincanframework.client</groupId>
+                <artifactId>xincan-goods-client</artifactId>
+                <version>${xincan-goods-client.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.com.xincan.xincanframework.client</groupId>
+                <artifactId>xincan-user-client</artifactId>
+                <version>${xincan-user-client.version}</version>
             </dependency>
 
         </dependencies>
