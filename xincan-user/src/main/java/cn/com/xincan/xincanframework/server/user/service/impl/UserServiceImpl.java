@@ -2,6 +2,7 @@ package cn.com.xincan.xincanframework.server.user.service.impl;
 
 import cn.com.xincan.xincanframework.client.order.OrderClient;
 import cn.com.xincan.xincanframework.config.excetion.UserException;
+import cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo;
 import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
 import cn.com.xincan.xincanframework.entity.user.vo.UserOrderSearchVo;
 import cn.com.xincan.xincanframework.utils.orika.OrikaUtils;
@@ -67,16 +68,14 @@ public class UserServiceImpl implements IUserService {
      **/
     @Override
     public UserOrderSearchVo findUserById(String id) {
-
-        ResponseObject<List<OrderSearchVo>> ordersResult = orderClient.findOrderByUserId(id);
+        ResponseObject<OrderGoodsSearchVo> ordersResult = orderClient.findOrderByUserId(id);
         if (ordersResult.getCode() == ResponseCode.REQUEST_SERVICE_ERROR.code()) {
             throw new UserException(ordersResult.getCode(), ordersResult.getMsg());
         }
-        UserOrderSearchVo userOrderSearchVo = new UserOrderSearchVo();
-        userOrderSearchVo.setOrders(ordersResult.getData());
         UserPo user = userMapper.selectById(id);
-
-        return OrikaUtils.map(user, UserOrderSearchVo.class);
+        UserOrderSearchVo userOrderSearchVo = OrikaUtils.map(user, UserOrderSearchVo.class);
+        userOrderSearchVo.setOrder(ordersResult.getData());
+        return userOrderSearchVo;
     }
 
     /**

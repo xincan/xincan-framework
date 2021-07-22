@@ -3,6 +3,8 @@ package cn.com.xincan.xincanframework;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * copyright (C), 2020, 心灿基础架构
@@ -15,9 +17,9 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * <author>                <time>                  <version>                   <description>
  * Jiangxincan         2020/3/19 14:54             0.0.1                       用户微服务程序启动入口
  */
-@SpringBootApplication(exclude = {
-        DataSourceAutoConfiguration.class
-})
+@EnableFeignClients
+@EnableDiscoveryClient
+@SpringBootApplication
 public class XincanUserApplication {
 
     public static void main(String[] args) {
@@ -25,3 +27,4 @@ public class XincanUserApplication {
     }
 
 }
+
