@@ -79,7 +79,7 @@
         <hutool-all.version>5.5.1</hutool-all.version>
 
         <!-- 实体类属性校验版本配置 -->
-        <hibernate-validator.version>6.0.18.Final</hibernate-validator.version>
+        <hibernate-validator.version>6.0.20.Final</hibernate-validator.version>
 
         <!-- json工具类配置 -->
         <fastjson.version>1.2.68</fastjson.version>
