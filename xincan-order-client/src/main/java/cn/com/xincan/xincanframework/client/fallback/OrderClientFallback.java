@@ -1,6 +1,7 @@
 package cn.com.xincan.xincanframework.client.fallback;
 
 import cn.com.xincan.xincanframework.client.order.OrderClient;
+import cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo;
 import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
 import cn.com.xincan.xincanframework.utils.response.ResponseCode;
 import cn.com.xincan.xincanframework.utils.response.ResponseObject;
@@ -24,13 +25,13 @@ public class OrderClientFallback implements OrderClient {
     /**
      * 根据用户ID查询订单信息
      * 降级处理
-     * @param id 用户ID
+     * @param userId 用户ID
      * @author JiangXincan
      * @date 2021/7/20 11:30
-     * @return cn.com.xincan.xincanframework.utils.response.ResponseObject<java.util.List<cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo>>
+     * @return cn.com.xincan.xincanframework.utils.response.ResponseObject<java.util.List<cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo>>
      **/
     @Override
-    public ResponseObject<List<OrderSearchVo>> findOrderByUserId(String id) {
+    public ResponseObject<OrderGoodsSearchVo> findOrderByUserId(String userId) {
         return ResponseResult.error(ResponseCode.REQUEST_SERVICE_ERROR);
     }
 }

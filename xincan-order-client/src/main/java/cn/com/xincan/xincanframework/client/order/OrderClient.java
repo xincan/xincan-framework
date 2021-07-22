@@ -1,11 +1,12 @@
 package cn.com.xincan.xincanframework.client.order;
 
 import cn.com.xincan.xincanframework.client.fallback.OrderClientFallback;
-import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
+import cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo;
 import cn.com.xincan.xincanframework.utils.response.ResponseObject;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -30,9 +31,9 @@ public interface OrderClient {
      * @param id 用户ID
      * @author JiangXincan
      * @date 2021/7/20 11:30
-     * @return cn.com.xincan.xincanframework.utils.response.ResponseObject<java.util.List<cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo>>
+     * @return cn.com.xincan.xincanframework.utils.response.ResponseObject<java.util.List<cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo>>
      **/
     @GetMapping("/user/{id}")
-    ResponseObject<List<OrderSearchVo>> findOrderByUserId(@PathVariable(name = "id") String id);
+    ResponseObject<OrderGoodsSearchVo> findOrderByUserId(@PathVariable(name = "id") String id);
 
 }
