@@ -33,7 +33,7 @@ spec:
           imagePullPolicy: Always
           ports:
           - name: client
-            containerPort: 8000
+            containerPort: 8100
           - name: api
             containerPort: 8719
           resources:

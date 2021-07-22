@@ -19,10 +19,10 @@ spec:
     xincan.kubernetes.io/app: xincan-goods
   ports:
   - name: client
-    port: 8000
-    nodePort: 31200
+    port: 8200
+    nodePort: 31220
     protocol: TCP
   - name: api
     port: 8719
-    nodePort: 31201
+    nodePort: 31221
     protocol: TCP
