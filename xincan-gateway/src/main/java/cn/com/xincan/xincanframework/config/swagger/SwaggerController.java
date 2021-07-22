@@ -19,8 +19,6 @@ import java.util.Optional;
  * @program xincan-framework
  * @description Gateway聚合Swagger接口控制层
  * @create 2020/10/23 11:26
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/10/23 11:26             1.0                         Gateway聚合Swagger接口控制层
  */
 @RestController
 @RequestMapping("/swagger-resources")

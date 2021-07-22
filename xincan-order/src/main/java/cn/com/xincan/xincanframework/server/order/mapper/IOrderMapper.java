@@ -12,8 +12,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @program xincan-order
  * @description 订单数据处理接口
  * @create 2020/4/16 18:54
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/4/16 18:54             0.0.1                         订单数据处理接口
  */
 @Mapper
 public interface IOrderMapper extends BaseMapper<OrderPo> { }

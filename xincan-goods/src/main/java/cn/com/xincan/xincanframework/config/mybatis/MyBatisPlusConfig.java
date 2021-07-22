@@ -1,6 +1,5 @@
 package cn.com.xincan.xincanframework.config.mybatis;
 
-import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.core.config.GlobalConfig;
@@ -20,8 +19,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
-
-
 
 
 /**

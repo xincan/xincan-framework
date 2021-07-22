@@ -14,8 +14,6 @@ import org.springframework.stereotype.Component;
  * @program xincan-framework
  * @description 切换数据源操作
  * @create 2020/7/31 16:59
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/31 16:59             1.0                         切换数据源操作
  */
 @Slf4j
 @Aspect

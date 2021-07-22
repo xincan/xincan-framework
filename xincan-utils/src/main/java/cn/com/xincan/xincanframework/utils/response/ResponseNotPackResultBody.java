@@ -7,8 +7,6 @@ import java.lang.annotation.*;
  *
  * @author JiangXincan
  * @version 1.0
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/10/9 10:45             1.0                         返回值处理注解
  * @program xincan-framework
  * @description 返回值处理注解：指定具体某个controller中某个函数不需要进行结果包装，也就是排除ResponseResult结果封装类中的属性，以原有值作为返回值
  * @create 2020/10/9 10:45

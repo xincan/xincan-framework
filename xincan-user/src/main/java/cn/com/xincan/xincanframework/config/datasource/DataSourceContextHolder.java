@@ -12,8 +12,6 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @program xincan-framework
  * @description 数据源管理（设置路由的目的为了方便查找对应的数据源，我们可以用ThreadLocal保存数据源的信息到每个线程中，方便我们需要时获取）
  * @create 2020/7/31 16:42
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/31 16:42             1.0                         数据源管理
  */
 @Slf4j
 public class DataSourceContextHolder {

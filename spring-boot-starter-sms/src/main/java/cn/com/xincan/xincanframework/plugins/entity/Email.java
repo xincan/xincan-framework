@@ -10,8 +10,6 @@ import org.springframework.stereotype.Component;
  * @program xincan-framework
  * @description 邮件配置信息实体类
  * @create 2020/7/20 15:44
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/20 15:44             0.0.1                       邮件配置信息实体类
  */
 @Component
 public class Email {

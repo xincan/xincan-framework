@@ -12,8 +12,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  * @author Jiangxincan
  * @create 2019/12/23 15:13
  * @version 2.0.0
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2019/12/23 15:13             2.0.0                         配置 spring mvc
  */
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {

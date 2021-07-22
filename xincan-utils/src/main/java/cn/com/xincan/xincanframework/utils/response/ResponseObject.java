@@ -11,8 +11,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @author Jiangxincan
  * @date 2019/12/18 9:43
  * @version 0.0.1
- * <Author>                <Time>                  <Version>                   <Description>
- * Jiangxincan         2019/12/18 9:43             0.0.1                         响应结果实体类
  */
 @ApiModel(description = "响应结果信息")
 public class ResponseObject<T> {

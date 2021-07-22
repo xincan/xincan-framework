@@ -3,7 +3,6 @@ package cn.com.xincan.xincanframework.server.user.service.impl;
 import cn.com.xincan.xincanframework.client.order.OrderClient;
 import cn.com.xincan.xincanframework.config.excetion.UserException;
 import cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo;
-import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
 import cn.com.xincan.xincanframework.entity.user.vo.UserOrderSearchVo;
 import cn.com.xincan.xincanframework.utils.orika.OrikaUtils;
 import cn.com.xincan.xincanframework.entity.user.dto.UserPatchDto;
@@ -32,8 +31,6 @@ import java.util.List;
  * @program xincan-user
  * 用户信息接口实现类
  * @create 2020/3/19 14:36
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/3/19 14:36             0.0.1                         用户信息接口实现类
  */
 @Service
 public class UserServiceImpl implements IUserService {

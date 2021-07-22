@@ -29,8 +29,6 @@ import javax.sql.DataSource;
  * @author Jiangxincan
  * @create 2019/12/20 15:27
  * @version 0.0.1
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2019/12/20 15:27             0.0.1                         MyBatisPlus 配置
  */
 @Configuration
 @EnableTransactionManagement

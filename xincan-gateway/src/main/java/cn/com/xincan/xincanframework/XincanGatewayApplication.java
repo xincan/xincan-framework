@@ -11,8 +11,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @program xincan-eureka
  * 微服务网关
  * @create 2020/3/19 14:54
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/3/19 14:54             0.0.1                        微服务网关
  */
 @SpringBootApplication
 public class XincanGatewayApplication {

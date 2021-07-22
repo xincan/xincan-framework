@@ -4,11 +4,6 @@ import cn.com.xincan.xincanframework.entity.goods.dto.GoodsPatchDto;
 import cn.com.xincan.xincanframework.entity.goods.dto.GoodsSaveDto;
 import cn.com.xincan.xincanframework.entity.goods.dto.GoodsSearchDto;
 import cn.com.xincan.xincanframework.entity.goods.vo.GoodsSearchVo;
-import cn.com.xincan.xincanframework.entity.user.dto.UserPatchDto;
-import cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto;
-import cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto;
-import cn.com.xincan.xincanframework.entity.user.vo.UserOrderSearchVo;
-import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import java.util.List;

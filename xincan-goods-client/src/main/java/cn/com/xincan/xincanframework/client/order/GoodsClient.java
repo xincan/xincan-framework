@@ -2,7 +2,6 @@ package cn.com.xincan.xincanframework.client.order;
 
 import cn.com.xincan.xincanframework.client.fallback.GoodsClientFallback;
 import cn.com.xincan.xincanframework.entity.goods.vo.GoodsSearchVo;
-import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
 import cn.com.xincan.xincanframework.utils.response.ResponseObject;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

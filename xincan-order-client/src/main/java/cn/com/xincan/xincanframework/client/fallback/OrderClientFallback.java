@@ -2,13 +2,10 @@ package cn.com.xincan.xincanframework.client.fallback;
 
 import cn.com.xincan.xincanframework.client.order.OrderClient;
 import cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo;
-import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
 import cn.com.xincan.xincanframework.utils.response.ResponseCode;
 import cn.com.xincan.xincanframework.utils.response.ResponseObject;
 import cn.com.xincan.xincanframework.utils.response.ResponseResult;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 /**
  * copyright (C), 2021, 北京同创永益科技发展有限公司

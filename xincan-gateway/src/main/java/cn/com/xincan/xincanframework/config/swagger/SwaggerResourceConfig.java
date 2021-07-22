@@ -21,8 +21,6 @@ import java.util.List;
  * @program xincan-framework
  * @description 通过网关的注册中心动态发现所有的微服务文档
  * @create 2020/10/23 11:20
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/10/23 11:20             1.0                         通过网关的注册中心动态发现所有的微服务文档
  */
 @Slf4j
 @Component

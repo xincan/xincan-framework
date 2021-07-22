@@ -19,8 +19,6 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author Jiangxincan
  * @date 2020/09/07 18:27
  * @version 0.0.1
- * <Author>                <Time>                  <Version>                   <Description>
- * Jiangxincan         2020/09/07 18:27             0.0.1                         实体类转换工具类
  */
 public class OrikaUtils {
 

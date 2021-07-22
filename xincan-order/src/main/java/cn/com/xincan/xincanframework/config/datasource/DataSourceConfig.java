@@ -20,8 +20,6 @@ import java.util.Map;
  * @program xincan-framework
  * @description 数据源配置
  * @create 2020/7/31 16:32
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/31 16:32             1.0                         数据源配置
  */
 @Configuration
 @Slf4j

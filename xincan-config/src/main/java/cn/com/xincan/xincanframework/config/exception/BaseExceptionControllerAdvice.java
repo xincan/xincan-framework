@@ -51,8 +51,6 @@ import java.util.Set;
  * @program xincan-framework
  * @description 全局异常处理类
  * @create 2020/9/3 16:44
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/9/3 16:44             1.0                         全局异常处理类
  */
 @Slf4j
 @RestControllerAdvice

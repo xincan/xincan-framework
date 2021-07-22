@@ -6,8 +6,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.constraints.Length;
-
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
@@ -18,8 +16,6 @@ import java.io.Serializable;
  * @program xincan-user
  * 用户信息查询参数实体类
  * @create 2020/3/19 14:54
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/3/19 14:54             0.0.1                         用户信息查询参数实体类
  */
 @ApiModel(description = "用户信息查询参数实体类")
 @Data

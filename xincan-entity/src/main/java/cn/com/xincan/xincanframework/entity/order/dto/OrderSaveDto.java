@@ -24,8 +24,6 @@ import java.util.List;
  * @program xincan-order
  * 订单查询实体类
  * @create 2020/3/19 14:54
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/3/19 14:54              0.0.1                       订单查询实体类
  */
 @ApiModel(description = "订单参数实体类")
 @Data

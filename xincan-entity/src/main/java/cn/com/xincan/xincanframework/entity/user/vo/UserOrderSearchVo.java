@@ -1,15 +1,5 @@
 package cn.com.xincan.xincanframework.entity.user.vo;
 
-/**
- * copyright (C), 2020, 心灿基础架构
- *
- * @author Jiangxincan
- * @version 0.0.1
- * @program xincan-user
- * 返回用户信息试图
- * @create 2020/3/19 14:54
- */
-
 import cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -20,8 +10,16 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
 
+/**
+ * copyright (C), 2020, 心灿基础架构
+ *
+ * @author Jiangxincan
+ * @version 0.0.1
+ * @program xincan-user
+ * 返回用户信息试图
+ * @create 2020/3/19 14:54
+ */
 @ApiModel(description = "用户信息返回试图")
 @Data
 @NoArgsConstructor

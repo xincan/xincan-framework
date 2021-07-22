@@ -36,8 +36,6 @@ import java.util.stream.Collectors;
  * @program xincan-order
  * 订单接口实现类
  * @create 2020/3/19 14:36
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/3/19 14:36             0.0.1                       订单接口实现类
  */
 @Component
 public class OrderServiceImpl implements IOrderService {

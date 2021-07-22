@@ -13,16 +13,11 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 
-
-
-
 /**
  * copyright (C), 2020, 北京同创永益科技发展有限公司
  *
  * @author Jiangxincan
  * @version 0.0.1
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/22 9:39             0.0.1                         用户修改参数实体类
  * @program xincan-framework
  * @description 用户修改参数实体类
  * @create 2020/7/22 9:39

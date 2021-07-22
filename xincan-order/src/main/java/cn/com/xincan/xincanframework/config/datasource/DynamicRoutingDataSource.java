@@ -12,8 +12,6 @@ import javax.annotation.Nullable;
  * @program xincan-framework
  * @description 数据源路由处理
  * @create 2020/7/31 16:40
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/31 16:40             1.0                         数据源路由处理
  */
 public class DynamicRoutingDataSource extends AbstractRoutingDataSource {
 

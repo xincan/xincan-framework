@@ -11,8 +11,6 @@ import cn.com.xincan.xincanframework.utils.response.ResponseCode;
  * @program xincan-framework
  * @description 自定义用户异常
  * @create 2020/9/14 18:25
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/9/14 18:25             1.0                         自定义用户异常
  */
 public class UserException extends BusinessException {
 

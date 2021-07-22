@@ -8,8 +8,6 @@ package cn.com.xincan.xincanframework.config.datasource;
  * @program xincan-framework
  * @description 标识数据库
  * @create 2020/7/31 16:52
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/31 16:52             1.0                         标识数据库
  */
 public enum DynamicDataSourceEnum {
 

@@ -2,7 +2,6 @@ package cn.com.xincan.xincanframework.client.fallback;
 
 import cn.com.xincan.xincanframework.client.order.GoodsClient;
 import cn.com.xincan.xincanframework.entity.goods.vo.GoodsSearchVo;
-import cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo;
 import cn.com.xincan.xincanframework.utils.response.ResponseCode;
 import cn.com.xincan.xincanframework.utils.response.ResponseObject;
 import cn.com.xincan.xincanframework.utils.response.ResponseResult;

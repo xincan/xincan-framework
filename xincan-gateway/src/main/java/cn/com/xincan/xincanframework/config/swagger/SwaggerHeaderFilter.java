@@ -5,7 +5,6 @@ import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFac
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.util.StringUtils;
 import org.springframework.web.server.ServerWebExchange;
-import springfox.documentation.swagger.web.SwaggerResourcesProvider;
 
 /**
  * copyright (C), 2020, 北京同创永益科技发展有限公司
@@ -15,8 +14,6 @@ import springfox.documentation.swagger.web.SwaggerResourcesProvider;
  * @program xincan-framework
  * @description 接口转发问题配置
  * @create 2020/11/12 16:52
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/11/12 16:52             1.0                         接口转发问题配置
  */
 public class SwaggerHeaderFilter extends AbstractGatewayFilterFactory {
 

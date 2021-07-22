@@ -10,8 +10,6 @@ import lombok.extern.slf4j.Slf4j;
  * @program xincan-framework
  * @description 公共实体包
  * @create 2020/7/20 16:46
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/20 16:46             0.0.1                         公共实体包
  */
 @Slf4j
 public class XincanEntityApplication {

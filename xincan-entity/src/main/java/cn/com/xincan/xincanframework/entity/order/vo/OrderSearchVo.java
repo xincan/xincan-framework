@@ -1,18 +1,5 @@
 package cn.com.xincan.xincanframework.entity.order.vo;
 
-/**
- * copyright (C), 2020, 心灿基础架构
- *
- * @author Jiangxincan
- * @version 0.0.1
- * @program xincan-order
- * 系统更新信息试图
- * @create 2020/3/19 14:54
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/3/19 14:54             0.0.1                         系统更新信息试图
- */
-
-import cn.com.xincan.xincanframework.entity.goods.dto.GoodsSearchDto;
 import cn.com.xincan.xincanframework.entity.goods.vo.GoodsSearchVo;
 import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -23,10 +10,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
+
+/**
+ * copyright (C), 2020, 心灿基础架构
+ *
+ * @author Jiangxincan
+ * @version 0.0.1
+ * @program xincan-order
+ * 系统更新信息试图
+ * @create 2020/3/19 14:54
+ */
 
 @ApiModel(description = "订单信息返回试图")
 @Data

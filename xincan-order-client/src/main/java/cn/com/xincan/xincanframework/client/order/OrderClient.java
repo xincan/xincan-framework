@@ -6,9 +6,6 @@ import cn.com.xincan.xincanframework.utils.response.ResponseObject;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
 
 /**
  * copyright (C), 2021, 北京同创永益科技发展有限公司

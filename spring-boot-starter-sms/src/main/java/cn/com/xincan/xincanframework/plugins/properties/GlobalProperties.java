@@ -13,8 +13,6 @@ import cn.com.xincan.xincanframework.plugins.entity.Sms;
  * @program xincan-framework
  * @description 全局信息配置类
  * @create 2020/7/20 15:38
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/20 15:38             0.0.1                       全局信息配置类
  */
 @ConfigurationProperties(prefix = GlobalProperties.GLOBAL_PREFIX)
 public class GlobalProperties {

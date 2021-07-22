@@ -9,8 +9,6 @@ package cn.com.xincan.xincanframework.utils.response;
  * @author Jiangxincan
  * @date 2019/12/18 9:43
  * @version 0.0.1
- * <Author>                <Time>                  <Version>                   <Description>
- * Jiangxincan         2019/12/18 9:43             0.0.1                         响应状态结果信息实体类
  */
 @SuppressWarnings("unchecked")
 public class ResponseResult {
@@ -22,7 +20,7 @@ public class ResponseResult {
      *
      * 针对于返回业务处理之后，无需通知前端具体处理信息，走系统默认的提示信息
      *
-     * @Param <T> 响应数据类型
+     * @param <T> 响应数据类型
      * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
@@ -53,8 +51,8 @@ public class ResponseResult {
      *
      * 针对于返回业务处理之后，需要向前端反馈后台处理的数据，将其返回
      *
-     * @Param data      响应数据
-     * @Param <T>       响应数据类型
+     * @param data      响应数据
+     * @param <T>       响应数据类型
      * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
@@ -70,9 +68,9 @@ public class ResponseResult {
      *
      * 针对于返回业务处理之后，需要向前端反馈后台处理的数据，并且将处理结果描述提供给前端
      *
-     * @Param message   响应结果描述
-     * @Param data      响应数据
-     * @Param <T>       响应数据类型
+     * @param message   响应结果描述
+     * @param data      响应数据
+     * @param <T>       响应数据类型
      * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
@@ -92,8 +90,8 @@ public class ResponseResult {
      * （数据分页）针对于返回业务处理之后，需要向前端反馈后台处理分页的数据，
      *  并携带状态、数据总条数、系统默认处理信息
      *
-     * @Param count     响应数据条数
-     * @Param data      响应数据
+     * @param count     响应数据条数
+     * @param data      响应数据
      * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
@@ -110,10 +108,10 @@ public class ResponseResult {
      * （数据分页）针对于返回业务处理之后，需要向前端反馈后台处理分页的数据，
      *  并携带状态、数据总条数、自定义处理信息
      *
-     * @Param message   响应结果信息
-     * @Param count     响应数据条数
-     * @Param data      响应数据
-     * @Param <T>       响应数据类型
+     * @param message   响应结果信息
+     * @param count     响应数据条数
+     * @param data      响应数据
+     * @param <T>       响应数据类型
      * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
@@ -129,10 +127,10 @@ public class ResponseResult {
     /**
      *  返回分页数据信息
      *
-     * @Param code      响应结果编码
-     * @Param message   响应结果信息
-     * @Param data      响应数据
-     * @Param <T>       响应数据类型
+     * @param code      响应结果编码
+     * @param message   响应结果信息
+     * @param data      响应数据
+     * @param <T>       响应数据类型
      * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
@@ -148,11 +146,11 @@ public class ResponseResult {
     /**
      *  返回分页数据信息
      *
-     * @Param code      响应结果编码
-     * @Param message   响应结果信息
-     * @Param count     响应数据条数
-     * @Param data      响应数据
-     * @Param <T>       响应数据类型
+     * @param code      响应结果编码
+     * @param message   响应结果信息
+     * @param count     响应数据条数
+     * @param data      响应数据
+     * @param <T>       响应数据类型
      * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
@@ -189,7 +187,7 @@ public class ResponseResult {
      *
      * 针对于系统业务处理失败之后，系统默认返回失败处理信息
      *
-     * @Param <T>       响应数据类型
+     * @param <T>       响应数据类型
      * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
@@ -206,7 +204,7 @@ public class ResponseResult {
      *
      * 针对于系统业务处理失败之后，系统默认返回失败处理信息
      *
-     * @Param responseCode      响应状态
+     * @param responseCode      响应状态
      * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
@@ -223,9 +221,9 @@ public class ResponseResult {
      *
      * 针对于系统业务处理失败之后，系统默认返回失败处理信息
      *
-     * @Param responseCode      响应状态
-     * @Param data              响应数据
-     * @Param <T>               响应数据类型
+     * @param responseCode      响应状态
+     * @param data              响应数据
+     * @param <T>               响应数据类型
      * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
@@ -241,8 +239,8 @@ public class ResponseResult {
      *
      * 针对于系统业务处理失败之后，系统默返回自定义失败处理信息
      *
-     * @Param message   响应结果信息
-     * @Param <T>       响应数据类型
+     * @param message   响应结果信息
+     * @param <T>       响应数据类型
      * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
@@ -260,9 +258,9 @@ public class ResponseResult {
      *
      * 针对于系统业务处理失败之后，系统默返回自定义失败处理信息并返回传入修改的信息
      *
-     * @Param message   响应结果信息
-     * @Param data      响应数据
-     * @Param <T>       响应数据类型
+     * @param message   响应结果信息
+     * @param data      响应数据
+     * @param <T>       响应数据类型
      * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
@@ -280,9 +278,9 @@ public class ResponseResult {
      *
      * 针对于系统业务处理失败之后，系统默返回自定义失败处理信息并返回传入修改的信息
      *
-     * @Param message   响应结果信息
-     * @Param data      响应数据
-     * @Param <T>       响应数据类型
+     * @param message   响应结果信息
+     * @param data      响应数据
+     * @param <T>       响应数据类型
      * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>
@@ -300,10 +298,10 @@ public class ResponseResult {
      *
      * token过期传入code,或其他的错误传入code值
      *
-     * @Param code      响应结果编码
-     * @Param message   响应结果信息
-     * @Param data      响应数据
-     * @Param <T>       响应数据类型
+     * @param code      响应结果编码
+     * @param message   响应结果信息
+     * @param data      响应数据
+     * @param <T>       响应数据类型
      * @author Jiangxincan
      * @date 2019/12/17 20:30
      * @return cn.com.xincan.xincanframework.common.ResponseObject<T>

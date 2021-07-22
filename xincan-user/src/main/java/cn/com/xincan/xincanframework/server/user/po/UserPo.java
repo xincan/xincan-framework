@@ -20,8 +20,6 @@ import java.time.LocalDateTime;
  * @program xincan-user
  * 用户映射数据库表实体类
  * @create 2020/3/19 14:54
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/3/19 14:54             0.0.1                         用户映射数据库表实体类
  */
 @Data
 @TableName("user")

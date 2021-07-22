@@ -1,7 +1,5 @@
 package cn.com.xincan.xincanframework.server.order.po;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -10,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import java.time.LocalDateTime;
 
 /**
  * copyright (C), 2020, 心灿基础架构

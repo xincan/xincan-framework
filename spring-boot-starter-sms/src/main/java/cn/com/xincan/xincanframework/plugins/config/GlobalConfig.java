@@ -1,9 +1,7 @@
 package cn.com.xincan.xincanframework.plugins.config;
 
-import cn.com.xincan.xincanframework.plugins.entity.Sms;
 import cn.com.xincan.xincanframework.plugins.properties.GlobalProperties;
 import cn.com.xincan.xincanframework.plugins.service.EmailService;
-import cn.com.xincan.xincanframework.plugins.service.GlobalService;
 import cn.com.xincan.xincanframework.plugins.service.SmsService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -19,8 +17,6 @@ import org.springframework.context.annotation.Configuration;
  * @program xincan-framework
  * @description 工具包配置类
  * @create 2020/7/20 15:50
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/20 15:50             0.0.1                         工具包配置类
  */
 @Configuration
 @EnableConfigurationProperties(GlobalProperties.class)

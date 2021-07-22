@@ -8,7 +8,5 @@ package cn.com.xincan.xincanframework.config.datasource;
  * @program xincan-framework
  * @description 主数据库注解
  * @create 2020/7/31 17:40
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/31 17:40             1.0                         主数据库注解
  */
 public @interface Master { }

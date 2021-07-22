@@ -5,10 +5,6 @@ import cn.com.xincan.xincanframework.entity.order.dto.OrderSaveDto;
 import cn.com.xincan.xincanframework.entity.order.dto.OrderSearchDto;
 import cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo;
 import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
-import cn.com.xincan.xincanframework.entity.user.dto.UserPatchDto;
-import cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto;
-import cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto;
-import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import java.util.List;
@@ -21,8 +17,6 @@ import java.util.List;
  * @program xincan-order
  * 更新补丁接口类
  * @create 2020/3/19 14:35
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/3/19 14:35             0.0.1                         更新补丁接口类
  */
 public interface IOrderService {
 

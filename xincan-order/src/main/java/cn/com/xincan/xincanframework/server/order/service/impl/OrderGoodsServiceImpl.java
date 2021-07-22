@@ -4,7 +4,6 @@ import cn.com.xincan.xincanframework.entity.order.dto.OrderSaveDto;
 import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
 import cn.com.xincan.xincanframework.server.order.mapper.IOrderGoodsMapper;
 import cn.com.xincan.xincanframework.server.order.po.OrderGoodsPo;
-import cn.com.xincan.xincanframework.server.order.po.OrderPo;
 import cn.com.xincan.xincanframework.server.order.service.IOrderGoodsService;
 import cn.com.xincan.xincanframework.utils.orika.OrikaUtils;
 import org.springframework.stereotype.Component;
@@ -19,8 +18,6 @@ import javax.annotation.Resource;
  * @program xincan-order
  * 订单接口实现类
  * @create 2020/3/19 14:36
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/3/19 14:36             0.0.1                       订单接口实现类
  */
 @Component
 public class OrderGoodsServiceImpl implements IOrderGoodsService {

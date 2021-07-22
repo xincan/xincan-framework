@@ -19,8 +19,6 @@ import java.net.URI;
  * @program xincan-framework
  * @description 将https请求修改成http请求，后台微服务部署在内网，无需开启http请求，由于网关需要https请求，所以在此拦截，调用后台时进行转换
  * @create 2020/11/12 16:11
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/11/12 16:11             1.0                         将https请求修改成http请求
  */
 @Slf4j
 @Component

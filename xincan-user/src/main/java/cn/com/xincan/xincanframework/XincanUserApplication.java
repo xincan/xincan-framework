@@ -2,7 +2,6 @@ package cn.com.xincan.xincanframework;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
@@ -14,8 +13,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @program xincan-user
  * 用户微服务程序启动入口
  * @create 2020/3/19 14:54
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/3/19 14:54             0.0.1                       用户微服务程序启动入口
  */
 @EnableFeignClients
 @EnableDiscoveryClient

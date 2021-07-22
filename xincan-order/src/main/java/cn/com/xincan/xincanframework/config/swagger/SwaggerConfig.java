@@ -1,16 +1,13 @@
 package cn.com.xincan.xincanframework.config.swagger;
 
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
-import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
@@ -21,7 +18,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZonedDateTime;
 import java.util.Date;
-import java.util.List;
 
 /**
  * copyright (C), 2019, 心灿基础架构
@@ -31,8 +27,6 @@ import java.util.List;
  * @author Jiangxincan
  * @create 2019/12/23 16:09
  * @version 0.0.1
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2019/12/23 16:09             0.0.1                         Sharing 数据源aop
  */
 @Configuration
 @EnableSwagger2

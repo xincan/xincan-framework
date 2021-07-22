@@ -1,13 +1,16 @@
 package cn.com.xincan.xincanframework.server.user.controller;
 
+import cn.com.xincan.xincanframework.config.excetion.UserException;
 import cn.com.xincan.xincanframework.entity.user.dto.UserPatchDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSaveDto;
 import cn.com.xincan.xincanframework.entity.user.dto.UserSearchDto;
 import cn.com.xincan.xincanframework.entity.user.vo.UserOrderSearchVo;
 import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
-import cn.com.xincan.xincanframework.config.excetion.UserException;
 import cn.com.xincan.xincanframework.server.user.service.IUserService;
-import cn.com.xincan.xincanframework.utils.response.*;
+import cn.com.xincan.xincanframework.utils.response.ResponseCode;
+import cn.com.xincan.xincanframework.utils.response.ResponseObject;
+import cn.com.xincan.xincanframework.utils.response.ResponseResult;
+import cn.com.xincan.xincanframework.utils.response.ResponseResultBody;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
@@ -15,13 +18,11 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -32,8 +33,6 @@ import java.util.List;
  * @program xincan-user
  * 用户信息控制层
  * @create 2020/3/19 14:37
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/3/19 14:37             0.0.1                         用户信息控制层
  */
 @Slf4j
 @Api(tags = {"用户信息管理"})

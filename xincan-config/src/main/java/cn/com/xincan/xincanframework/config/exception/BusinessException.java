@@ -11,8 +11,6 @@ import lombok.Getter;
  * @program xincan-framework
  * @description Restful请求API异常处理类
  * @create 2020/9/8 20:41
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/9/8 20:41             1.0                         Restful请求API异常处理类
  */
 @Getter
 public class BusinessException extends RuntimeException {

@@ -11,8 +11,6 @@ import cn.com.xincan.xincanframework.plugins.properties.GlobalProperties;
  * @program xincan-framework
  * @description 邮件服务接口类
  * @create 2020/7/20 15:56
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/20 15:56             0.0.1                        邮件服务实现类
  */
 public class EmailService extends GlobalService<Email> {
 

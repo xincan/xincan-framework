@@ -1,6 +1,5 @@
 package cn.com.xincan.xincanframework.entity.order.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -8,11 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 /**
  * copyright (C), 2020, 北京同创永益科技发展有限公司
@@ -22,8 +19,6 @@ import java.time.LocalDateTime;
  * @program xincan-framework
  * @description 修改订单实体类
  * @create 2020/9/15 15:59
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/9/15 15:59             1.0                         修改订单实体类
  */
 @ApiModel(description = "修改订单信息参数实体类")
 @Data

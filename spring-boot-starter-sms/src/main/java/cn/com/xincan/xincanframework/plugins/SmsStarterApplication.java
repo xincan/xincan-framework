@@ -8,8 +8,6 @@ package cn.com.xincan.xincanframework.plugins;
  * @program xincan-framework
  * @description 打包入口
  * @create 2020/7/20 16:46
- * <author>                <time>                  <version>                   <description>
- * Jiangxincan         2020/7/20 16:46             0.0.1                         打包入口
  */
 public class SmsStarterApplication {
 

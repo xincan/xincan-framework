@@ -18,8 +18,6 @@ import java.io.Serializable;
  * @author Jiangxincan
  * @create 2020/09/07 13:15
  * @version 1.0
- * <Author>                <Time>                  <Version>                   <Description>
- * Jiangxincan         2020/09/07 13:15             1.0                         分页查询公用处理类
  */
 @Data
 @SuperBuilder

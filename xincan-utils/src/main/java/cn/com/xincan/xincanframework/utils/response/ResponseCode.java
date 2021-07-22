@@ -8,8 +8,6 @@ package cn.com.xincan.xincanframework.utils.response;
  * @author Jiangxincan
  * @date 2019/12/18 9:43
  * @version 0.0.1
- * <Author>                <Time>                  <Version>                   <Description>
- * Jiangxincan         2019/12/18 9:43             0.0.1                         响应状态枚举类
  */
 public enum ResponseCode {
 
