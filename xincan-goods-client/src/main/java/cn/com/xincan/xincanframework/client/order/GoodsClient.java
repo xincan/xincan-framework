@@ -1,6 +1,7 @@
 package cn.com.xincan.xincanframework.client.order;
 
-import cn.com.xincan.xincanframework.client.fallback.OrderClientFallback;
+import cn.com.xincan.xincanframework.client.fallback.GoodsClientFallback;
+import cn.com.xincan.xincanframework.entity.goods.vo.GoodsSearchVo;
 import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
 import cn.com.xincan.xincanframework.utils.response.ResponseObject;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -19,20 +20,20 @@ import java.util.List;
  * @create 2021/7/20 10:10
  */
 @FeignClient(
-        name = "xincan-order",
-        path = "order",
-        fallback = OrderClientFallback.class
+        name = "xincan-goods",
+        path = "goods",
+        fallback = GoodsClientFallback.class
 )
-public interface OrderClient {
+public interface GoodsClient {
 
     /**
-     * 根据用户ID查询订单信息
-     * @param id 用户ID
+     * 根据商品ID集合，查询商品信息
+     * @param ids 商品ID集合
      * @author JiangXincan
-     * @date 2021/7/20 11:30
-     * @return cn.com.xincan.xincanframework.utils.response.ResponseObject<java.util.List<cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo>>
+     * @date 2021/7/21 19:42
+     * @return cn.com.xincan.xincanframework.utils.response.ResponseObject<java.util.List<cn.com.xincan.xincanframework.entity.goods.vo.GoodsSearchVo>>
      **/
-    @GetMapping("/user/{id}")
-    ResponseObject<List<OrderSearchVo>> findOrderByUserId(@PathVariable(name = "id") String id);
+    @GetMapping("/{ids}")
+    ResponseObject<List<GoodsSearchVo>> findGoodsByIds(@PathVariable(name = "ids") List<String> ids);
 
 }

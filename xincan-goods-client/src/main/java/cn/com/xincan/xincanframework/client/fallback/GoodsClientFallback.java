@@ -1,7 +1,8 @@
 package cn.com.xincan.xincanframework.client.fallback;
 
-import cn.com.xincan.xincanframework.client.order.OrderClient;
-import cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo;
+import cn.com.xincan.xincanframework.client.order.GoodsClient;
+import cn.com.xincan.xincanframework.entity.goods.vo.GoodsSearchVo;
+import cn.com.xincan.xincanframework.entity.order.vo.OrderGoodsSearchVo;
 import cn.com.xincan.xincanframework.utils.response.ResponseCode;
 import cn.com.xincan.xincanframework.utils.response.ResponseObject;
 import cn.com.xincan.xincanframework.utils.response.ResponseResult;
@@ -19,7 +20,7 @@ import java.util.List;
  * @create 2021/7/20 10:13
  */
 @Component
-public class OrderClientFallback implements OrderClient {
+public class GoodsClientFallback implements GoodsClient {
 
     /**
      * 根据用户ID查询订单信息
@@ -27,10 +28,10 @@ public class OrderClientFallback implements OrderClient {
      * @param id 用户ID
      * @author JiangXincan
      * @date 2021/7/20 11:30
-     * @return cn.com.xincan.xincanframework.utils.response.ResponseObject<java.util.List<cn.com.xincan.xincanframework.entity.order.vo.OrderSearchVo>>
+     * @return cn.com.xincan.xincanframework.utils.response.ResponseObject<java.util.List<cn.com.xincan.xincanframework.entity.order.vo.GoodsSearchVo>>
      **/
     @Override
-    public ResponseObject<List<OrderSearchVo>> findOrderByUserId(String id) {
+    public ResponseObject<List<GoodsSearchVo>> findGoodsByIds(List<String> id) {
         return ResponseResult.error(ResponseCode.REQUEST_SERVICE_ERROR);
     }
 }
