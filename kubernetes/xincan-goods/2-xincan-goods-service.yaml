@@ -24,5 +24,5 @@ spec:
     protocol: TCP
   - name: api
     port: 8719
-    nodePort: 31221
+    nodePort: 31222
     protocol: TCP
