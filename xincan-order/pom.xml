@@ -23,6 +23,12 @@
 
     <dependencies>
 
+        <!-- 集成 nacos 作为服务注册中心配置 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
         <!-- 集成 Nacos 作为配置中心的自动化配置 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -150,6 +156,12 @@
             <artifactId>hibernate-validator</artifactId>
         </dependency>
 
+        <!-- 集成商品客户端 -->
+        <dependency>
+            <groupId>cn.com.xincan.xincanframework.client</groupId>
+            <artifactId>xincan-goods-client</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -172,11 +184,11 @@
                 <version>${docker-maven-plugin.version}</version>
                 <configuration>
                     <!-- 打包docker镜像的docker服务器 -->
-                    <dockerHost>${docker-host.version}</dockerHost>
+                    <dockerHost>${docker-host-url}</dockerHost>
                     <!-- 镜像名称及版本[ip:port/name:tag] -->
-                    <imageName>${docker-registry-url.version}/xincan/${project.name}:${project.version}</imageName>
+                    <imageName>${docker-harbor-registry-url}/xincan/${project.name}:${project.version}</imageName>
                     <!-- harbor仓库地址 -->
-                    <registryUrl>${docker-registry-url.version}</registryUrl>
+                    <registryUrl>${docker-harbor-registry-url}</registryUrl>
                     <!-- Dockerfile路径 -->
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <!-- 是否强制覆盖已有镜像 -->
