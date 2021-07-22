@@ -12,6 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -31,7 +32,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderSaveDto {
+public class OrderSaveDto  implements Serializable {
+
+    private static final long serialVersionUID = 8600989198926937572L;
 
     @ApiModelProperty(value="用户ID（下订单的人ID）", required = true, dataType = "String", example = "1285759156342562818")
     @NotBlank(message = "订单人ID不能为空")

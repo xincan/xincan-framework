@@ -8,6 +8,7 @@ import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
 /**
  * copyright (C), 2020, 心灿基础架构
@@ -27,7 +28,9 @@ import javax.validation.constraints.NotBlank;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderSearchDto extends PaginationQuery {
+public class OrderSearchDto extends PaginationQuery  implements Serializable {
+
+    private static final long serialVersionUID = 2802713323202618595L;
 
     @ApiModelProperty(name = "id", value="订单ID（UUID）", dataType = "String", example = "1285522130867376129")
     @Length(message = "订单ID长度应为{min}位", min = 19, max = 19)

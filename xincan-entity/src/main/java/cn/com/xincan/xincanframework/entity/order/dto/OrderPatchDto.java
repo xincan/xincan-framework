@@ -11,6 +11,7 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -29,7 +30,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderPatchDto {
+public class OrderPatchDto  implements Serializable {
+
+    private static final long serialVersionUID = -4475880628965067332L;
 
     @ApiModelProperty(value="订单ID", dataType = "String", required = true, example = "415c2c7adda93c37d7a3d5aea99d8e25")
     @NotBlank(message = "订单ID不能为空")

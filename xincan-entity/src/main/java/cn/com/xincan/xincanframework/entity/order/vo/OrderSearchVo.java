@@ -13,6 +13,7 @@ package cn.com.xincan.xincanframework.entity.order.vo;
  */
 
 import cn.com.xincan.xincanframework.entity.goods.dto.GoodsSearchDto;
+import cn.com.xincan.xincanframework.entity.goods.vo.GoodsSearchVo;
 import cn.com.xincan.xincanframework.entity.user.vo.UserSearchVo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
@@ -23,6 +24,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -31,7 +33,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderSearchVo {
+public class OrderSearchVo implements Serializable {
+
+    private static final long serialVersionUID = 7316244809230564570L;
 
     @ApiModelProperty(name="id", value="订单ID（UUID）", dataType = "String", hidden = true, example = "1285522130867376129")
     private String id;
@@ -40,7 +44,7 @@ public class OrderSearchVo {
     private UserSearchVo user;
 
     @ApiModelProperty(name = "goods", value="订单地址（收货地址）", dataType = "java.util.List<cn.com.xincan.xincanframework.entity.goods.dto.GoodsSearchDto>")
-    private List<GoodsSearchDto> goods;
+    private List<GoodsSearchVo> goods;
 
     @ApiModelProperty(value="订单说明（附加信息）", dataType = "String", example = "注意物件不能轻易碰撞")
     private String description;
