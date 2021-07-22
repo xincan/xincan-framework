@@ -45,7 +45,7 @@ spec:
               memory: 1Gi
           volumeMounts:
             - name: xincan-storage
-              mountPath: /logs
+              mountPath: /log
       volumes:
         - name: xincan-storage
           persistentVolumeClaim:
