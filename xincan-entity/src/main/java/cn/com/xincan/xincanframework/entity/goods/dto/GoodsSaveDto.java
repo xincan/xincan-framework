@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -25,7 +26,9 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GoodsSaveDto {
+public class GoodsSaveDto  implements Serializable {
+
+    private static final long serialVersionUID = 3008862556084344058L;
 
     @ApiModelProperty(value="商品名称", dataType = "String", example = "佛珠")
     @Length(message = "商品名称长度应在{min}~{max}之间", min = 1, max = 50)

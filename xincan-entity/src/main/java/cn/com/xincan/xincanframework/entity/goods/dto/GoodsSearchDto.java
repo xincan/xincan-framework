@@ -7,6 +7,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -25,7 +26,9 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class GoodsSearchDto extends PaginationQuery {
+public class GoodsSearchDto extends PaginationQuery  implements Serializable {
+
+    private static final long serialVersionUID = 2828040451224616984L;
 
     @ApiModelProperty(value="商品ID", dataType = "String", required = true, example = "1285759156342562818")
     @Length(message = "商品ID长度应为{min}位", min = 19, max = 19)

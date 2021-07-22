@@ -11,6 +11,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 
@@ -28,7 +29,9 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GoodsPatchDto {
+public class GoodsPatchDto  implements Serializable {
+
+    private static final long serialVersionUID = 455715964389954620L;
 
     @ApiModelProperty(value="商品ID", dataType = "String", required = true, example = "1285759156342562818")
     @NotBlank(message = "商品ID不能为空")

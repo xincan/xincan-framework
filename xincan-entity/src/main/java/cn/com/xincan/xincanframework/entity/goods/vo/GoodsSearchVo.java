@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -25,7 +27,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GoodsSearchVo {
+public class GoodsSearchVo  implements Serializable {
+
+    private static final long serialVersionUID = 4906258668699699287L;
 
     @ApiModelProperty(value="商品ID（UUID）", dataType = "String", example = "1285759156342562818")
     private String id;
