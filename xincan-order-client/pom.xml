@@ -96,14 +96,12 @@
         <repository>
             <id>nexus-release</id>
             <name>admin</name>
-            <!--<url>http://localhost:8081/repository/nexus-releases/</url>-->
-            <url>http://git.hatech.com.cn:8087/repository/nexus-releases/</url>
+            <url>http://localhost:8081/repository/nexus-releases/</url>
         </repository>
         <snapshotRepository>
             <id>nexus-snapshots</id>
             <name>admin</name>
-            <!--<url>http://localhost:8081/repository/nexus-snapshots/</url>-->
-            <url>http://git.hatech.com.cn:8087/repository/nexus-snapshots/</url>
+            <url>http://localhost:8081/repository/nexus-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
