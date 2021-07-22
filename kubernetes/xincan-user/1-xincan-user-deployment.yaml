@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xincan
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan
+    xincan.kubernetes.io/version: 1.0.0
+    xincan.kubernetes.io/product: xincan
+    xincan.kubernetes.io/type: server
+    xincan.kubernetes.io/app: xincan-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      xincan.kubernetes.io/company: xincan
+      xincan.kubernetes.io/version: 1.0.0
+      xincan.kubernetes.io/product: xincan
+      xincan.kubernetes.io/type: server
+      xincan.kubernetes.io/app: xincan-user
+  template:
+    metadata:
+      labels:
+        xincan.kubernetes.io/company: xincan
+        xincan.kubernetes.io/version: 1.0.0
+        xincan.kubernetes.io/product: xincan
+        xincan.kubernetes.io/type: server
+        xincan.kubernetes.io/app: xincan-user
+    spec:
+      containers:
+        - name: xincan
+          image: base.hatech.com.cn/xincan/xincan-user:0.0.1-SNAPSHOT.jar
+          imagePullPolicy: Always
+          ports:
+          - name: client
+            containerPort: 8000
+          - name: api
+            containerPort: 8719
+          resources:
+            limits:
+              cpu: 450m
+              memory: 1Gi
+            requests:
+              cpu: 400m
+              memory: 1Gi
+          volumeMounts:
+            - name: xincan-storage
+              mountPath: /logs
+      volumes:
+        - name: xincan-storage
+          persistentVolumeClaim:
+            claimName: xincan-pvc
