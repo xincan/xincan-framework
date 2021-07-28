@@ -1,0 +1,96 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: mysql-nfs-client-provisioner
+  # replace with namespace where provisioner is deployed
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: mysql
+
+---
+
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: mysql-nfs-client-provisioner-runner
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: mysql
+rules:
+  - apiGroups: [""]
+    resources: ["persistentvolumes"]
+    verbs: ["get", "list", "watch", "create", "delete"]
+  - apiGroups: [""]
+    resources: ["persistentvolumeclaims"]
+    verbs: ["get", "list", "watch", "update"]
+  - apiGroups: ["storage.k8s.io"]
+    resources: ["storageclasses"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["create", "update", "patch"]
+
+---
+
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: run-mysql-nfs-client-provisioner
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: mysql
+subjects:
+  - kind: ServiceAccount
+    name: mysql-nfs-client-provisioner
+    namespace: xincan
+roleRef:
+  kind: ClusterRole
+  name: mysql-nfs-client-provisioner-runner
+  apiGroup: rbac.authorization.k8s.io
+
+---
+
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: leader-locking-mysql-nfs-client-provisioner
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: mysql
+rules:
+  - apiGroups: [""]
+    resources: ["endpoints"]
+    verbs: ["get", "list", "watch", "create", "update", "patch"]
+
+---
+
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: leader-locking-mysql-nfs-client-provisioner
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: mysql
+subjects:
+  - kind: ServiceAccount
+    name: mysql-nfs-client-provisioner
+    namespace: xincan
+roleRef:
+  kind: Role
+  name: leader-locking-mysql-nfs-client-provisioner
+  apiGroup: rbac.authorization.k8s.io

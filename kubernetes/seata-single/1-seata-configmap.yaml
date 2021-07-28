@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: seata-server-config
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: seata
+data:
+  registry.conf: |
+    registry {
+      type = "nacos"
+      nacos {
+        application = "seata-service"
+        serverAddr = "nacos-service.nacos:8848"
+        namespace = "seata-0001"
+        group = "SEATA_GROUP"
+        username = "nacos"
+        password = "nacos"
+      }
+    }
+    config {
+      type = "nacos"
+      nacos {
+        serverAddr = "nacos-service.nacos:8848"
+        namespace = "seata-0001"
+        group = "SEATA_GROUP"
+        username = "nacos"
+        password = "nacos"
+      }
+    }

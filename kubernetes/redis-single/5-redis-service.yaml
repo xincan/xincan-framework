@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: redis
+spec:
+  type: NodePort
+  ports:
+  - name: client
+    port: 6379
+    targetPort: 6379
+    nodePort: 31140
+  - name: server
+    port: 16379
+    targetPort: 16379
+    nodePort: 31141
+  selector:
+    app: redis

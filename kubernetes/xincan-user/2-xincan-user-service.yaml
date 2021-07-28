@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: xincan-user-service
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan
+    xincan.kubernetes.io/version: 1.0.0
+    xincan.kubernetes.io/product: xincan
+    xincan.kubernetes.io/type: server
+    xincan.kubernetes.io/app: xincan-user
+spec:
+  type: NodePort
+  selector:
+    xincan.kubernetes.io/company: xincan
+    xincan.kubernetes.io/version: 1.0.0
+    xincan.kubernetes.io/product: xincan
+    xincan.kubernetes.io/type: server
+    xincan.kubernetes.io/app: xincan-user
+  ports:
+  - name: client
+    port: 8000
+    nodePort: 31200
+    protocol: TCP
+  - name: api
+    port: 8719
+    nodePort: 31201
+    protocol: TCP

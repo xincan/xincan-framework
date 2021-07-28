@@ -1,0 +1,21 @@
+package cn.com.xincan.xincanframework.client;
+
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * copyright (C), 2020, 心灿基础架构
+ *
+ * @author Jiangxincan
+ * @version 0.0.1
+ * @program xincan-framework
+ * @description 打包入口
+ * @create 2020/7/20 16:46
+ */
+@Slf4j
+public class GoodsClientApplication {
+
+    public static void main(String[] args) {
+        log.info("商品客户端工具类");
+    }
+
+}

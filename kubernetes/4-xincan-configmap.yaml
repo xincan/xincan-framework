@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: xincan-config
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: xincan-config
+
+data:
+  nacos.addr: "nacos-service.xincan:8848"

@@ -1,0 +1,103 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-cluster
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: mysql
+spec:
+  ports:
+  - name: mysql
+    protocol: TCP
+    port: 3306
+    targetPort: 3306
+  type: ClusterIP
+  selector:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: mysql
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-master
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: mysql
+spec:
+  selector:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: mysql
+    statefulset.kubernetes.io/pod-name: mysql-0
+  type: NodePort
+  ports:
+  - name: mysql
+    protocol: TCP
+    port: 3306
+    targetPort: 3306
+    nodePort: 31110
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-read-1
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: mysql
+spec:
+  selector:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: mysql
+    statefulset.kubernetes.io/pod-name: mysql-1
+  type: NodePort
+  ports:
+  - name: mysql
+    protocol: TCP
+    port: 3306
+    targetPort: 3306
+    nodePort: 31120
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-read-2
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: mysql
+spec:
+  selector:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: mysql
+    statefulset.kubernetes.io/pod-name: mysql-2
+  type: NodePort
+  ports:
+  - name: mysql
+    protocol: TCP
+    port: 3306
+    targetPort: 3306
+    nodePort: 31130

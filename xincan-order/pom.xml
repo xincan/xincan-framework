@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>cn.com.xincan.xincanframework</groupId>
+        <artifactId>xincan-framework</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>cn.com.xincan.xincanframework</groupId>
+    <artifactId>xincan-order</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>xincan-order</name>
+    <packaging>jar</packaging>
+    <description>xincan-order订单服务</description>
+
+    <properties>
+        <docker.image.prefix>springboot</docker.image.prefix>
+    </properties>
+
+    <dependencies>
+
+        <!-- 集成 nacos 作为服务注册中心配置 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!-- 集成 Nacos 作为配置中心的自动化配置 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+        <!-- 集成 Nacos 作为服务注册中心配置 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!-- 集成 sentinel 作为服务防卫兵配置 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.dataformat</groupId>
+                    <artifactId>jackson-dataformat-xml</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- 集成 sentinel 利用nacos作为数据存储配置 -->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+        </dependency>
+
+        <!-- 集成健康检查配置 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- 集成Spring Web框架配置 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- 集成undertow服务器配置 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+
+        <!-- 集成SpringBoot测试框架配置 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- 集成mysql数据库处理依赖 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!-- 集成MP依赖 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+
+        <!-- 集成lombok依赖 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- 集成Swagger API依赖 -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- 集成orika-core实体类转换依赖 -->
+        <dependency>
+            <groupId>ma.glasnost.orika</groupId>
+            <artifactId>orika-core</artifactId>
+        </dependency>
+
+        <!-- 集成自定义配置工具依赖 -->
+        <dependency>
+            <groupId>cn.com.xincan.xincanframework.config</groupId>
+            <artifactId>xincan-config</artifactId>
+        </dependency>
+
+        <!-- 集成自定义工具依赖 -->
+        <dependency>
+            <groupId>cn.com.xincan.xincanframework.utils</groupId>
+            <artifactId>xincan-utils</artifactId>
+        </dependency>
+
+        <!-- 集成定义自定义工具依赖 -->
+        <dependency>
+            <groupId>cn.com.xincan.xincanframework.entity</groupId>
+            <artifactId>xincan-entity</artifactId>
+        </dependency>
+
+        <!-- 集成hibernete校验工具 -->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+
+        <!-- 集成商品客户端 -->
+        <dependency>
+            <groupId>cn.com.xincan.xincanframework.client</groupId>
+            <artifactId>xincan-goods-client</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>${docker-maven-plugin.version}</version>
+                <configuration>
+                    <!-- 打包docker镜像的docker服务器 -->
+                    <dockerHost>${docker-host-url}</dockerHost>
+                    <!-- 镜像名称及版本[ip:port/name:tag] -->
+                    <imageName>${docker-harbor-registry-url}/xincan/${project.name}:${project.version}</imageName>
+                    <!-- harbor仓库地址 -->
+                    <registryUrl>${docker-harbor-registry-url}</registryUrl>
+                    <!-- Dockerfile路径 -->
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <!-- 是否强制覆盖已有镜像 -->
+                    <forceTags>true</forceTags>
+                    <imageTags>
+                        <!-- 镜像tag -->
+                        <imageTag>${project.version}</imageTag>
+                    </imageTags>
+                    <!-- 复制jar包到docker容器指定目录配置 -->
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                    <!--在maven settings.xml中配置的server的id值-->
+                    <serverId>nexus-docker</serverId>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

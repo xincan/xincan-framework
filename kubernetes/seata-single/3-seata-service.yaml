@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: seata-service
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: seata
+spec:
+  selector:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: seata
+  type: NodePort
+  ports:
+    - name: http
+      port: 8091
+      nodePort: 31180
+      protocol: TCP

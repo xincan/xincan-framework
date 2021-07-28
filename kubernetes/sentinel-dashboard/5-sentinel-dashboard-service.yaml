@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sentinel-dashboard-service
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: sentinel-dashboard
+spec:
+  type: NodePort
+  selector:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: sentinel-dashboard
+  ports:
+  - name: client
+    port: 8858
+    nodePort: 31160
+    protocol: TCP
+  - name: api
+    port: 8719
+    nodePort: 31170
+    protocol: TCP

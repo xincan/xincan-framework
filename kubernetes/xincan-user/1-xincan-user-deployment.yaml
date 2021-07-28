@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xincan-user
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: xincan
+    xincan.kubernetes.io/type: service
+    xincan.kubernetes.io/app: xincan-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      xincan.kubernetes.io/company: xincan.cn
+      xincan.kubernetes.io/version: 0.0.1
+      xincan.kubernetes.io/product: xincan
+      xincan.kubernetes.io/type: service
+      xincan.kubernetes.io/app: xincan-user
+  template:
+    metadata:
+      labels:
+        xincan.kubernetes.io/company: xincan.cn
+        xincan.kubernetes.io/version: 0.0.1
+        xincan.kubernetes.io/product: xincan
+        xincan.kubernetes.io/type: service
+        xincan.kubernetes.io/app: xincan-user
+    spec:
+      containers:
+      - name: xincan-user
+        image: base.hatech.com.cn/xincan/xincan-user:0.0.1-SNAPSHOT
+        imagePullPolicy: Always
+        ports:
+        - name: client
+          containerPort: 8000
+        - name: api
+          containerPort: 8719
+        env:
+        - name: NACOS_ADDR
+          valueFrom:
+            configMapKeyRef:
+              name: xincan-config
+              key: nacos.addr
+        resources:
+          limits:
+            cpu: 450m
+            memory: 1Gi
+          requests:
+            cpu: 400m
+            memory: 1Gi
+        volumeMounts:
+        - name: xincan-storage
+          mountPath: /log
+      volumes:
+        - name: xincan-storage
+          persistentVolumeClaim:
+            claimName: xincan-pvc

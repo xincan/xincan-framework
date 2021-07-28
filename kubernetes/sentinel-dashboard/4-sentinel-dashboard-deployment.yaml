@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentinel-dashboard
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: sentinel-dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      xincan.kubernetes.io/company: xincan.cn
+      xincan.kubernetes.io/version: 0.0.1
+      xincan.kubernetes.io/product: component
+      xincan.kubernetes.io/app: sentinel-dashboard
+  template:
+    metadata:
+      labels:
+        xincan.kubernetes.io/company: xincan.cn
+        xincan.kubernetes.io/version: 0.0.1
+        xincan.kubernetes.io/product: component
+        xincan.kubernetes.io/app: sentinel-dashboard
+    spec:
+      containers:
+        - name: sentinel-dashboard
+          image: base.hatech.com.cn/library/sentinel-dashboard:v1.8.1
+          imagePullPolicy: Always
+          ports:
+          - name: client
+            containerPort: 8858
+          - name: api
+            containerPort: 8719
+          resources:
+            limits:
+              cpu: 450m
+              memory: 1Gi
+            requests:
+              cpu: 400m
+              memory: 1Gi
+          env:
+            - name: TZ
+              value: Asia/Shanghai
+            - name: JAVA_OPT_EXT
+              value: "-Dserver.servlet.session.timeout=7200 "
+            - name: SERVER_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: sentinel-dashboard-config
+                  key: sentinel.server.host
+            - name: SERVER_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sentinel-dashboard-config
+                  key: sentinel.server.port
+            - name: USERNAME
+              valueFrom:
+                  configMapKeyRef:
+                    name: sentinel-dashboard-config
+                    key: sentinel.dashboard.auth.username
+            - name: PASSWORD
+              valueFrom:
+                  configMapKeyRef:
+                    name: sentinel-dashboard-config
+                    key: sentinel.dashboard.auth.password
+          volumeMounts:
+            - name: sentinel-dashboard-storage
+              mountPath: /opt/logs
+      volumes:
+        - name: sentinel-dashboard-storage
+          persistentVolumeClaim:
+            claimName: sentinel-dashboard-pvc

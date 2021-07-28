@@ -1,0 +1,55 @@
+address:
+  nacos: 192.168.4.10:8848
+
+server:
+  port: 8040
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.jks
+    key-store-password: xincan-0818
+    key-password: xincan-0818
+    key-alias: xincan
+    key-store-type: PKCS12
+
+spring:
+  application:
+    name: xincan-gateway
+
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    nacos:
+      config:
+        namespace: xincan-${spring.profiles.active}-0001
+        server-addr: ${address.nacos}        # 配置中心url
+        group: ${spring.profiles.active}_group
+        file-extension: yaml                  # 配置文件类型
+      discovery:
+        server-addr: ${address.nacos}
+        group: ${spring.profiles.active}_group
+        namespace: xincan-${spring.profiles.active}-0001
+
+    gateway:
+      httpclient:
+        ssl:
+          use-insecure-trust-manager: true
+      discovery:
+        locator:
+          enabled: true
+          #开启小写验证，默认feign根据服务名查找都是用的全大写
+          lowerCaseServiceId: true
+
+      routes:
+        - id: xincan-user
+          uri: lb://${spring.cloud.gateway.routes[0].id}
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - StripPrefix=2
+        - id: xincan-order
+          uri: lb://${spring.cloud.gateway.routes[1].id}
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - StripPrefix=2

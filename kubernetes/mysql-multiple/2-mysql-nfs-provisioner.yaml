@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-nfs-client-provisioner
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: mysql
+    app: mysql-nfs-client-provisioner
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      xincan.kubernetes.io/company: xincan.cn
+      xincan.kubernetes.io/version: 0.0.1
+      xincan.kubernetes.io/product: component
+      xincan.kubernetes.io/app: mysql
+      app: mysql-nfs-client-provisioner
+  template:
+    metadata:
+      labels:
+        xincan.kubernetes.io/company: xincan.cn
+        xincan.kubernetes.io/version: 0.0.1
+        xincan.kubernetes.io/product: component
+        xincan.kubernetes.io/app: mysql
+        app: mysql-nfs-client-provisioner
+    spec:
+      serviceAccountName: mysql-nfs-client-provisioner
+      containers:
+        - name: mysql-nfs-client-provisioner
+          image: base.hatech.com.cn/library/nfs-client-provisioner:v1.5.2
+          volumeMounts:
+            - name: nfs-client-root
+              # 该文件夹是nfs-client-provisioner运行之后容器内部固定的文件夹它会mount到/nfs/data/nginx nfs服务器nginx文件夹下
+              mountPath: /persistentvolumes
+          env:
+            - name: PROVISIONER_NAME
+              value: fuseim.pri/ifs
+            - name: NFS_SERVER
+              value: 192.168.1.80
+            - name: NFS_PATH
+              value: /hatech/nfs/data/xincan/mysql-multiple
+      volumes:
+        - name: nfs-client-root
+          nfs:
+            server: 192.168.1.80
+            path: /hatech/nfs/data/xincan/mysql-multiple

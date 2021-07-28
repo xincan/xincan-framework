@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.com.xincan.xincanframework.plugins.config.RedisConfig,\
+  cn.com.xincan.xincanframework.plugins.config.IdempotentAdapterWebConfig

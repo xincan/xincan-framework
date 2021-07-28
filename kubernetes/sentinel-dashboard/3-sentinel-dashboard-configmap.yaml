@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sentinel-dashboard-config
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: sentinel-dashboard
+data:
+
+  sentinel.server.host: "sentinel-dashboard-service.xincan"
+  sentinel.server.port: "8858"
+  sentinel.dashboard.auth.username: "sentinel"
+  sentinel.dashboard.auth.password: "sentinel"

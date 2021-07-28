@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seata
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: seata
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      xincan.kubernetes.io/company: xincan.cn
+      xincan.kubernetes.io/version: 0.0.1
+      xincan.kubernetes.io/product: component
+      xincan.kubernetes.io/app: seata
+  template:
+    metadata:
+      labels:
+        xincan.kubernetes.io/company: xincan.cn
+        xincan.kubernetes.io/version: 0.0.1
+        xincan.kubernetes.io/product: component
+        xincan.kubernetes.io/app: seata
+    spec:
+      containers:
+        - name: seata
+          image: base.hatech.com.cn/library/seata-server:v1.4.2
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SEATA_MODE
+              value: "nacos"
+            - name: SEATA_PORT
+              value: "8091"
+            - name: SEATA_CONFIG_NAME
+              value: file:/root/seata-config/registry
+          ports:
+            - name: http
+              containerPort: 8091
+              protocol: TCP
+          volumeMounts:
+            - name: seata-config
+              mountPath: /root/seata-config
+            - name: localtime
+              mountPath: /etc/localtime
+      volumes:
+        - name: seata-config
+          configMap:
+            name: seata-server-config
+        - name: localtime
+          hostPath:
+            type: File
+            path: /etc/localtime

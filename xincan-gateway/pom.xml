@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>cn.com.xincan.xincanframework</groupId>
+        <artifactId>xincan-framework</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>cn.com.xincan.xincanframework</groupId>
+    <artifactId>xincan-gateway</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>xincan-gateway</name>
+    <packaging>jar</packaging>
+    <description>xincan-gateway 服务注册与发现中心</description>
+
+    <properties>
+
+    </properties>
+
+    <dependencies>
+
+        <!-- 集成eureka注册器依赖 -->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+<!--        </dependency>-->
+
+        <!-- 集成 Nacos 作为服务注册中心配置 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!-- 集成网关微服务 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
+        <!-- 集成网关微服务缓存插件依赖 -->
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+        </dependency>
+
+        <!-- 集成knife4j文档插件依赖 -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- 集成lombok依赖 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>${docker-maven-plugin.version}</version>
+                <configuration>
+                    <!-- 打包docker镜像的docker服务器 -->
+                    <dockerHost>${docker-host.version}</dockerHost>
+                    <!-- 镜像名称及版本[ip:port/name:tag] -->
+                    <imageName>${docker-registry-url.version}/xincan/${project.name}:${project.version}</imageName>
+                    <!-- harbor仓库地址 -->
+                    <registryUrl>${docker-registry-url.version}</registryUrl>
+                    <!-- Dockerfile路径 -->
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <!-- 是否强制覆盖已有镜像 -->
+                    <forceTags>true</forceTags>
+                    <imageTags>
+                        <!-- 镜像tag -->
+                        <imageTag>${project.version}</imageTag>
+                    </imageTags>
+                    <!-- 复制jar包到docker容器指定目录配置 -->
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                    <!--在maven settings.xml中配置的server的id值-->
+                    <serverId>nexus-docker</serverId>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

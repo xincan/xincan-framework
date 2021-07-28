@@ -1,0 +1,18 @@
+address:
+  nacos: ${NACOS_ADDR:192.168.1.10:31150}
+
+spring:
+  application:
+    name: xincan-goods
+  profiles:
+    active: dev
+
+  cloud:
+    nacos:
+      server-addr: ${address.nacos}
+      config:
+        server-addr: ${spring.cloud.nacos.server-addr}
+        namespace: xincan-${spring.profiles.active}-0001
+        group: ${spring.profiles.active}_group
+        file-extension: yaml
+

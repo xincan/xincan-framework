@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nacos-config
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: nacos
+data:
+  mysql.database.num: "1"
+  mysql.service.host: "mysql-master.mysql"
+  mysql.service.db.name: "nacos"
+  mysql.service.port: "3306"
+  mysql.user: "root"
+  mysql.password: "123456"

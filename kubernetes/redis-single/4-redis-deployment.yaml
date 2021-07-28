@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-server
+  namespace: xincan
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/product: component
+    xincan.kubernetes.io/app: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      xincan.kubernetes.io/company: xincan.cn
+      xincan.kubernetes.io/version: 0.0.1
+      xincan.kubernetes.io/product: component
+      xincan.kubernetes.io/app: redis
+  template:
+    metadata:
+      labels:
+        xincan.kubernetes.io/company: xincan.cn
+        xincan.kubernetes.io/version: 0.0.1
+        xincan.kubernetes.io/product: component
+        xincan.kubernetes.io/app: redis
+    spec:
+      containers:
+      - name: redis
+        image: base.hatech.com.cn/library/redis:v6.2
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: client
+          containerPort: 6379
+        - name: server
+          containerPort: 16379
+        command: ["redis-server", "/conf/redis.conf"]
+        volumeMounts:
+        - name: conf
+          mountPath: /conf
+        - name: redis-nfs-storage
+          mountPath: /data
+      volumes:
+      - name: redis-nfs-storage
+        persistentVolumeClaim:
+          claimName: redis-pvc
+      - name: conf
+        configMap:
+          name: redis-config
+          defaultMode: 0755
