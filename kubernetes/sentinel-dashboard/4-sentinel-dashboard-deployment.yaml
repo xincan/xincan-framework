@@ -27,7 +27,7 @@ spec:
       containers:
         - name: sentinel-dashboard
           image: base.hatech.com.cn/library/sentinel-dashboard:v1.8.1
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
           - name: client
             containerPort: 8858
