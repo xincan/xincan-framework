@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kibana-config
+  namespace: elasticsearch
+  labels:
+    elastic-app: kibana
+
+data:
+
+  kibana.i18n.locale: "zh-CN"
+  kibana.server.name: "kibana"
+  kibana.server.host: "0.0.0.0"
+  kibana.elasticsearch.hosts: "http://elasticsearch-service.elasticsearch:9200"

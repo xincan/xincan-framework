@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+  labels:
+    elastic-app: kibana
+  namespace: elasticsearch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      elastic-app: kibana
+  template:
+    metadata:
+      name: kibana
+      labels:
+        elastic-app: kibana
+    spec:
+      serviceAccountName: elasticsearch-admin
+      restartPolicy: Always
+      containers:
+      - name: kibana
+        image: base.hatech.com.cn/library/kibana:7.4.2
+        imagePullPolicy: IfNotPresent
+        
+        ports:
+        - containerPort: 5601
+          protocol: TCP
+
+        env:
+
+        - name: I18N_LOCALE
+          valueFrom:
+            configMapKeyRef:
+              name: kibana-config
+              key: kibana.i18n.locale
+
+        - name: SERVER_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: kibana-config
+              key: kibana.server.name
+
+
+        - name: SERVER_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: kibana-config
+              key: kibana.server.host
+
+
+        - name: ELASTICSEARCH_HOSTS
+          valueFrom:
+            configMapKeyRef:
+              name: kibana-config
+              key: kibana.elasticsearch.hosts

@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: skywalking
+  name: skywalking
+  namespace: skywalking
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: skywalking
+  template:
+    metadata:
+      labels:
+        app: skywalking
+    spec:
+      containers:
+        - envFrom:
+          - prefix: SW_
+            configMapRef: 
+              name: skywalking-cm                  
+          image: base.hatech.com.cn/library/skywalking-oap-server:8.6.0-es7
+          imagePullPolicy: IfNotPresent         
+          name: skywalking
+          ports:
+            - containerPort: 12800
+              name: http
+              protocol: TCP
+            - containerPort: 11800
+              name: grpc
+              protocol: TCP
+          resources:
+            limits:
+              cpu: '2'
+              memory: 2Gi
+            requests:
+              cpu: '1'
+              memory: 2Gi
+          volumeMounts:
+            - mountPath: /etc/localtime
+              name: volume-localtime
+      volumes:
+        - hostPath:
+            path: /etc/localtime
+            type: ''
+          name: volume-localtime
