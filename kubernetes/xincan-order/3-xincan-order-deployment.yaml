@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: xincan-user
+  name: xincan-order
   namespace: xincan
   labels:
     xincan.kubernetes.io/company: xincan.cn
     xincan.kubernetes.io/version: 0.0.1
     xincan.kubernetes.io/product: xincan
     xincan.kubernetes.io/type: service
-    xincan.kubernetes.io/app: xincan-user
+    xincan.kubernetes.io/app: xincan-order
 spec:
   replicas: 1
   selector:
@@ -17,7 +17,7 @@ spec:
       xincan.kubernetes.io/version: 0.0.1
       xincan.kubernetes.io/product: xincan
       xincan.kubernetes.io/type: service
-      xincan.kubernetes.io/app: xincan-user
+      xincan.kubernetes.io/app: xincan-order
   template:
     metadata:
       labels:
@@ -25,15 +25,15 @@ spec:
         xincan.kubernetes.io/version: 0.0.1
         xincan.kubernetes.io/product: xincan
         xincan.kubernetes.io/type: service
-        xincan.kubernetes.io/app: xincan-user
+        xincan.kubernetes.io/app: xincan-order
     spec:
       containers:
-      - name: xincan-user
-        image: base.hatech.com.cn/xincan/xincan-user:0.0.1-SNAPSHOT
+      - name: xincan-order
+        image: base.hatech.com.cn/xincan/xincan-order:0.0.1-SNAPSHOT
         imagePullPolicy: Always
         ports:
         - name: client
-          containerPort: 8000
+          containerPort: 8100
         - name: api
           containerPort: 8719
         env:
@@ -55,4 +55,4 @@ spec:
       volumes:
         - name: xincan-storage
           persistentVolumeClaim:
-            claimName: xincan-pvc
+            claimName: xincan-order-pvc

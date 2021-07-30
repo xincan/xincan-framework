@@ -4,18 +4,18 @@ metadata:
   name: xincan-user-service
   namespace: xincan
   labels:
-    xincan.kubernetes.io/company: xincan
-    xincan.kubernetes.io/version: 1.0.0
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
     xincan.kubernetes.io/product: xincan
-    xincan.kubernetes.io/type: server
+    xincan.kubernetes.io/type: service
     xincan.kubernetes.io/app: xincan-user
 spec:
   type: NodePort
   selector:
-    xincan.kubernetes.io/company: xincan
-    xincan.kubernetes.io/version: 1.0.0
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
     xincan.kubernetes.io/product: xincan
-    xincan.kubernetes.io/type: server
+    xincan.kubernetes.io/type: service
     xincan.kubernetes.io/app: xincan-user
   ports:
   - name: client
