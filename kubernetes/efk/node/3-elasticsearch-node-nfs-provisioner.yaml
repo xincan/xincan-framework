@@ -9,6 +9,7 @@ metadata:
     xincan.kubernetes.io/type: plugins
     xincan.kubernetes.io/product: xincan
     xincan.kubernetes.io/app: elasticsearch
+    app: elasticsearch-nfs-client-provisioner
 spec:
   replicas: 1
   strategy:
@@ -20,6 +21,7 @@ spec:
       xincan.kubernetes.io/type: plugins
       xincan.kubernetes.io/product: xincan
       xincan.kubernetes.io/app: elasticsearch
+      app: elasticsearch-nfs-client-provisioner
   template:
     metadata:
       labels:
@@ -28,6 +30,7 @@ spec:
         xincan.kubernetes.io/type: plugins
         xincan.kubernetes.io/product: xincan
         xincan.kubernetes.io/app: elasticsearch
+        app: elasticsearch-nfs-client-provisioner
     spec:
       serviceAccountName: efk-rbac
       containers:
