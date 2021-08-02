@@ -70,11 +70,9 @@ spec:
           volumeMounts:
             - name: esdata
               mountPath: /usr/share/elasticsearch/data
-      volumes:
-      - name: esdata
   volumeClaimTemplates:
     - metadata:
-      name: data
+      name: esdata
       annotations:
         volume.beta.kubernetes.io/storage-class: efk-nfs-storage
       spec:
