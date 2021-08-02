@@ -31,7 +31,7 @@ spec:
         xincan.kubernetes.io/product: xincan
         xincan.kubernetes.io/app: elasticsearch
     spec:
-      serviceAccountName: efk-admin
+      serviceAccountName: efk-rbac
       restartPolicy: Always
       containers:
         - name: elasticsearch-master
