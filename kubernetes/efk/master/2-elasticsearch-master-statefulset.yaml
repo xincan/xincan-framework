@@ -12,7 +12,7 @@ metadata:
     xincan.kubernetes.io/app: elasticsearch
 spec:
   replicas: 3
-  serviceName: elasticsearch-discovery
+  serviceName: elasticsearch-master-service
   selector:
     matchLabels:
       xincan.kubernetes.io/company: xincan.cn
