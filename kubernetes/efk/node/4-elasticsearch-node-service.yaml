@@ -1,26 +1,27 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: elasticsearch-master-service
+  name: elasticsearch-service
   namespace: efk
   labels:
     xincan.kubernetes.io/company: xincan.cn
     xincan.kubernetes.io/version: 0.0.1
     xincan.kubernetes.io/type: plugins
-    xincan.kubernetes.io/role: master
+    xincan.kubernetes.io/role: node
     xincan.kubernetes.io/product: xincan
     xincan.kubernetes.io/app: elasticsearch
-
 spec:
-  type: clusterIP
+  type: NodePort
   selector:
     xincan.kubernetes.io/company: xincan.cn
     xincan.kubernetes.io/version: 0.0.1
     xincan.kubernetes.io/type: plugins
-    xincan.kubernetes.io/product: master
+    xincan.kubernetes.io/role: node
+    xincan.kubernetes.io/product: xincan
     xincan.kubernetes.io/app: elasticsearch
   ports:
-  - name: data
+  - name: node
     protocol: TCP
-    port: 9300
-    targetPort: 9300
+    port: 9200
+    targetPort: 9200
+    nodePort: 31180

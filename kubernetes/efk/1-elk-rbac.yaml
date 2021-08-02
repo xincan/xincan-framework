@@ -1,0 +1,98 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: efk-rbac
+  namespace: efk
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/type: plugins
+    xincan.kubernetes.io/product: xincan
+
+---
+
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: efk-nfs-client-provisioner-runner
+  namespace: efk
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/type: plugins
+    xincan.kubernetes.io/product: xincan
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get","watch","list"]
+  - apiGroups: [""]
+    resources: ["persistentvolumes"]
+    verbs: ["get", "list", "watch", "create", "delete"]
+  - apiGroups: [""]
+    resources: ["persistentvolumeclaims"]
+    verbs: ["get", "list", "watch", "update"]
+  - apiGroups: ["storage.k8s.io"]
+    resources: ["storageclasses"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["create", "update", "patch"]
+
+---
+
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: run-efk-nfs-client-provisioner
+  namespace: efk
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/type: plugins
+    xincan.kubernetes.io/product: xincan
+subjects:
+  - kind: ServiceAccount
+    name: efk-nfs-client-provisioner
+    namespace: efk
+roleRef:
+  kind: ClusterRole
+  name: efk-nfs-client-provisioner-runner
+  apiGroup: rbac.authorization.k8s.io
+
+---
+
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: leader-locking-efk-nfs-client-provisioner
+  namespace: efk
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/type: plugins
+    xincan.kubernetes.io/product: xincan
+rules:
+  - apiGroups: [""]
+    resources: ["endpoints"]
+    verbs: ["get", "list", "watch", "create", "update", "patch"]
+
+---
+
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: leader-locking-efk-nfs-client-provisioner
+  namespace: efk
+  labels:
+    xincan.kubernetes.io/company: xincan.cn
+    xincan.kubernetes.io/version: 0.0.1
+    xincan.kubernetes.io/type: plugins
+    xincan.kubernetes.io/product: xincan
+subjects:
+  - kind: ServiceAccount
+    name: efk-nfs-client-provisioner
+    namespace: efk
+roleRef:
+  kind: Role
+  name: leader-locking-efk-nfs-client-provisioner
+  apiGroup: rbac.authorization.k8s.io
