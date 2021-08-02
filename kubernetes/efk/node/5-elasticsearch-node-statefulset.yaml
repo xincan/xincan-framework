@@ -71,13 +71,13 @@ spec:
             - name: esdata
               mountPath: /usr/share/elasticsearch/data
   volumeClaimTemplates:
-    - metadata:
+  - metadata:
       name: esdata
       annotations:
         volume.beta.kubernetes.io/storage-class: efk-nfs-storage
-      spec:
-        accessModes: [ "ReadWriteOnce" ]
-        # storageClassName: mysql-local-storage
-        resources:
-          requests:
-            storage: 2Gi
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      # storageClassName: mysql-local-storage
+      resources:
+        requests:
+          storage: 2Gi
