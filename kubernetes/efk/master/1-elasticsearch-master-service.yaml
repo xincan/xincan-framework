@@ -16,7 +16,8 @@ spec:
     xincan.kubernetes.io/company: xincan.cn
     xincan.kubernetes.io/version: 0.0.1
     xincan.kubernetes.io/type: plugins
-    xincan.kubernetes.io/product: master
+    xincan.kubernetes.io/role: master
+    xincan.kubernetes.io/product: xincan
     xincan.kubernetes.io/app: elasticsearch
   ports:
   - name: data
