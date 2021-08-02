@@ -14,7 +14,7 @@ metadata:
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: efk-nfs-client-provisioner-runner
+  name: efk-rbac
   namespace: efk
   labels:
     xincan.kubernetes.io/company: xincan.cn
@@ -43,7 +43,7 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: run-efk-nfs-client-provisioner
+  name: efk-rbac
   namespace: efk
   labels:
     xincan.kubernetes.io/company: xincan.cn
@@ -56,7 +56,7 @@ subjects:
     namespace: efk
 roleRef:
   kind: ClusterRole
-  name: efk-nfs-client-provisioner-runner
+  name: efk-rbac
   apiGroup: rbac.authorization.k8s.io
 
 ---
@@ -64,7 +64,7 @@ roleRef:
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: leader-locking-efk-nfs-client-provisioner
+  name: efk-rbac
   namespace: efk
   labels:
     xincan.kubernetes.io/company: xincan.cn
@@ -81,7 +81,7 @@ rules:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: leader-locking-efk-nfs-client-provisioner
+  name: efk-rbac
   namespace: efk
   labels:
     xincan.kubernetes.io/company: xincan.cn
@@ -90,9 +90,9 @@ metadata:
     xincan.kubernetes.io/product: xincan
 subjects:
   - kind: ServiceAccount
-    name: efk-nfs-client-provisioner
+    name: efk-rbac
     namespace: efk
 roleRef:
   kind: Role
-  name: leader-locking-efk-nfs-client-provisioner
+  name: efk-rbac
   apiGroup: rbac.authorization.k8s.io

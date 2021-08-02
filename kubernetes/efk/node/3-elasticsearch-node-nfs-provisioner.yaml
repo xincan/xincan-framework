@@ -29,7 +29,7 @@ spec:
         xincan.kubernetes.io/product: xincan
         xincan.kubernetes.io/app: elasticsearch
     spec:
-      serviceAccountName: elasticsearch-nfs-client-provisioner
+      serviceAccountName: efk-rbac
       containers:
         - name: elasticsearch-nfs-client-provisioner
           image: base.hatech.com.cn/library/nfs-client-provisioner:v1.5.2
