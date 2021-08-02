@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: elasticsearch-service
+  name: elasticsearch-node-service
   namespace: efk
   labels:
     xincan.kubernetes.io/company: xincan.cn
