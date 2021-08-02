@@ -12,7 +12,6 @@ metadata:
     xincan.kubernetes.io/app: elasticsearch
 
 spec:
-  type: clusterIP
   selector:
     xincan.kubernetes.io/company: xincan.cn
     xincan.kubernetes.io/version: 0.0.1
