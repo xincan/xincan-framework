@@ -76,7 +76,7 @@ spec:
     - metadata:
       name: data
       annotations:
-        volume.beta.kubernetes.io/storage-class: mysql-nfs-storage
+        volume.beta.kubernetes.io/storage-class: efk-nfs-storage
       spec:
         accessModes: [ "ReadWriteOnce" ]
         # storageClassName: mysql-local-storage
