@@ -27,32 +27,60 @@ spec:
         xincan.kubernetes.io/type: service
         xincan.kubernetes.io/app: xincan-order
     spec:
+      #构建初始化镜像(通过初始化镜像的方式集成SkyWalking Agent)
+      initContainers:
+        - name: init-skywalking-agent
+          image: base.hatech.com.cn/xincan/skywalking-java-apm-agent:8.6.0
+          imagePullPolicy: IfNotPresent
+          command:
+            - 'sh'
+            - '-c'
+            - 'set -ex;mkdir -p /vmskywalking/agent;cp -r /skywalking/agent/* /vmskywalking/agent;'
+          volumeMounts:
+            - name: skywalking-agent
+              mountPath: /vmskywalking/agent
       containers:
-      - name: xincan-order
-        image: base.hatech.com.cn/xincan/xincan-order:0.0.1-SNAPSHOT
-        imagePullPolicy: Always
-        ports:
-        - name: client
-          containerPort: 8100
-        - name: api
-          containerPort: 8719
-        env:
-        - name: NACOS_ADDR
-          valueFrom:
-            configMapKeyRef:
-              name: xincan-config
-              key: nacos.addr
-        resources:
-          limits:
-            cpu: 450m
-            memory: 1Gi
-          requests:
-            cpu: 400m
-            memory: 1Gi
-        volumeMounts:
-        - name: xincan-storage
-          mountPath: /log
+        - name: xincan-order
+          image: base.hatech.com.cn/xincan/xincan-order:0.0.1-SNAPSHOT
+          imagePullPolicy: Always
+          ports:
+            - name: client
+              containerPort: 8200
+            - name: api
+              containerPort: 8719
+          env:
+            #这里通过JAVA_TOOL_OPTIONS，而不是JAVA_OPTS可以实现不通过将agent命令加入到java应用jvm参数而实现agent的集成
+            - name: JAVA_TOOL_OPTIONS
+              value: -javaagent:/opt/skywalking/agent/skywalking-agent.jar
+            - name: SW_AGENT_NAME
+              value: xincan-order
+            - name: SW_AGENT_COLLECTOR_BACKEND_SERVICES
+              # FQDN: servicename.namespacename.svc.cluster.local
+              value: skywalking-oap-service.skywalking:11800
+            - name: SERVER_PORT
+              value: "8200"
+            - name: SPRING_PROFILES_ACTIVE
+              value: dev
+            - name: NACOS_ADDR
+              valueFrom:
+                configMapKeyRef:
+                  name: xincan-config
+                  key: nacos.addr
+          resources:
+            limits:
+              cpu: 0.5
+              memory: 2Gi
+            requests:
+              cpu: 0.5
+              memory: 1Gi
+          volumeMounts:
+            - name: skywalking-agent
+              mountPath: /opt/skywalking/agent
+            - name: xincan-storage
+              mountPath: /log
       volumes:
+        - name: skywalking-agent
+          emptyDir: {}
         - name: xincan-storage
           persistentVolumeClaim:
             claimName: xincan-order-pvc
