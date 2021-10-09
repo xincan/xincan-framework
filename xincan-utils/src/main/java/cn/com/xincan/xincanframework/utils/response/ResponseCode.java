@@ -30,7 +30,8 @@ public enum ResponseCode {
     RPC_ERROR(504, "远程调用异常"),
 
     IDEMPOTENT_EXISTS_EXCEPTION(601, "幂等性TOKEN不存在"),
-    IDEMPOTENT_REPETITION_OPERATION_EXCEPTION(601, "重复性操作")
+    IDEMPOTENT_REPETITION_OPERATION_EXCEPTION(601, "重复性操作"),
+    CHAOS_JIANGJI(700, "服务降级")
     ;
 
     /**

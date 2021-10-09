@@ -6,6 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -30,6 +32,7 @@ public class GoodsSearchDto extends PaginationQuery  implements Serializable {
     private static final long serialVersionUID = 2828040451224616984L;
 
     @ApiModelProperty(value="商品ID", dataType = "String", required = true, example = "1285759156342562818")
+    @NotNull(message = "商品ID不能为空")
     @Length(message = "商品ID长度应为{min}位", min = 19, max = 19)
     private String id;
 
