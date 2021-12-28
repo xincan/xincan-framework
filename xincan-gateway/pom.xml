@@ -23,12 +23,6 @@
 
     <dependencies>
 
-        <!-- 集成eureka注册器依赖 -->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
-<!--        </dependency>-->
-
         <!-- 集成 Nacos 作为服务注册中心配置 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -81,11 +75,11 @@
                 <version>${docker-maven-plugin.version}</version>
                 <configuration>
                     <!-- 打包docker镜像的docker服务器 -->
-                    <dockerHost>${docker-host.version}</dockerHost>
+                    <dockerHost>${docker-host-url}</dockerHost>
                     <!-- 镜像名称及版本[ip:port/name:tag] -->
-                    <imageName>${docker-registry-url.version}/xincan/${project.name}:${project.version}</imageName>
+                    <imageName>${docker-harbor-registry-url}/xincan/${project.name}:${project.version}</imageName>
                     <!-- harbor仓库地址 -->
-                    <registryUrl>${docker-registry-url.version}</registryUrl>
+                    <registryUrl>${docker-harbor-registry-url}</registryUrl>
                     <!-- Dockerfile路径 -->
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <!-- 是否强制覆盖已有镜像 -->

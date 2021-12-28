@@ -42,7 +42,7 @@
         <!-- docker镜像构建服务器 -->
         <docker-host-url>http://192.168.1.80:2375</docker-host-url>
         <!-- docker镜像存储仓库服务器（本实例采用harbor存储） -->
-        <docker-harbor-registry-url>base.hatech.com.cn</docker-harbor-registry-url>
+        <docker-harbor-registry-url>base.hatech.com.cn:65091</docker-harbor-registry-url>
 
         <!-- 构建项目编码格式版本配置 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
