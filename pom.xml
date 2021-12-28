@@ -25,6 +25,7 @@
         <module>xincan-order-client</module>
         <module>xincan-user</module>
         <module>xincan-user-client</module>
+        <module>xincan-memory</module>
     </modules>
 
     <!-- 公共版本号统一存放处，便于以后修改，全局替换版本号 -->
